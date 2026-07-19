@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<script src="../shared/demo-banner.js" defer></script>
+<title>SUHADA｜自由が丘・大人女性専門の完全個室脱毛サロン</title>
+<meta name="description" content="急かされず、比べられず。完全個室・担当者一貫・都度払いの、大人のためのプライベート脱毛サロン。無料カウンセリング受付中。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4EFE7;
+  --paper-2:#EDE6D9;
+  --ink:#26241F;
+  --ink-soft:#524D43;
+  --sage:#7E8C72;
+  --sage-deep:#5E6B54;
+  --wood:#D8C4A6;
+  --copper:#A9783F;
+  --line:rgba(38,36,31,.16);
+  --line-copper:rgba(169,120,63,.5);
+  --maxw:1120px;
+  --serif:"Shippori Mincho",serif;
+  --sans:"Noto Sans JP",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.9;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+/* ---- grain overlay (feTurbulence) ---- */
+.grain{position:fixed;inset:0;pointer-events:none;z-index:9998;opacity:.05;mix-blend-mode:multiply}
+.grain svg{width:100%;height:100%}
+
+/* ---- layout ---- */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+section{position:relative}
+.eyebrow{
+  font-family:var(--serif);font-weight:500;
+  letter-spacing:.34em;font-size:12px;color:var(--copper);
+  text-transform:none;
+}
+.serif{font-family:var(--serif)}
+.snum{font-family:var(--serif);font-weight:400;font-style:normal;color:var(--copper);
+  font-size:13px;letter-spacing:.18em}
+
+/* ---- reveal ---- */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
+.reveal.vis{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+/* ---- header ---- */
+.top{position:absolute;top:0;left:0;right:0;z-index:20}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
+.brand{font-family:var(--serif);font-weight:800;font-size:22px;letter-spacing:.28em;padding-left:.28em}
+.brand small{display:block;font-family:var(--sans);font-weight:400;font-size:9px;letter-spacing:.3em;color:var(--ink-soft);margin-top:2px}
+.top .btn{padding:11px 20px;font-size:12.5px}
+
+/* ---- buttons ---- */
+.btn{
+  display:inline-flex;align-items:center;gap:.6em;
+  font-family:var(--sans);font-weight:700;font-size:15px;letter-spacing:.04em;
+  background:var(--ink);color:var(--paper);
+  padding:17px 30px;border-radius:2px;border:1px solid var(--ink);
+  transition:transform .5s cubic-bezier(.2,.7,.2,1),background .4s,color .4s;
+  cursor:pointer;
+}
+.btn:hover{background:var(--copper);border-color:var(--copper);transform:translateY(-2px)}
+.btn .arw{font-family:var(--serif);font-weight:400}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--paper)}
+.micro{font-size:12px;color:var(--ink-soft);letter-spacing:.02em;margin-top:14px}
+
+/* ---- FV ---- */
+.fv{padding:120px 0 96px;position:relative;overflow:hidden}
+.fv .grid{display:grid;grid-template-columns:1.02fr .98fr;gap:40px;align-items:center}
+.fv-copy{position:relative;z-index:3}
+.fv h1{
+  font-family:var(--serif);color:var(--ink);
+  font-size:clamp(34px,5vw,60px);line-height:1.34;letter-spacing:.01em;
+  font-weight:300;margin:22px 0 26px;
+}
+.fv h1 b{font-weight:800}
+.fv .sub{font-size:16px;color:var(--ink-soft);max-width:30em;margin-bottom:30px}
+.trust{display:flex;gap:0;margin:26px 0 34px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.trust li{list-style:none;flex:1;padding:16px 8px;text-align:center;font-family:var(--serif);font-weight:500;font-size:13.5px;position:relative}
+.trust li+li{border-left:1px solid var(--line)}
+.fv-media{position:relative}
+.fv-media .ph{
+  width:100%;aspect-ratio:3/4;object-fit:cover;
+  clip-path:polygon(0 0,100% 0,100% 93%,0 100%);
+  filter:saturate(.96);
+}
+.fv-media .vlabel{
+  position:absolute;top:8%;left:-26px;writing-mode:vertical-rl;
+  font-family:var(--serif);font-weight:500;font-size:14px;letter-spacing:.5em;
+  color:var(--sage-deep);
+}
+.fv-media .stamp{
+  position:absolute;bottom:6%;left:-30px;background:var(--paper);
+  border:1px solid var(--line-copper);padding:14px 16px;max-width:190px;
+  font-size:11.5px;line-height:1.7;color:var(--ink-soft);
+}
+.fv-media .stamp b{font-family:var(--serif);color:var(--copper);font-weight:700;font-size:13px;letter-spacing:.06em}
+.fv-bgword{position:absolute;right:-2%;top:2%;font-family:var(--serif);font-weight:800;
+  font-size:clamp(90px,16vw,200px);color:rgba(126,140,114,.10);z-index:0;line-height:1;pointer-events:none;user-select:none}
+
+/* ---- section shell ---- */
+.sec{padding:104px 0}
+.sec-head{margin-bottom:52px}
+.sec-head .snum{display:block;margin-bottom:14px}
+.sec-head h2{font-family:var(--serif);font-weight:300;font-size:clamp(26px,3.6vw,40px);line-height:1.4;letter-spacing:.02em}
+.sec-head h2 b{font-weight:800}
+
+/* ---- dark section (共感 / 最終CTA) ---- */
+.dark{background:var(--ink);color:var(--paper)}
+.dark .snum{color:var(--wood)}
+.dark h2{color:var(--paper)}
+.dark .lead{font-size:clamp(17px,2.2vw,21px);font-family:var(--serif);font-weight:400;line-height:2.1;max-width:26em;color:#EFE9DD}
+.dark .tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.dark .tags span{border:1px solid rgba(244,239,231,.24);padding:9px 16px;font-size:13px;color:#DED7C8;letter-spacing:.03em}
+
+/* ---- 約束 staggered ---- */
+.promise{display:flex;flex-direction:column;gap:2px}
+.prow{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:baseline;
+  padding:30px 0;border-top:1px solid var(--line)}
+.prow:last-child{border-bottom:1px solid var(--line)}
+.prow .pn{font-family:var(--serif);font-weight:800;font-size:clamp(34px,5vw,58px);color:var(--sage);line-height:.9;min-width:1.4em}
+.prow .pt{font-family:var(--serif);font-weight:700;font-size:clamp(19px,2.4vw,24px);margin-bottom:8px}
+.prow .pd{color:var(--ink-soft);font-size:15px;max-width:34em}
+.prow:nth-child(even){padding-left:6%}
+
+/* ---- 空間 full-bleed ---- */
+.space{position:relative;padding:0}
+.space .img{width:100%;height:min(74vh,620px);object-fit:cover}
+.space .card{
+  position:absolute;left:max(24px,calc((100vw - var(--maxw))/2 + 24px));bottom:-42px;
+  background:var(--paper);border:1px solid var(--line);padding:40px 40px;max-width:440px;
+  box-shadow:0 30px 60px -40px rgba(38,36,31,.5)
+}
+.space .card h2{font-family:var(--serif);font-weight:300;font-size:clamp(24px,3.2vw,34px);line-height:1.45;margin-bottom:16px}
+.space .card h2 b{font-weight:800}
+.space .card p{color:var(--ink-soft);font-size:15px}
+
+/* ---- 流れ ---- */
+.flow{padding-top:130px}
+.flow .grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.steps{display:flex;flex-direction:column}
+.step{display:grid;grid-template-columns:auto 1fr;gap:22px;padding:22px 0;border-bottom:1px dashed var(--line)}
+.step:first-child{border-top:1px dashed var(--line)}
+.step .sc{font-family:var(--serif);font-weight:800;font-size:26px;color:var(--copper);line-height:1}
+.step h3{font-family:var(--serif);font-weight:700;font-size:18px;margin-bottom:4px}
+.step p{font-size:14px;color:var(--ink-soft)}
+.flow-img{width:100%;aspect-ratio:4/5;object-fit:cover;clip-path:polygon(0 0,100% 7%,100% 100%,0 93%)}
+
+/* ---- 料金 ---- */
+.price{background:var(--paper-2)}
+.sage-soft{background:#E7ECE1}
+.sage-soft .stat,.sage-soft .voice{background:transparent}
+.sage-soft .stat{border-color:rgba(94,107,84,.28)}
+.sage-soft .stat div+div{border-color:rgba(94,107,84,.28)}
+.ptable{border-top:1px solid var(--line)}
+.pr{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:20px 4px;border-bottom:1px solid var(--line)}
+.pr .nm{font-family:var(--serif);font-weight:500;font-size:17px}
+.pr .nm small{font-family:var(--sans);font-weight:400;font-size:12px;color:var(--ink-soft);margin-left:10px;letter-spacing:.02em}
+.pr .amt{font-family:var(--serif);font-weight:800;font-size:clamp(22px,3vw,30px);color:var(--ink);white-space:nowrap}
+.pr .amt small{font-family:var(--sans);font-weight:400;font-size:12px;color:var(--ink-soft);margin-left:4px}
+.pr.feature .amt{color:var(--copper)}
+.pnote{font-size:12.5px;color:var(--ink-soft);margin-top:20px;line-height:1.8}
+
+/* ---- 声 ---- */
+.stat{display:flex;gap:0;margin-bottom:56px;border:1px solid var(--line)}
+.stat div{flex:1;padding:30px 20px;text-align:center}
+.stat div+div{border-left:1px solid var(--line)}
+.stat .big{font-family:var(--serif);font-weight:800;font-size:clamp(30px,4.4vw,46px);color:var(--sage-deep);line-height:1}
+.stat .lb{font-size:12px;color:var(--ink-soft);letter-spacing:.08em;margin-top:10px}
+.voices{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.voice{border-top:2px solid var(--sage);padding-top:22px}
+.voice .q{font-family:var(--serif);font-weight:400;font-size:15.5px;line-height:2;color:var(--ink)}
+.voice .who{font-size:12px;color:var(--ink-soft);margin-top:16px;letter-spacing:.06em}
+
+/* ---- FAQ ---- */
+.faq{max-width:760px}
+.qa{border-bottom:1px solid var(--line);padding:24px 0}
+.qa .q{font-family:var(--serif);font-weight:700;font-size:17px;display:flex;gap:14px}
+.qa .q::before{content:"Q";color:var(--copper);font-weight:800}
+.qa .a{font-size:14.5px;color:var(--ink-soft);margin-top:12px;padding-left:28px}
+
+/* ---- 最終CTA ---- */
+.final{text-align:center;padding:120px 0}
+.final h2{margin-bottom:14px}
+.final .lead{margin:0 auto 34px}
+.final .btn{font-size:16px;padding:19px 40px}
+
+/* ---- footer ---- */
+footer{background:var(--ink);color:#CFC8BA;padding:70px 0 40px;font-size:13.5px}
+footer .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+footer .brand{color:var(--paper)}
+footer .info p{margin-bottom:6px;line-height:1.8}
+footer .sns{display:flex;gap:16px;margin-top:8px}
+footer .sns a{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(244,239,231,.24);padding:8px 14px;font-size:12px}
+footer .sns svg{width:16px;height:16px;fill:currentColor}
+footer .note{grid-column:1/-1;border-top:1px solid rgba(244,239,231,.16);margin-top:26px;padding-top:22px;font-size:11.5px;color:#9A9384;line-height:1.9}
+footer .copy{margin-top:20px;font-size:11px;color:#7C7668;letter-spacing:.08em}
+
+/* ---- mobile sticky CTA ---- */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;
+  background:rgba(38,36,31,.96);backdrop-filter:blur(6px);padding:11px 16px calc(11px + env(safe-area-inset-bottom))}
+.sticky .btn{width:100%;justify-content:center;background:var(--copper);border-color:var(--copper);padding:14px}
+
+/* ---- responsive ---- */
+@media(max-width:860px){
+  .fv .grid{grid-template-columns:1fr;gap:44px}
+  .fv{padding:104px 0 72px}
+  .fv-media{order:-1;max-width:440px}
+  .fv-media .vlabel{left:auto;right:6px;top:4%}
+  .fv-media .stamp{left:auto;right:8px;bottom:8px;max-width:170px}
+  .flow .grid{grid-template-columns:1fr;gap:36px}
+  .flow-img{order:-1;max-width:420px;margin:0 auto}
+  .voices{grid-template-columns:1fr;gap:20px}
+  .voice{border-top:none;border-left:2px solid var(--sage);padding-top:0;padding-left:18px}
+  .space .card{position:static;max-width:none;margin:0 24px;transform:translateY(-30px)}
+  .space .img{height:52vh}
+  .prow:nth-child(even){padding-left:0}
+  .sticky{display:block}
+  .top .btn{display:none}
+  .sec{padding:76px 0}
+  .final{padding:88px 0}
+  body{padding-bottom:66px}
+}
+@media(max-width:480px){
+  .trust li{font-size:11.5px;padding:13px 4px}
+  .stat{flex-direction:column}
+  .stat div+div{border-left:none;border-top:1px solid var(--line)}
+  .fv-bgword{font-size:34vw}
+}
+</style>
+</head>
+<body>
+
+<!-- grain filter -->
+<svg width="0" height="0" style="position:absolute"><filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/></filter></svg>
+<div class="grain" aria-hidden="true"><svg><rect width="100%" height="100%" filter="url(#grain)"/></svg></div>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand">SUHADA<small>SHIZUKANA DATSUMO</small></div>
+    <a href="#reserve" class="btn">無料カウンセリングを予約</a>
+  </div>
+</header>
+
+<!-- ===== FV ===== -->
+<section class="fv">
+  <div class="fv-bgword" aria-hidden="true">素肌</div>
+  <div class="wrap">
+    <div class="grid">
+      <div class="fv-copy">
+        <p class="eyebrow reveal">自由が丘・大人女性専門のプライベート脱毛サロン</p>
+        <h1 class="reveal d1">急かされず、比べられず。<br>静かな個室で始める、<b>大人の脱毛。</b></h1>
+        <p class="sub reveal d2">担当は、最初から最後まで一人。都度払いだから、通う日はあなたが決められます。</p>
+        <ul class="trust reveal d3">
+          <li>完全個室</li>
+          <li>担当者一貫制</li>
+          <li>契約を迫りません</li>
+        </ul>
+        <a href="#reserve" class="btn reveal d4">無料カウンセリングを予約する <span class="arw">→</span></a>
+        <p class="micro reveal d4">体験1回つき・当日契約なしでOK・都度払い可</p>
+      </div>
+      <div class="fv-media reveal d2">
+        <!-- デモ画像・本番差し替え -->
+        <img class="ph" src="assets/suhada_fv_hero.jpg" alt="完全個室でくつろぐ女性">
+        <span class="vlabel">素肌に還る時間</span>
+        <div class="stamp"><b>SUHADA</b><br>あなたのための、ひとりぶんの静けさ。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 共感 ===== -->
+<section class="sec dark">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="snum">01 ── なぜ、脱毛はこんなに疲れるのか</span>
+      <h2>こんな「脱毛の疲れ」、<b>ありませんか。</b></h2>
+    </div>
+    <p class="lead reveal d1">予約が何ヶ月も取れないまま。担当がそのたびに変わる。カウンセリングでは、契約するまで席を立てない空気——。「キレイになりたいだけなのに、どうしてこんなに気を張るんだろう」。SUHADAは、その&thinsp;“逆”&thinsp;からつくりました。</p>
+    <div class="tags reveal d2">
+      <span>流れ作業みたいで、雑に感じた</span>
+      <span>勧誘が苦手で、足が遠のいた</span>
+      <span>人目が気になって集中できない</span>
+      <span>予約が取れず、通いきれなかった</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 約束 ===== -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="snum">02 ── SUHADAの約束</span>
+      <h2>SUHADAが、<b>しないこと・すること。</b></h2>
+    </div>
+    <div class="promise">
+      <div class="prow reveal"><div class="pn">01</div><div><div class="pt">完全個室、一組ずつ</div><div class="pd">他のお客様と顔を合わせない、あなただけの時間。着替えも施術も、扉の内側で完結します。</div></div></div>
+      <div class="prow reveal"><div class="pn">02</div><div><div class="pt">担当者一貫制</div><div class="pd">初回から同じ担当が、肌の調子や気になる所まで覚えています。毎回いちから説明する必要はありません。</div></div></div>
+      <div class="prow reveal"><div class="pn">03</div><div><div class="pt">その日の契約を迫らない</div><div class="pd">説明だけ聞いて、持ち帰って決めてOK。「今日決めていただければ」の空気はつくりません。</div></div></div>
+      <div class="prow reveal"><div class="pn">04</div><div><div class="pt">都度払いでOK</div><div class="pd">高額な一括契約は不要。通うペースは、あなたが決めます。続けるかどうかも、その都度で。</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 空間 ===== -->
+<section class="space">
+  <!-- デモ画像・本番差し替え -->
+  <img class="img reveal" src="assets/suhada_room.jpg" alt="完全個室の施術ルーム">
+  <div class="card reveal d1">
+    <h2>深呼吸できる、<b>静かな個室。</b></h2>
+    <p>照明も、音も、香りも、肩の力が抜けるように整えています。施術のあいだ、うとうとしてしまう方も少なくありません。</p>
+  </div>
+</section>
+
+<!-- ===== 流れ ===== -->
+<section class="sec flow">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="sec-head reveal" style="margin-bottom:34px">
+          <span class="snum">03 ── はじめての日の流れ</span>
+          <h2>はじめての日の、<b>流れ。</b></h2>
+        </div>
+        <div class="steps">
+          <div class="step reveal"><div class="sc">01</div><div><h3>無料カウンセリング</h3><p>悩みと希望を、ゆっくり伺います。</p></div></div>
+          <div class="step reveal d1"><div class="sc">02</div><div><h3>肌と毛の状態をチェック</h3><p>部位ごとに、丁寧に確認します。</p></div></div>
+          <div class="step reveal d2"><div class="sc">03</div><div><h3>体験1回</h3><p>心地よさと、刺激の感じ方（個人差があります）を確かめてください。</p></div></div>
+          <div class="step reveal d3"><div class="sc">04</div><div><h3>プランのご相談</h3><p>無理のない範囲で。その場で決めなくて大丈夫です。</p></div></div>
+        </div>
+      </div>
+      <!-- デモ画像・本番差し替え -->
+      <img class="flow-img reveal d1" src="assets/suhada_care_detail.jpg" alt="丁寧なケアの様子">
+    </div>
+  </div>
+</section>
+
+<!-- ===== 料金 ===== -->
+<section class="sec price">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="snum">04 ── 料金</span>
+      <h2>都度払いだから、<b>わかりやすい。</b></h2>
+    </div>
+    <div class="ptable reveal d1">
+      <div class="pr feature"><div class="nm">初回体験 <small>カウンセリング込み</small></div><div class="amt">¥3,300<small>税込</small></div></div>
+      <div class="pr"><div class="nm">全身 <small>1回</small></div><div class="amt">¥14,300<small>税込</small></div></div>
+      <div class="pr"><div class="nm">VIO <small>1回</small></div><div class="amt">¥6,600<small>税込</small></div></div>
+      <div class="pr"><div class="nm">顔 <small>1回</small></div><div class="amt">¥6,600<small>税込</small></div></div>
+      <div class="pr"><div class="nm">両ワキ <small>1回</small></div><div class="amt">¥1,650<small>税込</small></div></div>
+    </div>
+    <p class="pnote reveal d2">表示はすべて税込総額です。通う回数や毛の減り方には個人差があります。追加の勧誘・高額コースの押し売りはありません。<br>※本ページの価格・実績・お客様の声はデモ用の架空データです。</p>
+  </div>
+</section>
+
+<!-- ===== 声＋実績 ===== -->
+<section class="sec sage-soft">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="snum">05 ── 通っている方の声</span>
+      <h2>静かに、<b>続けられる理由。</b></h2>
+    </div>
+    <div class="stat reveal d1">
+      <div><div class="big">約8,000<span style="font-size:.5em">名</span></div><div class="lb">開業以来ののべ利用者</div></div>
+      <div><div class="big">担当制</div><div class="lb">初回から同じ担当が対応</div></div>
+      <div><div class="big">認定</div><div class="lb">認定エステティシャン在籍</div></div>
+    </div>
+    <div class="voices">
+      <div class="voice reveal d1"><p class="q">他店の流れ作業に疲れて来ました。毎回同じ方が担当で、肌の調子まで覚えていてくれるのが安心です。</p><p class="who">40代・会社員</p></div>
+      <div class="voice reveal d2"><p class="q">勧誘が一切なくて拍子抜け。都度払いなので、自分のペースで通えています。</p><p class="who">30代・自営業</p></div>
+      <div class="voice reveal d3"><p class="q">完全個室で人目が気にならない。照明が心地よくて、つい眠ってしまうほどでした。</p><p class="who">30代</p></div>
+    </div>
+    <p class="pnote reveal">個人の感想です。効果や感じ方には個人差があります。（デモ・架空の声です）</p>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="sec price">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="snum">06 ── よくある質問</span>
+      <h2>不安なことは、<b>先にお答えします。</b></h2>
+    </div>
+    <div class="faq">
+      <div class="qa reveal"><div class="q">痛くないですか？</div><div class="a">光の刺激の感じ方には個人差があります。まずは体験で、あなたに合うか確かめてください。</div></div>
+      <div class="qa reveal d1"><div class="q">何回くらいで終わりますか？</div><div class="a">毛量や部位により個人差があります。毛の減り方を見ながら、無理のない回数をご相談します。</div></div>
+      <div class="qa reveal d2"><div class="q">勧誘はありますか？</div><div class="a">その日の契約は迫りません。都度払いも選べます。持ち帰ってご検討ください。</div></div>
+      <div class="qa reveal d3"><div class="q">医療脱毛とは違いますか？</div><div class="a">当店はエステ脱毛（光脱毛）です。医療脱毛とは仕組みが異なります。詳しくはカウンセリングでご説明します。</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 最終CTA ===== -->
+<section class="sec dark final" id="reserve">
+  <div class="wrap">
+    <div class="sec-head reveal" style="margin-bottom:0">
+      <span class="snum">07 ── ご予約</span>
+      <h2>まずは、静かな個室で<br><b>話を聞くところから。</b></h2>
+    </div>
+    <p class="lead reveal d1" style="text-align:center">当日の契約は必要ありません。あなたのペースで、ゆっくり選んでください。</p>
+    <a href="#" class="btn reveal d2" style="background:var(--copper);border-color:var(--copper)">無料カウンセリングを予約する <span class="arw">→</span></a>
+    <p class="micro reveal d2" style="color:#B7B0A2">体験1回つき・当日契約なしでOK・都度払い可 ／ ご予約はWeb・LINEにて</p>
+  </div>
+</section>
+
+<!-- ===== footer ===== -->
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="brand">SUHADA</div>
+        <p style="margin-top:12px;max-width:24em;color:#B7B0A2">自由が丘・大人女性専門の完全個室プライベート脱毛サロン。</p>
+        <div class="sns">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.12 1.38C1.36 2.67.95 3.34.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.38 2.12.66.66 1.33 1.07 2.12 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.12-1.38.66-.66 1.07-1.33 1.38-2.12.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.31-.79-.72-1.46-1.38-2.12-.66-.66-1.33-1.07-2.12-1.38-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1018.16 12 6.16 6.16 0 0012 5.84zM12 16a4 4 0 114-4 4 4 0 01-4 4zm6.41-10.85a1.44 1.44 0 11-1.44-1.44 1.44 1.44 0 011.44 1.44z"/></svg>Instagram</a>
+        </div>
+      </div>
+      <div class="info">
+        <p style="font-family:var(--serif);color:var(--paper);font-size:15px;margin-bottom:12px">店舗情報</p>
+        <p>東京都目黒区自由が丘2-8-15 自由が丘テラス3F</p>
+        <p>営業時間：11:00–20:00（最終受付 19:00）</p>
+        <p>定休日：火曜</p>
+        <p>ご予約：Web／LINE公式にて</p>
+      </div>
+      <p class="note">当店はエステ脱毛（光脱毛）です。医療行為ではなく、医療脱毛とは仕組みが異なります。効果・感じ方・通う回数には個人差があります。掲載の価格・実績・お客様の声は、本デモ用の架空データです。実在の店舗・人物とは関係ありません。写真はデモ用のイメージです。</p>
+      <p class="copy">© SUHADA（デモ・架空）｜ Portfolio sample by 2026-07-12</p>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky"><a href="#reserve" class="btn">無料カウンセリングを予約する →</a></div>
+
+<script>
+(function(){
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('vis'); io.unobserve(e.target); } });
+  },{threshold:0.14,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<script src="../shared/demo-banner.js" defer></script>
+<title>AI生成LPを「伝わるLP」へ｜デザイン改善ケーススタディ ― Makoto</title>
+<meta name="description" content="ChatGPTやCodexで作ったLPの『AIっぽさ』を、構成・デザイン・実装の3方向で改善する。Before/Afterで見せるデザイン改善のケーススタディ。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c1a17;
+    --ink-soft:#4a463f;
+    --paper:#f6f1e7;
+    --paper-2:#efe7d7;
+    --line:#d8cdb8;
+    --accent:#b8462a;      /* terracotta */
+    --accent-deep:#8f3017;
+    --teal:#1f5d57;        /* secondary */
+    --good:#1f5d57;
+    --bad:#b8462a;
+    --gold:#c08a2d;
+    --serif:'Shippori Mincho B1', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+    --gothic:'Zen Kaku Gothic New', 'Hiragino Sans', 'Yu Gothic', sans-serif;
+    --maxw:1140px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--gothic);
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  /* paper grain */
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.035;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:2}
+  a{color:inherit}
+  .serif{font-family:var(--serif)}
+
+  /* ---- top bar ---- */
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:22px 24px;position:relative;z-index:5;max-width:var(--maxw);margin:0 auto}
+  .brand{font-family:var(--serif);font-weight:700;font-size:20px;letter-spacing:.04em}
+  .brand small{display:block;font-family:var(--gothic);font-weight:500;font-size:11px;letter-spacing:.22em;color:var(--accent);margin-top:2px}
+  .topbar .nav{font-size:13px;letter-spacing:.08em;color:var(--ink-soft)}
+  .topbar .nav a{text-decoration:none;border-bottom:1px solid transparent;padding-bottom:2px;transition:.25s}
+  .topbar .nav a:hover{border-color:var(--accent)}
+
+  /* ---- hero ---- */
+  .hero{position:relative;padding:48px 0 70px;overflow:hidden}
+  .hero .kicker{font-size:12.5px;letter-spacing:.34em;color:var(--accent);font-weight:700;margin-bottom:26px;opacity:0}
+  .hero h1{font-family:var(--serif);font-weight:800;font-size:clamp(34px,6.4vw,68px);line-height:1.24;letter-spacing:.01em}
+  .hero h1 .mark{position:relative;white-space:nowrap}
+  .hero h1 .mark::after{content:"";position:absolute;left:-2%;right:-2%;bottom:.06em;height:.34em;background:linear-gradient(120deg,rgba(184,70,42,.30),rgba(192,138,45,.30));z-index:-1;transform:scaleX(0);transform-origin:left;animation:swipe 1s cubic-bezier(.2,.8,.2,1) 1.1s forwards}
+  @keyframes swipe{to{transform:scaleX(1)}}
+  .hero h1 .l{display:block;opacity:0;transform:translateY(18px)}
+  .hero p.lead{font-size:clamp(15px,2vw,18px);color:var(--ink-soft);max-width:620px;margin-top:30px;opacity:0;transform:translateY(14px)}
+  .hero .cta-row{margin-top:40px;display:flex;gap:16px;flex-wrap:wrap;opacity:0;transform:translateY(14px)}
+  .btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:15px;letter-spacing:.04em;padding:15px 28px;border-radius:2px;text-decoration:none;transition:transform .2s,box-shadow .2s;border:1.5px solid var(--ink)}
+  .btn-primary{background:var(--ink);color:var(--paper)}
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:6px 8px 0 var(--accent)}
+  .btn-ghost{background:transparent;color:var(--ink)}
+  .btn-ghost:hover{transform:translateY(-3px);box-shadow:6px 8px 0 var(--line)}
+  .hero .meta-strip{display:flex;gap:34px;margin-top:54px;flex-wrap:wrap;opacity:0}
+  .hero .meta-strip .m{border-left:2px solid var(--accent);padding-left:14px}
+  .hero .meta-strip .m b{font-family:var(--serif);font-size:26px;display:block;line-height:1.1}
+  .hero .meta-strip .m span{font-size:12px;letter-spacing:.12em;color:var(--ink-soft)}
+  .hero-deco{position:absolute;right:-120px;top:-40px;width:520px;height:520px;border:1px solid var(--line);border-radius:50%;z-index:0;pointer-events:none}
+  .hero-deco::after{content:"";position:absolute;inset:60px;border:1px solid var(--line);border-radius:50%}
+
+  /* hero loaded animations */
+  .loaded .hero .kicker{animation:rise .8s .2s forwards}
+  .loaded .hero h1 .l:nth-child(1){animation:rise .9s .35s forwards}
+  .loaded .hero h1 .l:nth-child(2){animation:rise .9s .5s forwards}
+  .loaded .hero p.lead{animation:rise .9s .75s forwards}
+  .loaded .hero .cta-row{animation:rise .9s .9s forwards}
+  .loaded .hero .meta-strip{animation:rise .9s 1.05s forwards}
+  @keyframes rise{to{opacity:1;transform:translateY(0)}}
+
+  /* ---- section frame ---- */
+  section{position:relative;z-index:2}
+  .band{padding:84px 0}
+  .band-dark{background:var(--ink);color:var(--paper)}
+  .band-paper2{background:var(--paper-2)}
+  .sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:14px}
+  .sec-no{font-family:var(--serif);font-weight:700;font-size:15px;color:var(--accent);letter-spacing:.1em}
+  .sec-no::before{content:"";display:inline-block;width:28px;height:1px;background:var(--accent);vertical-align:middle;margin-right:12px}
+  .sec-title{font-family:var(--serif);font-weight:800;font-size:clamp(26px,4vw,42px);line-height:1.3;margin-bottom:18px}
+  .sec-sub{color:var(--ink-soft);max-width:660px;margin-bottom:46px}
+  .band-dark .sec-sub{color:#cfc7b6}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---- problem cards ---- */
+  .prob-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .prob{background:var(--paper);padding:34px 30px}
+  .prob .n{font-family:var(--serif);font-size:13px;color:var(--accent);letter-spacing:.2em}
+  .prob h3{font-family:var(--serif);font-size:21px;margin:10px 0 12px}
+  .prob p{font-size:14.5px;color:var(--ink-soft)}
+
+  /* ---- before / after ---- */
+  .ba{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:stretch}
+  .mock{border:1px solid var(--line);border-radius:4px;overflow:hidden;background:#fff;position:relative;box-shadow:0 18px 40px -28px rgba(0,0,0,.4)}
+  .mock .tag{position:absolute;top:0;left:0;font-size:11px;font-weight:700;letter-spacing:.18em;padding:7px 16px;z-index:3;color:#fff}
+  .mock.before .tag{background:var(--bad)}
+  .mock.after .tag{background:var(--teal)}
+  .mock .browserbar{display:flex;gap:6px;align-items:center;padding:10px 14px;background:#ece7df;border-bottom:1px solid var(--line)}
+  .mock .browserbar i{width:9px;height:9px;border-radius:50%;background:#c9c1b3;display:block}
+  .mock .browserbar .url{margin-left:10px;font-size:10px;color:#9a9384;background:#fff;border-radius:20px;padding:3px 12px;flex:1}
+
+  /* BEFORE mini-LP : deliberately AI-ish */
+  .b-hero{background:linear-gradient(135deg,#7b6cf0,#9d7bf5);color:#fff;text-align:center;padding:38px 20px}
+  .b-hero h4{font-size:19px;font-weight:700;margin-bottom:8px}
+  .b-hero p{font-size:12px;opacity:.92;margin-bottom:16px}
+  .b-hero .bbtn{display:inline-block;background:#fff;color:#7b6cf0;font-size:11px;font-weight:700;padding:9px 20px;border-radius:30px}
+  .b-body{padding:22px;text-align:center}
+  .b-body .row{display:flex;justify-content:center;gap:14px;margin-top:14px}
+  .b-body .row div{font-size:10px;color:#888}
+  .b-ico{width:34px;height:34px;border-radius:50%;background:#eee;margin:0 auto 6px}
+  .b-line{height:8px;background:#eee;border-radius:4px;margin:8px auto;width:80%}
+  .b-line.s{width:60%}
+
+  /* AFTER mini-LP : improved */
+  .a-hero{background:var(--paper);padding:30px 22px;border-bottom:3px solid var(--ink)}
+  .a-hero .eyebrow{font-size:9.5px;letter-spacing:.2em;color:var(--accent);font-weight:700}
+  .a-hero h4{font-family:var(--serif);font-size:20px;font-weight:800;line-height:1.4;margin:8px 0}
+  .a-hero h4 em{font-style:normal;background:linear-gradient(transparent 62%,rgba(184,70,42,.25) 62%)}
+  .a-hero .sub{font-size:11px;color:var(--ink-soft);margin-bottom:14px}
+  .a-hero .abtn{display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:#fff;font-size:11.5px;font-weight:700;padding:11px 22px;border-radius:3px}
+  .a-hero .trust{font-size:9px;color:var(--ink-soft);margin-top:10px}
+  .a-body{padding:18px 22px;display:flex;gap:10px}
+  .a-body .pt{flex:1;border-left:2px solid var(--teal);padding-left:8px}
+  .a-body .pt b{font-family:var(--serif);font-size:12px;display:block}
+  .a-body .pt span{font-size:9px;color:var(--ink-soft)}
+
+  /* annotation list */
+  .anno{margin-top:42px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .anno .a{background:var(--paper);border:1px solid var(--line);border-top:3px solid var(--accent);padding:22px 20px;border-radius:3px}
+  .anno .a .sev{font-size:11px;font-weight:700;letter-spacing:.1em;color:#fff;background:var(--accent);display:inline-block;padding:3px 10px;border-radius:2px;margin-bottom:12px}
+  .anno .a.mid .sev{background:var(--gold)}
+  .anno .a h4{font-family:var(--serif);font-size:17px;margin-bottom:8px}
+  .anno .a .ba-line{font-size:13px;margin:6px 0}
+  .anno .a .ba-line b{color:var(--bad)}
+  .anno .a .ba-line.f b{color:var(--good)}
+  .anno .a .eff{margin-top:12px;font-size:12px;color:var(--ink-soft);border-top:1px dashed var(--line);padding-top:10px}
+
+  /* ---- process ---- */
+  .steps{counter-reset:s;display:grid;gap:0}
+  .step{display:grid;grid-template-columns:90px 1fr;gap:24px;padding:30px 0;border-top:1px solid rgba(255,255,255,.16)}
+  .step:last-child{border-bottom:1px solid rgba(255,255,255,.16)}
+  .step .num{font-family:var(--serif);font-size:46px;color:var(--accent);line-height:1}
+  .step h3{font-family:var(--serif);font-size:23px;margin-bottom:8px}
+  .step p{color:#cfc7b6;font-size:14.5px;max-width:640px}
+
+  /* ---- 7 signs checklist ---- */
+  .signs{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 40px}
+  .sign{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--line)}
+  .sign .chk{flex:none;width:26px;height:26px;border:1.5px solid var(--accent);border-radius:50%;display:grid;place-items:center;color:var(--accent);font-size:14px;font-weight:700;margin-top:2px}
+  .sign b{font-family:var(--serif);font-size:16px}
+  .sign p{font-size:13px;color:var(--ink-soft)}
+
+  /* ---- profile / CTA ---- */
+  .cta{background:var(--ink);color:var(--paper);border-radius:6px;padding:60px 48px;position:relative;overflow:hidden}
+  .cta::after{content:"";position:absolute;right:-80px;bottom:-80px;width:300px;height:300px;border:1px solid rgba(246,241,231,.18);border-radius:50%}
+  .cta h2{font-family:var(--serif);font-size:clamp(26px,4vw,38px);line-height:1.4;margin-bottom:18px;position:relative}
+  .cta p{color:#d3cbba;max-width:560px;margin-bottom:30px;position:relative}
+  .cta .btn-primary{background:var(--accent);border-color:var(--accent);color:#fff}
+  .cta .btn-primary:hover{box-shadow:6px 8px 0 rgba(246,241,231,.4)}
+  .profile{display:flex;gap:20px;align-items:center;margin-top:40px;position:relative}
+  .profile .pic{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--gold));display:grid;place-items:center;font-family:var(--serif);font-weight:800;font-size:26px;color:#fff;flex:none}
+  .profile .who b{font-family:var(--serif);font-size:18px}
+  .profile .who span{font-size:12.5px;color:#cfc7b6;display:block}
+
+  /* ---- footer ---- */
+  footer{padding:40px 0 60px;font-size:12.5px;color:var(--ink-soft)}
+  .disclaimer{background:var(--paper-2);border:1px dashed var(--line);border-radius:4px;padding:16px 20px;font-size:12px;color:var(--ink-soft);margin-bottom:26px}
+  .disclaimer b{color:var(--accent)}
+
+  /* ---- responsive ---- */
+  @media(max-width:860px){
+    .prob-grid{grid-template-columns:1fr}
+    .ba{grid-template-columns:1fr}
+    .anno{grid-template-columns:1fr}
+    .signs{grid-template-columns:1fr}
+    .step{grid-template-columns:60px 1fr;gap:16px}
+    .step .num{font-size:34px}
+    .cta{padding:40px 24px}
+    .hero-deco{display:none}
+    .topbar .nav{display:none}
+  }
+
+  /* diagnostic chips (data-rigor signal) */
+  .diagband{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0}
+  .diagband .wrap{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  .diag-label{font-family:var(--serif);font-weight:700;font-size:13px;letter-spacing:.06em;color:var(--accent);white-space:nowrap}
+  .diagband .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .diagband .chips span{font-size:12.5px;background:var(--paper-2);border:1px solid var(--line);border-radius:30px;padding:5px 13px;color:var(--ink-soft)}
+  .mocknote{font-size:10px;color:var(--ink-soft);text-align:center;padding:7px 8px;background:var(--paper-2);border-top:1px dashed var(--line)}
+  .cta .samplenote{font-size:11.5px;color:#cfc7b6;margin-top:14px;position:relative}
+
+  /* no-JS safety: reveal everything if JS is disabled */
+  html:not(.js) .reveal,
+  html:not(.js) .hero .kicker,
+  html:not(.js) .hero h1 .l,
+  html:not(.js) .hero p.lead,
+  html:not(.js) .hero .cta-row,
+  html:not(.js) .hero .meta-strip{opacity:1 !important;transform:none !important}
+
+  /* accessibility: respect reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto !important}
+    *,*::before,*::after{animation-duration:.001ms !important;animation-delay:0ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
+    .reveal,.hero .kicker,.hero h1 .l,.hero p.lead,.hero .cta-row,.hero .meta-strip{opacity:1 !important;transform:none !important}
+    .hero h1 .mark::after{transform:scaleX(1) !important}
+  }
+</style>
+</head>
+<body>
+<script>document.documentElement.className += ' js';</script>
+
+<div class="topbar">
+  <div class="brand">Makoto<small>WEB / AI / LP IMPROVEMENT</small></div>
+  <nav class="nav">
+    <a href="#problem">課題</a>&nbsp;&nbsp;
+    <a href="#case">改善事例</a>&nbsp;&nbsp;
+    <a href="#process">進め方</a>&nbsp;&nbsp;
+    <a href="#contact">相談する</a>
+  </nav>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-deco"></div>
+    <div class="kicker">AI-GENERATED LP → CONVERSION-READY LP</div>
+    <h1>
+      <span class="l">AIで作ったLPを、</span>
+      <span class="l">ちゃんと<span class="mark">伝わるLP</span>へ。</span>
+    </h1>
+    <p class="lead">ChatGPTやCodexで形にしたLPは、速くて便利。でも「なんだかテンプレっぽい」「問い合わせにつながりにくい」。その正体は、構成・導線・訴求の詰めの甘さです。AIの下書きを、人の手で“伝わる状態”に磨き直します。</p>
+    <div class="cta-row">
+      <a href="#case" class="btn btn-primary">改善事例を見る →</a>
+      <a href="#process" class="btn btn-ghost">改善の進め方を見る</a>
+    </div>
+    <div class="meta-strip">
+      <div class="m"><b>3方向</b><span>構成・デザイン・実装</span></div>
+      <div class="m"><b>7つ</b><span>AIっぽさの典型サイン</span></div>
+      <div class="m"><b>診断書</b><span>重大度・期待効果つき</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- DIAGNOSTIC ITEMS (data-rigor) -->
+<section class="diagband">
+  <div class="wrap">
+    <span class="diag-label">診断する項目（例）</span>
+    <div class="chips">
+      <span>直帰の要因</span><span>ファーストビュー訴求</span><span>CTAの位置・文言</span><span>コピーの具体性</span><span>セクション順</span><span>スマホ表示</span><span>AIっぽさ</span><span>改善の優先度</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="band band-paper2" id="problem">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-no">01</span></div>
+    <h2 class="sec-title reveal">なぜ、AIで作ったLPは<br>「あと一歩」で止まるのか。</h2>
+    <p class="sec-sub reveal">AIは“それっぽい全体”を一瞬で作ります。けれど伝わるLPに必要なのは、たった一人の読み手に向けた具体性と、迷わせない導線。ここはまだ人の仕事です。</p>
+    <div class="prob-grid reveal">
+      <div class="prob"><div class="n">弱点 A</div><h3>テンプレ感（没個性）</h3><p>どこかで見たレイアウト、均等に並んだ3カラム、意味のないグラデーション。記憶に残らず、信頼にもつながりません。</p></div>
+      <div class="prob"><div class="n">弱点 B</div><h3>抽象的なコピー</h3><p>「高品質」「最適なソリューション」。誰にでも当てはまる言葉は、誰の心にも刺さりません。主語と数字が抜けています。</p></div>
+      <div class="prob"><div class="n">弱点 C</div><h3>弱いCTA・迷う導線</h3><p>ボタンが多すぎる／弱すぎる。次に何をすればいいか一目で分からず、せっかくの興味が離脱に変わります。</p></div>
+      <div class="prob"><div class="n">弱点 D</div><h3>信頼の不在</h3><p>実績・お客様の声・保証・運営者の顔。「本当に大丈夫？」を消す材料が足りず、申し込み直前で止まります。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE before/after -->
+<section class="band" id="case">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-no">02</span></div>
+    <h2 class="sec-title reveal">Before / After ―<br>同じ素材を、こう変える。</h2>
+    <p class="sec-sub reveal">AIが出した原案（左）と、改善版（右）。派手にするのではなく、「誰に・何を・次にどうしてほしいか」を一直線に整えるのが改善の本質です。<span style="color:var(--accent);font-weight:700">※架空サービスでのデモです。</span></p>
+    <div class="ba reveal">
+      <!-- BEFORE -->
+      <div class="mock before">
+        <span class="tag">BEFORE ― AI原案</span>
+        <div class="browserbar"><i></i><i></i><i></i><span class="url">example.com</span></div>
+        <div class="b-hero">
+          <h4>あなたのビジネスを次のステージへ</h4>
+          <p>最適なソリューションで成果を最大化します</p>
+          <span class="bbtn">詳しく見る</span>
+        </div>
+        <div class="b-body">
+          <div class="b-line"></div><div class="b-line s"></div>
+          <div class="row">
+            <div><div class="b-ico"></div>高品質</div>
+            <div><div class="b-ico"></div>低価格</div>
+            <div><div class="b-ico"></div>迅速対応</div>
+          </div>
+        </div>
+      </div>
+      <!-- AFTER -->
+      <div class="mock after">
+        <span class="tag">AFTER ― 改善版</span>
+        <div class="browserbar"><i></i><i></i><i></i><span class="url">example.com</span></div>
+        <div class="a-hero">
+          <div class="eyebrow">月20件の問い合わせを安定化｜地域工務店向け</div>
+          <h4>「広告費はかけたくない。<em>でも問い合わせは欲しい</em>」を、1枚のLPで。</h4>
+          <div class="sub">公開後90日の伴走つき。数字で改善が見えなければ、追加修正は無料。</div>
+          <span class="abtn">30秒で無料相談を予約 →</span>
+          <div class="trust">★4.8 / 導入42社 ・ 着手金0円</div>
+        </div>
+        <div class="a-body">
+          <div class="pt"><b>誰に</b><span>地域の工務店</span></div>
+          <div class="pt"><b>何を</b><span>問い合わせ獲得</span></div>
+          <div class="pt"><b>次に</b><span>無料相談予約</span></div>
+        </div>
+        <div class="mocknote">※ 架空サービスのコピー例です（実在の実績・保証ではありません）</div>
+      </div>
+    </div>
+
+    <!-- annotations -->
+    <div class="anno">
+      <div class="a reveal">
+        <span class="sev">重大度：高</span>
+        <h4>ファーストビュー</h4>
+        <div class="ba-line">Before：<b>誰に向けたか不明</b>の抽象コピー</div>
+        <div class="ba-line f">After：<b>対象×ベネフィット</b>を1行で明示</div>
+        <div class="eff">期待効果：直帰率↓ / 読み進め率↑</div>
+      </div>
+      <div class="a reveal mid">
+        <span class="sev">重大度：中</span>
+        <h4>CTA・導線</h4>
+        <div class="ba-line">Before：<b>「詳しく見る」</b>で次が曖昧</div>
+        <div class="ba-line f">After：<b>「30秒で無料相談」</b>と行動を具体化</div>
+        <div class="eff">期待効果：クリック率↑ / 離脱↓</div>
+      </div>
+      <div class="a reveal">
+        <span class="sev">重大度：高</span>
+        <h4>信頼・AIっぽさ</h4>
+        <div class="ba-line">Before：<b>均等3アイコン</b>のテンプレ感</div>
+        <div class="ba-line f">After：<b>実績・保証・★評価</b>で不安を解消</div>
+        <div class="eff">期待効果：CVR↑ / 申込前の離脱↓</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="band band-dark" id="process">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-no" style="color:var(--gold)">03</span></div>
+    <h2 class="sec-title reveal">感覚で直さない。<br>診断 → 優先順位 → 改善 の順で。</h2>
+    <p class="sec-sub reveal">「なんとなくおしゃれに」では再現できません。どこが・なぜ・どれだけ効くかを言葉にしてから手を動かします。</p>
+    <div class="steps">
+      <div class="step reveal"><div class="num">01</div><div><h3>現状診断</h3><p>ファーストビュー・CTA・セクション順・スマホ表示・AIっぽさが出ている箇所を洗い出し、スクリーンショットに直接コメントします。</p></div></div>
+      <div class="step reveal"><div class="num">02</div><div><h3>優先順位づけ</h3><p>見つけた課題を「重大度（高・中・低）×期待効果」で並べ替え。限られた時間で一番効く順に着手します。</p></div></div>
+      <div class="step reveal"><div class="num">03</div><div><h3>改善案の作成</h3><p>ファーストビュー案・構成案・CTA文言・トーン&マナーを具体的に提示。なぜそう変えるかの理由をセットで渡します。</p></div></div>
+      <div class="step reveal"><div class="num">04</div><div><h3>実装まで（必要に応じて）</h3><p>HTML/CSSの調整、STUDIO・Wix・WordPress上で可能な範囲の修正まで。納品物は「直したLP＋改善レポート＋今後の優先順位」。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 SIGNS -->
+<section class="band band-paper2">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-no">04</span></div>
+    <h2 class="sec-title reveal">「AIっぽさ」が出る、7つのサイン。</h2>
+    <p class="sec-sub reveal">改善の前に、まずここを見ます。あなたのLPはいくつ当てはまりますか？</p>
+    <div class="signs reveal">
+      <div class="sign"><div class="chk">1</div><div><b>意味のないグラデーション</b><p>特に紫〜青の斜めグラデは生成物の定番。文脈がなければ外す。</p></div></div>
+      <div class="sign"><div class="chk">2</div><div><b>すべて中央揃え</b><p>視線の流れが生まれず、のっぺり単調に見える。</p></div></div>
+      <div class="sign"><div class="chk">3</div><div><b>均等に並んだ3カラム</b><p>「特徴3つ」の自動感。優先順位がなく印象に残らない。</p></div></div>
+      <div class="sign"><div class="chk">4</div><div><b>抽象的な美辞麗句</b><p>「最適」「高品質」「次のステージへ」。主語と数字が抜けている。</p></div></div>
+      <div class="sign"><div class="chk">5</div><div><b>記号のようなアイコン</b><p>意味の薄い丸アイコンの羅列。内容を語っていない。</p></div></div>
+      <div class="sign"><div class="chk">6</div><div><b>弱い・多すぎるCTA</b><p>「詳しく見る」だけ、またはボタン乱立で迷わせる。</p></div></div>
+      <div class="sign"><div class="chk">7</div><div><b>信頼材料ゼロ</b><p>実績・声・保証・運営者の顔がなく、最後の一押しが効かない。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA / PROFILE -->
+<section class="band" id="contact">
+  <div class="wrap">
+    <div class="cta reveal">
+      <h2>まずは、1枚の「AI LP改善ミニ診断」から。</h2>
+      <p>現状LPのURLかデータをいただければ、ファーストビュー・CTA・AIっぽさ・スマホ表示の観点で、優先度つきの改善ポイントをお出しします。いきなり大きく作り替えず、一番効く所から。</p>
+      <a href="../" class="btn btn-primary">他の制作デモを見る →</a>
+      <p class="samplenote">※ 本ページはポートフォリオ用サンプルです。ボタンはデモのため、実際の送信は行われません。</p>
+      <div class="profile">
+        <div class="pic">真</div>
+        <div class="who">
+          <b>Makoto ― AI活用Web制作 / LP改善</b>
+          <span>AIの下書きを、人の手で“伝わる状態”へ。構成・デザイン・実装を横断して、現実的な手順で改善します。</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="disclaimer">
+      <b>※ ポートフォリオ用サンプルです。</b> 本ページ内の「地域工務店向けLP」「導入42社」「★4.8」等の数値・事例は、改善デモのための<b>架空の設定</b>です。実在の顧客実績ではありません。デザイン改善の考え方と表現力をご覧いただくための制作物です。
+    </div>
+    © 2026 Makoto. Portfolio piece — AI-generated LP improvement case study.
+  </div>
+</footer>
+
+<script>
+  document.body.classList.add('loaded'); // play hero entrance
+  (function(){
+    var reveals = document.querySelectorAll('.reveal');
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!('IntersectionObserver' in window) || reduce){
+      reveals.forEach(function(el){ el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+    }, {threshold:.14, rootMargin:'0px 0px -4% 0px'});
+    reveals.forEach(function(el){ io.observe(el); });
+  })();
+</script>
+</body>
+</html>
