@@ -3,364 +3,480 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="noindex,nofollow">
 <script src="../shared/demo-banner.js" defer></script>
-<title>スヤミン｜眠りの深さに、GABAという習慣を（架空・サンプルLP）</title>
-<meta name="description" content="睡眠の質（眠りの深さ）の向上に役立つ機能が報告されているGABA配合の機能性表示食品スヤミン。架空商品のサンプルLPです。">
-<meta name="theme-color" content="#EAF3EE">
+<title>スヤミン｜眠りの深さに、毎晩1粒。（自主制作デモ）</title>
+<meta name="description" content="GABAを配合した架空の機能性表示食品『スヤミン』の自主制作ランディングページです。商品・届出・価格条件はすべてデモ設定で、実販売は行いません。">
+<meta name="theme-color" content="#173D33">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-<!--
-  架空商品「スヤミン」のサンプルLP（実績ポートフォリオ用・2026-07-06）
-  スタイルパック: D やさしいナチュラル（#4C8C6A / #E8A87C / 白ベース）
-  素材: Unsplash（hero: Susan Wilkinson / morning: eduard / leaves: Ash Amplifies）
-  実案件では images/ の写真を商品写真・利用シーン写真に差し替える
--->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800&family=Zen+Old+Mincho:wght@600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --base:#FFFFFF;
-  --main:#4C8C6A;
-  --main-dark:#2E4A3B;
-  --accent:#E8A87C;
-  --bg-soft:#F2F8F4;
-  --text:#333333;
-  --muted:#5F6B66;
+  --white:#fff;
+  --ink:#1d2925;
+  --green:#173d33;
+  --green-2:#285d4c;
+  --mint:#dce8df;
+  --ivory:#f7f5ee;
+  --coral:#c9513d;
+  --coral-soft:#fae7df;
+  --yellow:#f2c84b;
+  --line:#cad6cf;
+  --muted:#5d6964;
+  --serif:'Zen Old Mincho','Yu Mincho',serif;
+  --sans:'Noto Sans JP','Yu Gothic',sans-serif;
 }
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto;}
-  .cta{transition:none;}
-  .cta:hover{transform:none;}
-}
-body{font-family:'Noto Sans JP',sans-serif;color:var(--text);background:var(--base);line-height:1.9;font-size:16px;overflow-x:hidden;touch-action:manipulation;}
-h1,h2,h3{font-family:'Zen Maru Gothic',sans-serif;color:var(--main-dark);line-height:1.5;text-wrap:balance;}
-a:focus-visible,summary:focus-visible{outline:3px solid var(--main);outline-offset:3px;border-radius:4px;}
-#offer{scroll-margin-top:24px;}
-img{max-width:100%;display:block;}
-.inner{max-width:960px;margin:0 auto;padding:0 24px;}
-.sec{padding:72px 0;}
-.sec-title{font-size:30px;text-align:center;margin-bottom:12px;}
-.sec-lead{text-align:center;color:var(--muted);margin-bottom:44px;}
-.note{font-size:12px;color:#8A948F;}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{min-width:320px;background:var(--white);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.8;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+button,a{font:inherit}
+.skip-link{position:fixed;left:12px;top:8px;z-index:2147483647;padding:9px 14px;background:var(--white);color:var(--green);transform:translateY(-160%)}
+.skip-link:focus{transform:translateY(0)}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--yellow);outline-offset:4px}
+.container{width:min(1180px,calc(100% - 48px));margin-inline:auto}
+.section{padding:96px 0}
+.section-kicker{margin-bottom:12px;color:var(--coral);font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.section-title{font-family:var(--serif);font-size:clamp(30px,3.2vw,48px);line-height:1.45;letter-spacing:0;color:var(--green)}
+.section-lead{max-width:680px;margin-top:20px;color:var(--muted)}
+.small-note{font-size:12px;line-height:1.7;color:var(--muted)}
+.site-header{height:72px;background:var(--white);border-bottom:1px solid var(--line)}
+.nav{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{font-family:var(--serif);font-size:25px;font-weight:700;color:var(--green);text-decoration:none}
+.brand small{margin-left:9px;font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.12em;color:var(--coral);vertical-align:middle}
+.nav-links{display:flex;align-items:center;gap:26px;list-style:none}
+.nav-links a{font-size:13px;font-weight:700;text-decoration:none}
+.nav-links .nav-cta{padding:10px 18px;background:var(--green);color:var(--white);border-radius:4px}
 
-/* CTAボタン */
-.cta-wrap{text-align:center;}
-.cta-motivate{font-size:15px;color:var(--main-dark);font-weight:500;margin-bottom:14px;}
-.cta{display:inline-block;background:var(--accent);color:#4A2E18;font-weight:700;font-size:19px;padding:20px 64px;border-radius:14px;text-decoration:none;box-shadow:0 10px 24px rgba(232,168,124,.45);transition:transform .15s ease;}
-.cta:hover{transform:translateY(-2px);}
-.cta small{display:block;font-size:13px;font-weight:500;margin-top:2px;}
-.cta-relief{font-size:13px;color:var(--muted);margin-top:14px;}
+/* First view: copy / product / offer are independent so mobile can reorder them. */
+.hero{background:var(--ivory);border-bottom:10px solid var(--yellow)}
+.hero-grid{min-height:720px;display:grid;grid-template-columns:43% 57%;grid-template-rows:auto auto;column-gap:54px;align-content:center;padding-top:24px;padding-bottom:24px}
+.hero-intro{align-self:end;padding-top:16px}
+.hero-eyebrow{display:inline-block;margin-bottom:15px;padding-left:12px;border-left:5px solid var(--coral);font-size:12px;font-weight:800;color:var(--green);letter-spacing:.06em}
+.hero h1{font-family:var(--serif);font-weight:700;letter-spacing:0;color:var(--green)}
+.product-word{display:block;margin-bottom:13px;font-size:clamp(43px,5.5vw,76px);line-height:1}
+.promise{display:block;font-size:clamp(35px,4vw,57px);line-height:1.38}
+.promise em{font-style:normal;color:var(--coral)}
+.hero-lead{max-width:520px;margin-top:20px;color:#42514b;font-size:15px}
+.hero-offer{align-self:start;padding-top:23px}
+.price-line{display:flex;align-items:baseline;gap:8px;color:var(--green)}
+.price-label{font-size:13px;font-weight:800}
+.price{font-family:var(--serif);font-size:54px;font-weight:700;line-height:1;color:var(--coral)}
+.price-unit{font-size:15px;font-weight:700}
+.offer-meta{margin-top:5px;font-size:12px;color:var(--muted)}
+.hero-cta{display:inline-flex;min-width:350px;align-items:center;justify-content:center;margin-top:14px;padding:16px 24px;background:var(--coral);color:var(--white);border:2px solid var(--coral);border-radius:4px;font-size:17px;font-weight:800;text-decoration:none;box-shadow:5px 5px 0 var(--green)}
+.hero-cta:hover{background:#ad412f;border-color:#ad412f}
+.hero-relief{margin-top:11px;font-size:12px;color:var(--muted)}
+.hero-visual{position:relative;grid-column:2;grid-row:1 / 3;min-height:620px;overflow:hidden;background:#ede7db;border-left:8px solid var(--white)}
+.hero-scene{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:52% center}
+.visual-caption{position:absolute;right:18px;bottom:18px;padding:6px 10px;background:var(--white);color:var(--green);font-size:10px;font-weight:700}
 
-/* ファーストビュー */
-.fv{position:relative;overflow:hidden;background:linear-gradient(135deg,#EAF3EE 0%,#F9FBF7 55%,#FDF4EB 100%);}
-.fv .inner{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding-top:64px;padding-bottom:72px;}
-.badge{display:inline-block;background:#fff;color:var(--main);border:1px solid var(--main);border-radius:999px;padding:4px 18px;font-size:13px;font-weight:500;margin-bottom:20px;}
-.fv h1{font-size:38px;margin-bottom:18px;}
-.fv h1 .mark{background:linear-gradient(transparent 65%,#F3D9C2 65%);}
-.fv .sub{color:var(--muted);margin-bottom:8px;}
-.fv .fv-note{margin-bottom:28px;}
-.fv-proof{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px;}
-.fv-proof span{background:#fff;border:1px solid #D8E6DD;border-radius:8px;padding:6px 14px;font-size:13px;color:var(--main-dark);font-weight:500;}
-.fv-visual{position:relative;}
-.fv-visual .photo{border-radius:18px;box-shadow:0 16px 40px rgba(46,74,59,.18);aspect-ratio:4/3.4;object-fit:cover;width:100%;}
-.fv-pack{position:absolute;right:-6px;bottom:-18px;width:120px;height:150px;border-radius:12px;background:linear-gradient(160deg,var(--main),#7FB598);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Zen Maru Gothic';font-size:19px;font-weight:700;box-shadow:0 12px 28px rgba(76,140,106,.35);}
-/* 実案件ではfv-packを商品パッケージ写真に差し替え */
+/* Lifestyle */
+.lifestyle{background:var(--white)}
+.lifestyle-grid{display:grid;grid-template-columns:47% 53%;align-items:stretch}
+.lifestyle-photo{min-height:600px;width:100%;height:100%;object-fit:cover}
+.lifestyle-copy{display:flex;flex-direction:column;justify-content:center;padding:70px 0 70px 76px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.routine-statement{margin-top:36px;padding:26px 0;border-top:3px solid var(--yellow);border-bottom:1px solid var(--line);font-family:var(--serif);font-size:clamp(24px,2.4vw,34px);line-height:1.6;color:var(--green)}
+.routine-points{display:grid;gap:10px;margin-top:26px;list-style:none;color:#42514b;font-size:14px}
+.routine-points li{position:relative;padding-left:20px}
+.routine-points li::before{content:'—';position:absolute;left:0;color:var(--coral)}
 
-/* 漫画セクション */
-.manga{background:var(--bg-soft);}
-.manga-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-.koma{background:#fff;border:2px solid #D8E6DD;border-radius:12px;aspect-ratio:1/1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:16px;}
-.koma .no{font-family:'Zen Maru Gothic';font-weight:700;color:var(--main);font-size:14px;margin-bottom:8px;}
-.koma p{font-size:13px;color:var(--muted);line-height:1.7;}
-.manga-note{text-align:center;margin-top:20px;}
+/* Ingredient */
+.ingredient{padding:0;background:var(--green);color:var(--white)}
+.ingredient-grid{display:grid;grid-template-columns:48% 52%;min-height:650px}
+.ingredient-photo{width:100%;height:100%;object-fit:cover}
+.ingredient-copy{display:flex;flex-direction:column;justify-content:center;padding:76px max(48px,calc((100vw - 1180px)/2)) 76px 72px}
+.ingredient .section-kicker{color:var(--yellow)}
+.ingredient .section-title{color:var(--white)}
+.ingredient-number{display:flex;align-items:baseline;gap:10px;margin:26px 0 20px;color:var(--yellow)}
+.ingredient-number strong{font-family:var(--serif);font-size:70px;line-height:1}
+.ingredient-number span{font-size:16px;font-weight:800}
+.notice-copy{margin-top:26px;padding:20px 0;border-top:1px solid rgba(255,255,255,.35);border-bottom:1px solid rgba(255,255,255,.35);font-size:13px;line-height:1.8}
+.ingredient .small-note{margin-top:14px;color:#d4e1dc}
 
-/* 共感チェック */
-.checks{display:grid;gap:14px;max-width:560px;margin:0 auto;}
-.checks li{list-style:none;background:var(--bg-soft);border-radius:12px;padding:15px 22px 15px 52px;position:relative;}
-.checks li svg{position:absolute;left:18px;top:18px;}
-.empathy-close{max-width:560px;margin:36px auto 0;text-align:center;color:var(--main-dark);font-weight:500;}
+/* Features */
+.features{background:var(--white)}
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:56px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.feature{padding:38px 34px 42px}
+.feature+ .feature{border-left:1px solid var(--line)}
+.feature-no{font-family:var(--serif);font-size:38px;color:var(--coral)}
+.feature h3{margin:12px 0 13px;font-family:var(--serif);font-size:23px;line-height:1.55;color:var(--green)}
+.feature p{font-size:14px;color:var(--muted)}
+.feature-tag{display:inline-block;margin-top:18px;padding:4px 0;border-bottom:3px solid var(--yellow);font-size:12px;font-weight:800;color:var(--green)}
 
-/* 解決策 */
-.solution .inner{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;}
-.solution .photo{border-radius:16px;aspect-ratio:4/3;object-fit:cover;width:100%;}
-.solution h2{font-size:28px;margin-bottom:16px;}
-.solution p{margin-bottom:14px;}
-.quote-box{background:var(--bg-soft);border-left:4px solid var(--main);border-radius:0 10px 10px 0;padding:16px 20px;font-size:14px;margin:18px 0;}
+/* How to */
+.howto{background:var(--coral-soft)}
+.howto-head{display:flex;align-items:end;justify-content:space-between;gap:40px}
+.howto-head .section-lead{max-width:430px;margin:0}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);margin-top:56px;border-top:2px solid var(--coral);list-style:none}
+.step{position:relative;padding:30px 40px 0 0}
+.step+ .step{padding-left:40px;border-left:1px solid #e6b9aa}
+.step-num{font-family:var(--serif);font-size:44px;line-height:1;color:var(--coral)}
+.step h3{margin:14px 0 8px;font-size:18px;color:var(--green)}
+.step p{font-size:14px;color:#604f49}
 
-/* ベネフィット3点 */
-.benefits{background:var(--bg-soft);}
-.benefit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-.benefit{background:#fff;border-radius:14px;padding:32px 24px;text-align:center;box-shadow:0 6px 18px rgba(46,74,59,.06);}
-.benefit .icon{width:52px;height:52px;border-radius:50%;background:var(--bg-soft);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;}
-.benefit h3{font-size:19px;margin-bottom:10px;}
-.benefit p{font-size:14px;color:var(--muted);text-align:left;}
-
-/* お客様の声 */
-.voices .photo{border-radius:16px;aspect-ratio:16/6;object-fit:cover;width:100%;margin-bottom:44px;}
-.voice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:16px;}
-.voice{background:#fff;border:1px solid #E3EDE7;border-radius:14px;padding:26px 22px;}
-.voice .face{width:56px;height:56px;border-radius:50%;background:linear-gradient(160deg,#CFE3D7,#EAF3EE);margin:0 auto 12px;display:flex;align-items:center;justify-content:center;color:var(--main-dark);font-size:12px;font-weight:500;}
-/* 実案件ではfaceを顔写真に差し替え(本人許諾必須) */
-.voice .who{text-align:center;font-size:13px;color:var(--muted);margin-bottom:12px;}
-.voice p{font-size:14px;}
-.voices .disclaimer{text-align:center;}
-
-/* 料金・オファー */
-.offer{background:linear-gradient(160deg,#3E6B52,#4C8C6A);color:#fff;}
-.offer .sec-title,.offer h3{color:#fff;}
-.offer-card{background:#fff;color:var(--text);border-radius:18px;max-width:640px;margin:0 auto;padding:44px 40px;text-align:center;box-shadow:0 20px 50px rgba(0,0,0,.2);}
-.offer-card .label{display:inline-block;background:var(--bg-soft);color:var(--main-dark);border-radius:999px;padding:4px 20px;font-size:13px;font-weight:700;margin-bottom:18px;}
-.price-row{display:flex;align-items:baseline;justify-content:center;gap:10px;margin-bottom:6px;}
-.price-row .was{color:#9AA5A0;text-decoration:line-through;font-size:16px;}
-.price-row .now{font-family:'Zen Maru Gothic';font-size:52px;font-weight:700;color:#C97B47;line-height:1;}
-.price-row .unit{font-size:16px;color:var(--muted);}
-.offer-card .since{font-size:13px;color:var(--muted);margin-bottom:24px;}
-.offer-points{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:28px;}
-.offer-points span{background:var(--bg-soft);border-radius:8px;padding:6px 14px;font-size:13px;color:var(--main-dark);font-weight:500;}
+/* Price */
+.offer{scroll-margin-top:20px;background:var(--yellow);border-top:10px solid var(--green)}
+.offer-grid{display:grid;grid-template-columns:45% 55%;align-items:center}
+.offer-main{padding-right:65px;border-right:2px solid var(--green)}
+.offer .section-kicker{color:var(--green)}
+.offer-price{margin:22px 0 10px;color:var(--green)}
+.offer-price .initial{display:block;font-size:14px;font-weight:800}
+.offer-price strong{font-family:var(--serif);font-size:clamp(70px,8vw,112px);line-height:1;color:var(--green)}
+.offer-price .yen{font-size:20px;font-weight:800}
+.offer-price .tax{font-size:12px}
+.offer-detail{padding-left:65px}
+.condition-list{display:grid;gap:0;list-style:none;border-top:1px solid rgba(23,61,51,.45)}
+.condition-list li{display:flex;justify-content:space-between;gap:24px;padding:13px 0;border-bottom:1px solid rgba(23,61,51,.45);font-size:14px}
+.condition-list strong{color:var(--green)}
+.offer-cta{display:flex;width:100%;align-items:center;justify-content:center;margin-top:24px;padding:17px 22px;background:var(--coral);color:var(--white);border:2px solid var(--green);border-radius:4px;font-weight:800;text-decoration:none;box-shadow:5px 5px 0 var(--green)}
+.offer .small-note{margin-top:16px;color:#40564e}
 
 /* FAQ */
-.faq-list{max-width:720px;margin:0 auto;display:grid;gap:14px;}
-.faq-list details{background:var(--bg-soft);border-radius:12px;padding:18px 24px;}
-.faq-list summary{font-weight:700;color:var(--main-dark);cursor:pointer;list-style:none;position:relative;padding-right:28px;}
-.faq-list summary::after{content:"＋";position:absolute;right:0;top:0;color:var(--main);}
-.faq-list details[open] summary::after{content:"－";}
-.faq-list details p{margin-top:12px;font-size:15px;}
+.faq{background:var(--ivory)}
+.faq-list{max-width:860px;margin:48px auto 0;border-top:1px solid var(--line)}
+.faq-list details{border-bottom:1px solid var(--line)}
+.faq-list summary{position:relative;cursor:pointer;list-style:none;padding:22px 52px 22px 44px;font-weight:700;color:var(--green)}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list summary::before{content:'Q';position:absolute;left:0;top:18px;font-family:var(--serif);font-size:24px;color:var(--coral)}
+.faq-list summary::after{content:'＋';position:absolute;right:3px;top:20px;font-size:20px;color:var(--green)}
+.faq-list details[open] summary::after{content:'−'}
+.faq-answer{padding:0 44px 24px;color:var(--muted);font-size:14px}
 
-/* クロージング */
-.closing{background:linear-gradient(135deg,#EAF3EE,#FDF4EB);text-align:center;}
-.closing h2{font-size:30px;margin-bottom:16px;}
-.closing .sec-lead{margin-bottom:36px;}
+/* Closing */
+.closing{padding:0;background:var(--green);color:var(--white)}
+.closing-grid{display:grid;grid-template-columns:58% 42%;min-height:520px}
+.closing-copy{display:flex;flex-direction:column;justify-content:center;padding:70px 72px 70px max(24px,calc((100vw - 1180px)/2))}
+.closing .section-kicker{color:var(--yellow)}
+.closing h2{font-family:var(--serif);font-size:clamp(34px,4vw,56px);line-height:1.45;letter-spacing:0}
+.closing p{max-width:600px;margin-top:18px;color:#d8e3df}
+.closing .offer-cta{max-width:430px;border-color:var(--white);box-shadow:5px 5px 0 var(--yellow)}
+.closing-visual{position:relative;overflow:hidden;background:#b8946a}
+.closing-scene{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+.closing-package-design{position:absolute;left:37%;top:45%;width:24%;transform:translate(-50%,-50%);color:var(--green);text-align:center;text-shadow:0 1px 0 rgba(255,255,255,.5)}
+.closing-package-design::before,.closing-package-design::after{content:'';position:absolute;top:-2px;width:8px;height:13px;border:1px solid currentColor;border-radius:80% 0 80% 0;opacity:.72}
+.closing-package-design::before{left:14px;transform:rotate(-28deg)}
+.closing-package-design::after{right:14px;transform:scaleX(-1) rotate(-28deg)}
+.closing-package-kicker{display:block;padding-top:10px;font-size:clamp(6px,.65vw,9px);font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.closing-package-name{display:block;margin-top:6px;font-family:var(--serif);font-size:clamp(15px,1.9vw,25px);line-height:1.1;letter-spacing:.08em}
+.closing-package-detail{display:block;margin-top:5px;padding:4px 0;border-top:1px solid currentColor;border-bottom:1px solid currentColor;font-size:clamp(6px,.7vw,9px);font-weight:800;letter-spacing:.08em}
+.closing-package-days{display:block;margin-top:4px;font-size:clamp(6px,.62vw,8px);font-weight:700;letter-spacing:.08em}
+.hero-package-design{left:48%;top:46%;width:22%}
 
-footer{background:var(--main-dark);color:#C9D8CF;font-size:12px;padding:36px 0;text-align:center;line-height:2;}
-footer a{color:#C9D8CF;}
+footer{padding:48px 0;background:#0e2922;color:#c7d5cf;font-size:11px;line-height:1.9}
+.footer-grid{display:grid;grid-template-columns:1fr 2fr;gap:50px}
+.footer-brand{font-family:var(--serif);font-size:26px;color:var(--white)}
+.footer-notes p+p{margin-top:8px}
+.copyright{margin-top:28px;padding-top:18px;border-top:1px solid rgba(255,255,255,.18)}
 
-@media (max-width:768px){
-  .fv .inner,.solution .inner{grid-template-columns:1fr;}
-  .fv h1{font-size:26px;}
-  .sec{padding:56px 0;}
-  .sec-title{font-size:24px;}
-  .manga-grid{grid-template-columns:repeat(2,1fr);}
-  .benefit-grid,.voice-grid{grid-template-columns:1fr;}
-  .fv-visual{max-width:420px;margin:0 auto;}
-  .offer-card{padding:32px 20px;}
-  .price-row{flex-wrap:wrap;row-gap:2px;}
-  .price-row .was{width:100%;}
-  .price-row .now{font-size:40px;}
-  .price-row .now,.price-row .unit{white-space:nowrap;}
-  .cta{padding:18px 40px;font-size:17px;display:block;}
+@media(max-width:900px){
+  .container{width:min(100% - 36px,720px)}
+  .section{padding:76px 0}
+  .hero-grid{grid-template-columns:48% 52%;column-gap:28px}
+  .hero-visual{min-height:570px}
+  .hero-cta{min-width:0;width:100%}
+  .lifestyle-copy{padding-left:46px}
+  .ingredient-copy{padding:64px 36px 64px 46px}
+  .feature{padding-inline:22px}
+  .offer-main{padding-right:38px}
+  .offer-detail{padding-left:38px}
 }
-@media (max-width:480px){
-  .manga-grid{grid-template-columns:1fr;}
-  .koma{aspect-ratio:auto;min-height:180px;}
+
+@media(max-width:700px){
+  .container{width:calc(100% - 32px)}
+  .section{padding:62px 0}
+  .site-header{height:54px}
+  .brand{font-size:21px}
+  .brand small{font-size:8px}
+  .nav-links li:not(:last-child){display:none}
+  .nav-links .nav-cta{padding:8px 11px;font-size:11px}
+  .hero-grid{min-height:0;grid-template-columns:1fr;grid-template-rows:auto clamp(250px,52vw,280px) auto;gap:0;align-content:start;padding-top:17px;padding-bottom:18px}
+  .hero-intro{align-self:auto;padding:0}
+  .hero-eyebrow{margin-bottom:9px;font-size:9px}
+  .product-word{margin-bottom:7px;font-size:37px}
+  .promise{font-size:30px;line-height:1.28}
+  .hero-lead{margin-top:10px;font-size:12px;line-height:1.65}
+  .hero-visual{grid-column:1;grid-row:2;min-height:0;height:clamp(250px,52vw,280px);margin-top:12px;border-left:0;border-top:5px solid var(--white)}
+  .hero-scene{object-position:50% 56%}
+  .visual-caption{right:8px;bottom:7px;padding:3px 6px;font-size:8px}
+  .hero-offer{grid-row:3;padding-top:12px}
+  .price{font-size:42px}
+  .price-label,.price-unit{font-size:11px}
+  .offer-meta{font-size:9px}
+  .hero-cta{margin-top:8px;padding:12px 15px;font-size:14px;box-shadow:4px 4px 0 var(--green)}
+  .hero-relief{margin-top:7px;font-size:9px}
+  .lifestyle-grid,.ingredient-grid,.offer-grid,.closing-grid{grid-template-columns:1fr}
+  .lifestyle-photo{min-height:0;aspect-ratio:4/3;object-position:center}
+  .lifestyle-copy{padding:44px 16px 0;border-bottom:0;border-top:0}
+  .routine-statement{margin-top:26px;padding:20px 0;font-size:23px}
+  .ingredient-photo{height:310px}
+  .ingredient-copy{padding:48px 16px 58px}
+  .ingredient-number strong{font-size:58px}
+  .feature-grid{grid-template-columns:1fr;margin-top:38px}
+  .feature{padding:28px 0}
+  .feature+ .feature{border-left:0;border-top:1px solid var(--line)}
+  .howto-head{display:block}
+  .howto-head .section-lead{margin-top:18px}
+  .steps{grid-template-columns:1fr;margin-top:38px}
+  .step,.step+ .step{padding:24px 0;border-left:0;border-bottom:1px solid #e6b9aa}
+  .offer-main{padding:0 0 34px;border-right:0;border-bottom:2px solid var(--green)}
+  .offer-detail{padding:34px 0 0}
+  .offer-price strong{font-size:76px}
+  .condition-list li{font-size:12px}
+  .faq-list{margin-top:34px}
+  .faq-list summary{padding:19px 38px 19px 34px;font-size:14px}
+  .faq-list summary::before{top:15px;font-size:22px}
+  .faq-list summary::after{top:17px}
+  .faq-answer{padding:0 34px 20px;font-size:13px}
+  .closing-copy{padding:58px 16px 48px}
+  .closing-visual{height:330px}
+  .footer-grid{grid-template-columns:1fr;gap:20px}
 }
+
+@media(max-width:390px){
+  .promise{font-size:28px}
+  .hero-lead{font-size:11px}
+  .hero-relief{white-space:nowrap}
+}
+
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">本文へ移動</a>
 
-<!-- ①ファーストビュー -->
-<header class="fv">
-  <div class="inner">
-    <div>
-      <span class="badge">機能性表示食品（GABA 100mg配合）</span>
-      <h1>「夜中に目が覚める」を、<br><span class="mark">そのままにしない。</span></h1>
-      <p class="sub">睡眠の質（眠りの深さ）の向上に役立つ機能が報告されているGABAを、1日1粒の習慣に。</p>
-      <p class="note fv-note">※機能性表示食品の届出表示に基づく記載です。本ページは架空商品のサンプルです。</p>
-      <div class="fv-proof">
-        <span>シリーズ累計10万袋<span class="note">※2023年1月〜2026年6月・自社出荷実績（架空）</span></span>
-        <span>国内GMP認定工場で製造</span>
-        <span>1日1粒・約30日分</span>
-      </div>
-      <div class="cta-wrap" style="text-align:left;">
-        <a class="cta" href="#offer">初回1,980円ではじめる<small>2回目以降4,980円・回数しばりなし</small></a>
-        <p class="cta-relief">定期はいつでも解約できます。</p>
-      </div>
-    </div>
-    <div class="fv-visual">
-      <img class="photo" src="images/hero.jpg" alt="朝の光が差し込む白い寝室" width="1080" height="918" fetchpriority="high">
-      <div class="fv-pack">スヤミン</div>
-    </div>
-  </div>
+<header class="site-header">
+  <nav class="container nav" aria-label="ページ内ナビゲーション">
+    <a class="brand" href="#top">スヤミン<small>SUYAMIN</small></a>
+    <ul class="nav-links">
+      <li><a href="#about">商品について</a></li>
+      <li><a href="#features">3つの特徴</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a class="nav-cta" href="#offer">価格を見る</a></li>
+    </ul>
+  </nav>
 </header>
 
-<!-- ②漫画セクション(集中型・FV直後) -->
-<section class="sec manga">
-  <div class="inner">
-    <h2 class="sec-title">ある40代の、よくある夜の話。</h2>
-    <p class="sec-lead">※体験ストーリー漫画（台本設計済み・作画は制作中のプレースホルダです）</p>
-    <div class="manga-grid">
-      <div class="koma"><span class="no">1コマ目【起】</span><p>深夜2時。今日も目が覚めてしまった…（時計を見るミドリさん・45歳）</p></div>
-      <div class="koma"><span class="no">2コマ目【起】</span><p>翌朝。「寝たのに、疲れてる…」重い体で出勤の支度</p></div>
-      <div class="koma"><span class="no">3コマ目【承】</span><p>枕を替えても、早寝を心がけても、夜中の目覚めは変わらず</p></div>
-      <div class="koma"><span class="no">4コマ目【転】</span><p>友人から「私は寝る前のサプリを習慣にしてるよ」と聞く</p></div>
-      <div class="koma"><span class="no">5コマ目【転】</span><p>調べると、GABAは睡眠の質（眠りの深さ）の向上に役立つ機能が報告されている成分だと知る</p></div>
-      <div class="koma"><span class="no">6コマ目【結】</span><p>1日1粒を夜の歯みがきとセットに。「続けられそう」と笑顔に</p></div>
-    </div>
-    <p class="note manga-note">※漫画はイメージです。効果を保証するものではありません。詳しい台本は納品物「漫画台本.md」参照。</p>
-  </div>
-</section>
+<main id="main">
+  <!-- 1. First view -->
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="container hero-grid">
+      <div class="hero-intro">
+        <p class="hero-eyebrow">機能性表示食品・架空商品デモ</p>
+        <h1 id="hero-title">
+          <span class="product-word">スヤミン</span>
+          <span class="promise">眠りの深さに、<br><em>毎晩1粒。</em></span>
+        </h1>
+        <p class="hero-lead">睡眠の質（眠りの深さ）の向上に役立つ機能が報告されているGABAを、無理なく続ける夜の習慣へ。</p>
+      </div>
 
-<!-- ③共感 -->
-<section class="sec">
-  <div class="inner">
-    <h2 class="sec-title">こんな朝、続いていませんか？</h2>
-    <p class="sec-lead">40代・50代の働く世代に、眠りの悩みはとても身近です。</p>
-    <ul class="checks">
-      <li><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4C8C6A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>夜中に2回以上、目が覚めてしまう</li>
-      <li><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4C8C6A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>寝たはずなのに、疲れが抜けた感じがしない</li>
-      <li><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4C8C6A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>午後になると集中がもたない</li>
-      <li><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4C8C6A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>休日はつい昼まで寝てしまう</li>
-    </ul>
-    <p class="empathy-close">睡眠時間はあるのに、朝がつらい。<br>そんな方が見直しはじめているのが、眠りの「深さ」です。</p>
-  </div>
-</section>
+      <div class="hero-visual" aria-label="スヤミンの商品と利用場面">
+        <img class="hero-scene" src="images/hero-product-scene.jpg" alt="夜の木製カウンターに置いた架空商品スヤミンの白いパウチ、水の入ったグラス、不透明な1粒のカプセル" width="1448" height="1086" fetchpriority="high">
+        <span class="closing-package-design hero-package-design" aria-hidden="true">
+          <span class="closing-package-kicker">Night balance</span>
+          <strong class="closing-package-name">スヤミン</strong>
+          <span class="closing-package-detail">GABA 100 mg</span>
+          <span class="closing-package-days">1日1粒・30日分</span>
+        </span>
+        <span class="visual-caption">1日1粒・30日分</span>
+      </div>
 
-<!-- ④解決策 -->
-<section class="sec solution" style="background:var(--bg-soft);">
-  <div class="inner">
-    <img class="photo" src="images/leaves.jpg" alt="やわらかな光に透ける緑の葉" width="1080" height="720" loading="lazy">
-    <div>
-      <h2>眠りの深さに、<br>GABAという選択。</h2>
-      <p>スヤミンは、機能性関与成分GABAを1粒に100mg配合した機能性表示食品です。</p>
-      <div class="quote-box">届出表示: 本品にはGABAが含まれます。GABAには睡眠の質（眠りの深さ）の向上に役立つ機能があることが報告されています。<span class="note">（架空の届出・サンプル表記）</span></div>
-      <p>薬ではないから、毎日の習慣にそっと足せる。国内GMP認定工場での製造で、品質管理も徹底しています。</p>
-      <p class="note">※本品は医薬品ではありません。疾病の診断・治療・予防を目的としたものではありません。</p>
+      <div class="hero-offer">
+        <div class="price-line">
+          <span class="price-label">定期初回</span>
+          <strong class="price">1,980</strong>
+          <span class="price-unit">円（税込）</span>
+        </div>
+        <p class="offer-meta">送料無料／2回目以降4,980円／購入回数の約束なし</p>
+        <a class="hero-cta" href="#offer">価格と定期条件を確認する</a>
+        <p class="hero-relief">本ページは自主制作デモです。購入・送信は行われません。</p>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ⑤ベネフィット3点 -->
-<section class="sec benefits" style="background:#fff;">
-  <div class="inner">
-    <h2 class="sec-title">スヤミンが選ばれている3つの理由</h2>
-    <p class="sec-lead">「続けられること」を最優先に設計しました。</p>
-    <div class="benefit-grid">
-      <div class="benefit">
-        <div class="icon"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#4C8C6A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></div>
-        <h3>届出表示のある<br>GABA 100mg</h3>
-        <p>睡眠の質（眠りの深さ）の向上に役立つ機能が報告されている成分を、届出表示に基づき1粒に100mg配合。</p>
-      </div>
-      <div class="benefit">
-        <div class="icon"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#4C8C6A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-        <h3>夜の歯みがきに足すだけ<br>1日1粒</h3>
-        <p>小粒で飲みやすく、タイミングも自由。「増える手間」がほとんどないから、忙しい毎日でも続きます。</p>
-      </div>
-      <div class="benefit">
-        <div class="icon"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#4C8C6A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg></div>
-        <h3>国内GMP認定工場で<br>ひと粒ずつ品質管理</h3>
-        <p>原料の受け入れから出荷まで、医薬品レベルの品質管理基準を満たした国内工場で製造しています。</p>
+  <!-- 2. Lifestyle -->
+  <section class="section lifestyle" aria-labelledby="lifestyle-title">
+    <div class="container lifestyle-grid">
+      <img class="lifestyle-photo" src="images/morning_予備.jpg" alt="朝の光が入る窓辺と小さな植物" width="1080" height="720" loading="lazy">
+      <div class="lifestyle-copy">
+        <p class="section-kicker">Night routine</p>
+        <h2 class="section-title" id="lifestyle-title">寝る前の習慣は、<br>もっとシンプルでいい。</h2>
+        <p class="section-lead">忙しい日も、旅先でも。特別な準備を増やさず、いつもの夜に1粒を足す設計です。</p>
+        <p class="routine-statement">歯みがきのあとに、水と1粒。<br>それだけを、毎日の合図に。</p>
+        <ul class="routine-points">
+          <li>1日1粒を目安に、水またはぬるま湯と一緒に</li>
+          <li>時間の指定はなく、続けやすいタイミングで</li>
+          <li>30日分を持ち運びやすいパウチに</li>
+        </ul>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ⑥お客様の声 -->
-<section class="sec voices" style="background:var(--bg-soft);">
-  <div class="inner">
-    <h2 class="sec-title">続けている方の声</h2>
-    <p class="sec-lead">飲みやすさ・続けやすさについて、たくさんの声が届いています。</p>
-    <div class="voice-grid">
-      <div class="voice">
-        <div class="face">顔写真<br>枠</div>
-        <p class="who">48歳・会社員（架空）</p>
-        <p>「寝る前の1粒が、歯みがきと同じくらい自然な習慣になりました。小粒で本当に飲みやすいです。」</p>
-      </div>
-      <div class="voice">
-        <div class="face">顔写真<br>枠</div>
-        <p class="who">52歳・自営業（架空）</p>
-        <p>「サプリは三日坊主の私が、3袋目。ポーチに入るサイズで出張にも持っていけるのがありがたい。」</p>
-      </div>
-      <div class="voice">
-        <div class="face">顔写真<br>枠</div>
-        <p class="who">44歳・パート（架空）</p>
-        <p>「夫婦で夜のお茶のあとに飲んでいます。においが気にならないので続けやすいです。」</p>
+  <!-- 3. Product and ingredient -->
+  <section class="ingredient" id="about" aria-labelledby="ingredient-title">
+    <div class="ingredient-grid">
+      <img class="ingredient-photo" src="images/leaves.jpg" alt="朝の光を受けるみずみずしい緑の葉" width="1080" height="720" loading="lazy">
+      <div class="ingredient-copy">
+        <p class="section-kicker">About GABA</p>
+        <h2 class="section-title" id="ingredient-title">眠りの「深さ」に着目した、<br>GABA配合の設計。</h2>
+        <div class="ingredient-number"><strong>100</strong><span>mg／1日1粒</span></div>
+        <p>スヤミンは、機能性関与成分GABAを1日摂取目安量あたり100mg配合した、架空の機能性表示食品です。</p>
+        <p class="notice-copy"><strong>本デモでの届出表示設定</strong><br>本品にはGABAが含まれます。GABAには睡眠の質（眠りの深さ）の向上に役立つ機能があることが報告されています。</p>
+        <p class="small-note">※商品、配合、届出表示および届出番号はすべて架空のデモ設定です。実在する商品ではありません。<br>※本品は医薬品ではなく、疾病の診断、治療、予防を目的としたものではありません。</p>
       </div>
     </div>
-    <p class="note disclaimer">※すべて架空のサンプルです。実案件では実際にいただいた声（本人許諾済み）に差し替えます。<br>※使用感・続けやすさに関する感想であり、機能を保証するものではありません。</p>
-    <div class="cta-wrap" style="margin-top:44px;">
-      <p class="cta-motivate">まずは30日、夜の習慣に足してみませんか。</p>
-      <a class="cta" href="#offer">初回1,980円ではじめる<small>2回目以降4,980円・回数しばりなし</small></a>
-      <p class="cta-relief">定期はいつでも解約できます。</p>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ⑦料金・オファー -->
-<section class="sec offer" id="offer">
-  <div class="inner">
-    <h2 class="sec-title">はじめやすい価格で、まず30日。</h2>
-    <p class="sec-lead" style="color:#DFEDE4;">定期コースだけの初回特別価格です。</p>
-    <div class="offer-card">
-      <span class="label">定期コース 初回限定</span>
-      <div class="price-row">
-        <span class="was">通常4,980円</span>
-        <span class="now">1,980</span><span class="unit">円（税込・送料無料）</span>
-      </div>
-      <p class="since">2回目以降も4,980円（税込）でお届けします。<br><span class="note">※通常価格4,980円は当ショップの通常販売価格です（架空設定。実案件では販売実績の根拠を要確認）。</span></p>
-      <div class="offer-points">
-        <span>回数しばりなし</span>
-        <span>いつでも解約OK</span>
-        <span>次回お届けの10日前までに連絡</span>
-      </div>
-      <div class="cta-wrap">
-        <p class="cta-motivate">1日あたり約66円で、夜の新習慣を。</p>
-        <a class="cta" href="#">初回1,980円で申し込む<small>約1分で完了・入力は3項目</small></a>
-        <p class="cta-relief">解約はマイページまたは電話で1分。理由は聞きません。</p>
+  <!-- 4. Three features -->
+  <section class="section features" id="features" aria-labelledby="features-title">
+    <div class="container">
+      <p class="section-kicker">Three features</p>
+      <h2 class="section-title" id="features-title">続けるために、<br>余計なものを増やさない。</h2>
+      <p class="section-lead">強い言葉や架空の実績ではなく、成分・飲み方・定期条件を購入前に確認できる構成にしています。</p>
+      <div class="feature-grid">
+        <article class="feature">
+          <span class="feature-no">01</span>
+          <h3>GABA 100mgを<br>1粒に</h3>
+          <p>機能性関与成分と1日摂取目安量を明記。何をどれだけ摂る商品か、迷わず確認できます。</p>
+          <span class="feature-tag">成分量を明記</span>
+        </article>
+        <article class="feature">
+          <span class="feature-no">02</span>
+          <h3>1日1粒、<br>タイミングは自由</h3>
+          <p>毎日の生活に合わせて選べるシンプルな飲み方。30日分を1袋にまとめたデモ仕様です。</p>
+          <span class="feature-tag">30粒入り</span>
+        </article>
+        <article class="feature">
+          <span class="feature-no">03</span>
+          <h3>定期条件を<br>先に見せる</h3>
+          <p>2回目以降の価格と解約期限を隠さず掲載。申し込み前に総額と続け方を判断できます。</p>
+          <span class="feature-tag">回数の約束なし</span>
+        </article>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ⑧FAQ -->
-<section class="sec">
-  <div class="inner">
-    <h2 class="sec-title">よくあるご質問</h2>
-    <p class="sec-lead">ご不安な点は、お申し込み前にすべて解消してください。</p>
-    <div class="faq-list">
-      <details>
-        <summary>いつ飲めばいいですか？</summary>
-        <p>お好きなタイミングで大丈夫です。続けている方の多くは「夜の歯みがきの前後」など、毎日の習慣とセットにしています。1日1粒を目安に、水またはぬるま湯でお召し上がりください。</p>
-      </details>
-      <details>
-        <summary>どのくらいで変化を感じられますか？</summary>
-        <p>機能性表示食品は医薬品ではないため、感じ方には個人差があります。毎日の習慣として続けやすいよう、まずは30日分・初回1,980円からお試しいただける設計にしています。</p>
-      </details>
-      <details>
-        <summary>薬を飲んでいますが、一緒に摂って大丈夫ですか？</summary>
-        <p>お薬を服用中の方・通院中の方・妊娠授乳中の方は、かかりつけの医師または薬剤師にご相談のうえお召し上がりください。パッケージにも全成分を記載しています。</p>
-      </details>
-      <details>
-        <summary>定期コースの解約は本当にすぐできますか？</summary>
-        <p>はい。回数のお約束はなく、次回お届け日の10日前までにマイページまたはお電話でご連絡いただければ、1回目のみでも解約できます。手続きは約1分です。</p>
-      </details>
-      <details>
-        <summary>味やにおいはありますか？</summary>
-        <p>直径8mmの小粒タイプで、においを抑えたコーティングをしています。「においが気にならず続けやすい」という声を多くいただいています。</p>
-      </details>
+  <!-- 5. How to -->
+  <section class="section howto" aria-labelledby="howto-title">
+    <div class="container">
+      <div class="howto-head">
+        <div>
+          <p class="section-kicker">How to take</p>
+          <h2 class="section-title" id="howto-title">夜の流れに、<br>3ステップ。</h2>
+        </div>
+        <p class="section-lead">飲む時間を固定する商品設定ではありません。生活の中で忘れにくいタイミングを決めてください。</p>
+      </div>
+      <ol class="steps">
+        <li class="step">
+          <span class="step-num">01</span>
+          <h3>パウチから1粒</h3>
+          <p>1日摂取目安量は1粒です。目安量を守ってください。</p>
+        </li>
+        <li class="step">
+          <span class="step-num">02</span>
+          <h3>水またはぬるま湯で</h3>
+          <p>噛まずに、そのままお召し上がりください。</p>
+        </li>
+        <li class="step">
+          <span class="step-num">03</span>
+          <h3>パウチをしっかり閉じる</h3>
+          <p>直射日光と高温多湿を避けて保存する設定です。</p>
+        </li>
+      </ol>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ⑨クロージングCTA -->
-<section class="sec closing">
-  <div class="inner">
-    <h2>眠りの「深さ」と向き合う30日、<br>今夜からはじめませんか。</h2>
-    <p class="sec-lead">夜の歯みがきに、1粒を足すだけ。はじめやすい価格でお試しいただけます。</p>
-    <div class="cta-wrap">
-      <a class="cta" href="#offer">初回1,980円ではじめる<small>2回目以降4,980円・回数しばりなし</small></a>
-      <p class="cta-relief">定期はいつでも解約できます。まずは30日、お試しください。</p>
+  <!-- 6. Price and subscription conditions -->
+  <section class="section offer" id="offer" aria-labelledby="offer-title">
+    <div class="container offer-grid">
+      <div class="offer-main">
+        <p class="section-kicker">Demo offer</p>
+        <h2 class="section-title" id="offer-title">まずは30日分から。</h2>
+        <div class="offer-price">
+          <span class="initial">定期コース・初回</span>
+          <strong>1,980</strong><span class="yen">円</span><span class="tax">（税込）</span>
+        </div>
+        <p>GABA配合サプリメント 30粒入り</p>
+      </div>
+      <div class="offer-detail">
+        <ul class="condition-list" aria-label="定期コースの条件">
+          <li><strong>2回目以降</strong><span>4,980円（税込）</span></li>
+          <li><strong>送料</strong><span>無料</span></li>
+          <li><strong>購入回数</strong><span>約束なし</span></li>
+          <li><strong>休止・解約</strong><span>次回発送予定日の10日前まで</span></li>
+        </ul>
+        <a class="offer-cta" href="#" aria-describedby="offer-demo-note">初回1,980円で始める</a>
+        <p class="small-note" id="offer-demo-note">※価格・定期条件はすべて架空のデモ設定です。ボタンを押しても購入・送信は行われません。</p>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- 7. FAQ -->
+  <section class="section faq" id="faq" aria-labelledby="faq-title">
+    <div class="container">
+      <p class="section-kicker">FAQ</p>
+      <h2 class="section-title" id="faq-title">購入前の確認事項</h2>
+      <div class="faq-list">
+        <details>
+          <summary>いつ飲めばよいですか？</summary>
+          <div class="faq-answer"><p>本デモの商品設定では、時間の指定はありません。1日1粒を目安に、水またはぬるま湯と一緒にお召し上がりください。</p></div>
+        </details>
+        <details>
+          <summary>薬と一緒に飲んでもよいですか？</summary>
+          <div class="faq-answer"><p>実際の商品では、治療中の方、服薬中の方、妊娠・授乳中の方は、医師または薬剤師へ相談してから利用してください。本ページでは個別の医療判断を行いません。</p></div>
+        </details>
+        <details>
+          <summary>定期コースに回数の約束はありますか？</summary>
+          <div class="faq-answer"><p>デモ設定では購入回数の約束はありません。休止・解約は、次回発送予定日の10日前までに所定の窓口へ連絡する想定です。</p></div>
+        </details>
+        <details>
+          <summary>実際に購入できますか？</summary>
+          <div class="faq-answer"><p>購入できません。スヤミンは架空商品で、本ページはLP制作の自主制作デモです。フォーム送信、決済、商品発送は行われません。</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Final CTA -->
+  <section class="closing" aria-labelledby="closing-title">
+    <div class="closing-grid">
+      <div class="closing-copy">
+        <p class="section-kicker">Start tonight</p>
+        <h2 id="closing-title">眠りの深さに、<br>毎晩1粒という選択。</h2>
+        <p>商品、最大便益、価格、定期条件を確認してから選べるD2C商品LPのデモです。</p>
+        <a class="offer-cta" href="#" aria-describedby="closing-demo-note">デモの購入導線を確認する</a>
+        <p class="small-note" id="closing-demo-note">自主制作デモのため、購入・送信は行われません。</p>
+      </div>
+      <div class="closing-visual" aria-label="架空商品スヤミンの商品イメージ">
+        <img class="closing-scene" src="images/closing-product-scene.jpg" alt="木製テーブルの上に置いた架空商品スヤミンの白いパウチ、水の入ったグラス、不透明な1粒のカプセル" width="1448" height="1086" loading="lazy">
+        <span class="closing-package-design" aria-hidden="true">
+          <span class="closing-package-kicker">Night balance</span>
+          <strong class="closing-package-name">スヤミン</strong>
+          <span class="closing-package-detail">GABA 100 mg</span>
+          <span class="closing-package-days">1日1粒・30日分</span>
+        </span>
+      </div>
+    </div>
+  </section>
+</main>
 
 <footer>
-  <div class="inner">
-    <p>スヤミン（架空商品）｜このページは制作実績用のサンプルLPです。実在の商品・事業者とは関係ありません。</p>
-    <p>本品は、事業者の責任において特定の保健の目的が期待できる旨を表示するものとして、消費者庁長官に届出されたものです（架空設定）。食生活は、主食、主菜、副菜を基本に、食事のバランスを。</p>
-    <p><a href="#">特定商取引法に基づく表記（ダミー）</a>｜<a href="#">プライバシーポリシー（ダミー）</a></p>
-    <p>素材: Unsplash（Susan Wilkinson / eduard / Ash Amplifies）</p>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-brand">スヤミン</p>
+        <p>架空の機能性表示食品LP<br>自主制作デモ</p>
+      </div>
+      <div class="footer-notes">
+        <p>本ページの商品名、商品画像、配合、届出表示、届出番号、価格、定期条件はすべて架空の設定です。実在する商品・企業・販売実績を示すものではありません。</p>
+        <p>本品は医薬品ではありません。疾病の診断、治療、予防を目的としたものではありません。食生活は、主食、主菜、副菜を基本に、食事のバランスを。</p>
+        <p>CTAはデモ表示であり、フォーム送信・決済・商品発送は行われません。</p>
+      </div>
+    </div>
+    <p class="copyright">© 2026 Suyamin LP Design Demo</p>
   </div>
 </footer>
-
 </body>
 </html>

@@ -1,0 +1,35 @@
+/* 台本サンプルページ共通スタイル（scripts/ 配下） */
+:root{--ink:#171a1f;--muted:#687079;--paper:#f5f3ef;--white:#fff;--line:#dcd8d0;--accent:#255f54;--warm:#b9754c}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:"Noto Sans JP",sans-serif;line-height:1.85}
+a{color:inherit;text-decoration:none}
+.site-header{height:64px;padding:0 clamp(20px,5vw,72px);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);background:rgba(245,243,239,.94);position:sticky;top:0;z-index:20;backdrop-filter:blur(12px)}
+.brand{font:700 18px/1 "Shippori Mincho",serif;letter-spacing:.02em}
+.brand span{font:600 10px/1 "Noto Sans JP",sans-serif;letter-spacing:.16em;margin-left:8px;color:var(--muted)}
+.header-link{font-size:13px;font-weight:700;border-bottom:1px solid var(--ink)}
+main{max-width:860px;margin:auto;padding:clamp(40px,6vw,72px) 20px 90px}
+.eyebrow{margin:0 0 12px;font-size:11px;font-weight:800;letter-spacing:.18em;color:var(--accent)}
+h1{margin:0 0 22px;font:700 clamp(26px,4.5vw,42px)/1.4 "Shippori Mincho",serif;letter-spacing:-.02em}
+.demo-notice{padding:16px 20px;background:#ebe7df;border-left:4px solid var(--warm);font-size:13px;margin-bottom:30px}
+.demo-notice strong{margin-right:6px}
+.meta{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:26px}
+.meta div{background:var(--white);padding:12px 16px;font-size:13px}
+.meta b{display:block;font-size:10px;font-weight:800;letter-spacing:.14em;color:var(--muted);margin-bottom:2px}
+.chars{background:var(--white);border:1px solid var(--line);padding:18px 22px;margin-bottom:34px;font-size:13px}
+.chars h2{margin:0 0 10px;font-size:14px;font-family:"Noto Sans JP",sans-serif}
+.chars ul{margin:0;padding-left:20px}
+.chars li{margin-bottom:4px}
+.ts{display:inline-block;margin:32px 0 12px;padding:4px 12px;background:var(--ink);color:#fff;font-size:12px;font-weight:700;border-radius:3px;letter-spacing:.04em}
+.line{margin:0 0 12px;font-size:14px}
+.spk{display:grid;grid-template-columns:96px 1fr;gap:12px}
+.spk b{color:var(--accent)}
+.tgk{background:#ecebe7;color:#4d545b;padding:9px 14px;font-size:13px;border-radius:4px}
+.se{color:#8a6d3b;font-size:13px}
+.se::before{content:"♪ ";font-weight:700}
+.nar{font-style:italic;color:#41484e;border-left:3px solid var(--line);padding-left:14px}
+.telop{background:#fff3b0;padding:1px 6px;border-radius:3px;font-weight:600}
+.closing{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+footer{padding:30px clamp(20px,5vw,72px);display:flex;justify-content:space-between;gap:20px;background:var(--ink);color:#fff;font-size:13px}
+footer span{font-family:"Shippori Mincho",serif;font-weight:700}
+footer a{color:#fff;border-bottom:1px solid #6b7178}
+@media(max-width:640px){.site-header{height:56px}.brand span{display:none}.meta{grid-template-columns:1fr}.spk{grid-template-columns:1fr;gap:2px}footer{flex-direction:column}}

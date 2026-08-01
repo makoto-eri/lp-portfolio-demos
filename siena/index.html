@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<script src="../shared/demo-banner.js" defer></script>
+<title>Nail atelier Siena｜自爪を削らないパラジェル×フィルインの1席プライベートネイルサロン（自由が丘）</title>
+<meta name="description" content="自爪を削らないパラジェル×フィルインの完全予約制プライベートネイルサロン。初回うるつやワンカラー5,980円（税込・甘皮ケア込み）。自由が丘駅徒歩4分。※LP制作ポートフォリオ用デモ">
+<link rel="icon" href="assets/siena-nail-01-greige.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;800&family=Noto+Sans+JP:wght@300;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#F7F1E8; --siena:#A9573B; --brown:#33261E; --ink:#2B211B; --ink-rev:#F7F1E8;
+  --rose:#EFE0D5; --sage:#E7E4DA; --line:#C9B8A9;
+  --serif:"Shippori Mincho",serif; --sans:"Noto Sans JP",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);font-weight:300;color:var(--ink);background:var(--cream);line-height:1.9;letter-spacing:.04em;overflow-x:hidden}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:var(--serif);font-weight:800;line-height:1.5}
+.nw{white-space:nowrap;display:inline-block}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.grain-overlay{position:fixed;inset:0;pointer-events:none;filter:url(#grain);opacity:.045;mix-blend-mode:overlay;z-index:9999}
+.en{font-family:var(--serif);letter-spacing:.28em;text-transform:uppercase;font-weight:500;font-size:.72rem;color:var(--siena)}
+.sec-head{margin-bottom:56px}
+.sec-head .en{display:block;margin-bottom:14px}
+.sec-head h2{font-size:clamp(1.5rem,3.4vw,2.2rem)}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.is-visible{opacity:1;transform:none}
+.demo-note{font-size:.68rem;color:inherit;opacity:.62;letter-spacing:.06em}
+
+/* CTA */
+.cta-btn{display:inline-block;background:var(--siena);color:#fff;text-decoration:none;font-weight:700;font-family:var(--sans);
+  font-size:1.05rem;letter-spacing:.12em;padding:20px 56px;border-radius:2px;position:relative;
+  box-shadow:0 8px 30px rgba(51,38,30,.18);transition:transform .25s ease,box-shadow .25s ease}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(169,87,59,.35)}
+.cta-block{text-align:center}
+.cta-block .micro{margin-top:14px;font-size:.8rem;letter-spacing:.1em;opacity:.85}
+
+/* ===== FV ===== */
+.fv{position:relative;min-height:92vh;display:flex;align-items:stretch;background:
+  linear-gradient(rgba(247,241,232,.92),rgba(247,241,232,.92)),url("assets/siena-texture-paper.jpg");background-size:auto,480px}
+.fv-photo{position:absolute;top:0;right:0;width:65%;height:100%;overflow:hidden;
+  clip-path:polygon(9% 0,100% 0,100% 100%,0 100%)}
+.fv-photo img{width:100%;height:100%;object-fit:cover;object-position:70% 40%}
+.fv-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(247,241,232,.55) 0%,rgba(247,241,232,0) 42%)}
+.fv-inner{position:relative;z-index:2;width:100%;display:flex;align-items:center;padding:110px 0 150px}
+.fv-tate{position:absolute;left:26px;top:120px;writing-mode:vertical-rl;font-family:var(--serif);font-weight:500;
+  font-size:.85rem;letter-spacing:.42em;color:var(--siena);border-left:1px solid var(--line);padding-left:14px}
+.fv-copy{max-width:600px;padding-left:96px}
+.fv-copy .brand{font-family:var(--serif);font-weight:500;letter-spacing:.3em;font-size:.8rem;margin-bottom:26px}
+.fv-copy h1{font-size:clamp(1.9rem,4.6vw,3.3rem);line-height:1.6;margin-bottom:22px;text-shadow:0 0 18px rgba(247,241,232,.9)}
+.fv-copy h1 .thin{font-weight:500}
+.fv-copy .sub{font-size:.95rem;font-weight:300;margin-bottom:34px;max-width:30em;text-shadow:0 0 14px rgba(247,241,232,.95)}
+.fv-offer{display:inline-block;background:#fff;border:1px solid var(--line);padding:18px 26px;margin-bottom:26px;
+  box-shadow:0 8px 30px rgba(51,38,30,.08)}
+.fv-offer .label{font-size:.72rem;letter-spacing:.22em;color:var(--siena);font-weight:700;display:block;margin-bottom:2px}
+.fv-offer .price{font-family:var(--serif);font-weight:800;font-size:1.9rem;line-height:1.3}
+.fv-offer .price small{font-size:.75rem;font-weight:500;font-family:var(--sans)}
+.fv .demo-note{position:absolute;right:16px;bottom:12px;z-index:3;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,.4)}
+.trust{position:absolute;left:0;right:0;bottom:0;z-index:3;background:rgba(51,38,30,.92);color:var(--ink-rev)}
+.trust ul{display:flex;justify-content:center;gap:0;list-style:none;max-width:1080px;margin:0 auto}
+.trust li{flex:1;text-align:center;padding:18px 10px;font-size:.82rem;letter-spacing:.12em}
+.trust li+li{border-left:1px solid rgba(247,241,232,.2)}
+.trust li strong{font-family:var(--serif);font-weight:800;font-size:1rem;display:block;letter-spacing:.14em}
+.trust li strong .num{font-size:1.5em}
+.trust .demo-mark{font-size:.62rem;opacity:.6}
+
+/* ===== 悩み ===== */
+.sec-nayami{background:#fff;padding:110px 0 120px}
+.nayami-list{max-width:640px;margin:0 auto 48px;list-style:none}
+.nayami-list li{position:relative;padding:18px 8px 18px 44px;border-bottom:1px solid var(--sage);font-size:1rem}
+.nayami-list li::before{content:"";position:absolute;left:8px;top:26px;width:18px;height:18px;border:1px solid var(--siena);border-radius:50%}
+.nayami-list li::after{content:"";position:absolute;left:13px;top:31px;width:8px;height:8px;background:var(--siena);border-radius:50%}
+.nayami-close{max-width:640px;margin:0 auto;text-align:center;font-family:var(--serif);font-weight:500;font-size:1.15rem;line-height:2.1}
+.nayami-close strong{font-weight:800;background:linear-gradient(transparent 68%,var(--rose) 68%)}
+
+/* ===== 理由 ===== */
+.sec-reason{background:var(--rose);padding:120px 0 130px;position:relative}
+.reason-item{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:56px;align-items:center;margin-bottom:96px}
+.reason-item:last-child{margin-bottom:0}
+.reason-item:nth-child(even) .reason-photo{order:2}
+.reason-photo{position:relative}
+.reason-photo img{width:100%;height:340px;object-fit:cover;clip-path:polygon(0 0,100% 4%,100% 100%,0 96%)}
+.reason-item:nth-child(even) .reason-photo img{clip-path:polygon(0 4%,100% 0,100% 96%,0 100%)}
+.reason-num{position:absolute;top:-34px;left:-10px;font-family:var(--serif);font-weight:800;font-size:4.4rem;color:var(--siena);opacity:.32;line-height:1}
+.reason-text h3{font-size:1.45rem;margin-bottom:18px}
+.reason-text p{font-size:.95rem}
+.reason-text .note{font-size:.75rem;opacity:.7;margin-top:8px}
+
+/* ===== ギャラリー ===== */
+.sec-gallery{background:var(--brown);color:var(--ink-rev);padding:120px 0 130px}
+.sec-gallery .en{color:#D9A088}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.gallery-grid figure{overflow:hidden;position:relative}
+.gallery-grid img{width:100%;height:100%;object-fit:cover;aspect-ratio:1/1;transition:transform .6s ease}
+.gallery-grid figure:hover img{transform:scale(1.05)}
+.gallery-grid figure.big{grid-column:span 2;grid-row:span 2}
+.gallery-note{margin-top:18px;text-align:right}
+
+/* ===== 料金 ===== */
+.sec-menu{background:var(--cream);padding:120px 0}
+.menu-table{max-width:760px;margin:0 auto 20px;border-top:1px solid var(--line)}
+.menu-row{display:flex;justify-content:space-between;align-items:baseline;gap:18px;padding:26px 8px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.menu-row .name{font-family:var(--serif);font-weight:500;font-size:1.05rem}
+.menu-row .name small{font-family:var(--sans);font-weight:300;font-size:.78rem;display:block;opacity:.75}
+.menu-row .price{text-align:right;font-size:.95rem}
+.menu-row .price .first{font-family:var(--serif);font-weight:800;font-size:1.5rem;color:var(--siena)}
+.menu-row .price .reg{opacity:.65;font-size:.82rem;margin-right:10px}
+.menu-note{max-width:760px;margin:0 auto 56px;font-size:.82rem;text-align:center;background:#fff;border:1px solid var(--sage);padding:16px 20px}
+
+/* ===== ネイリスト ===== */
+.sec-staff{background:#fff;padding:120px 0}
+.staff-grid{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr);gap:64px;align-items:center}
+.staff-photo{position:relative}
+.staff-photo img{clip-path:polygon(0 0,100% 3%,97% 100%,3% 97%)}
+.staff-name{font-family:var(--serif);font-weight:800;font-size:1.5rem;margin-bottom:4px}
+.staff-role{font-size:.8rem;letter-spacing:.12em;margin-bottom:24px}
+.staff-quote{font-family:var(--serif);font-weight:500;font-size:1.02rem;line-height:2.2;border-left:2px solid var(--siena);padding-left:22px}
+.staff-sns{margin-top:26px;font-size:.8rem}
+.staff-sns a{color:var(--siena);text-decoration:none;letter-spacing:.18em;border-bottom:1px solid var(--line);padding-bottom:2px}
+
+/* ===== 店内 ===== */
+.sec-atelier{position:relative;padding:0}
+.atelier-photo{height:64vh;min-height:420px}
+.atelier-photo img{width:100%;height:100%;object-fit:cover;clip-path:polygon(0 6%,100% 0,100% 100%,0 100%)}
+.atelier-card{position:relative;max-width:560px;margin:-120px auto 0;background:var(--cream);padding:52px 48px 48px;z-index:2;
+  box-shadow:0 8px 30px rgba(51,38,30,.08)}
+.atelier-card h2{font-size:1.5rem;margin-bottom:18px}
+.atelier-card p{font-size:.92rem}
+.sec-atelier-outer{background:var(--rose);padding-bottom:120px}
+
+/* ===== 声 ===== */
+.sec-voice{background:var(--brown);color:var(--ink-rev);padding:120px 0}
+.sec-voice .en{color:#D9A088}
+.voice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-bottom:20px}
+.voice-card{background:rgba(247,241,232,.06);border:1px solid rgba(247,241,232,.18);padding:0 0 26px}
+.voice-card img{aspect-ratio:4/5;object-fit:cover;width:100%}
+.voice-card blockquote{font-size:.9rem;line-height:2;padding:22px 24px 10px}
+.voice-card cite{font-style:normal;font-size:.75rem;opacity:.7;padding:0 24px}
+.voice-note{text-align:right;margin-bottom:60px}
+
+/* ===== 流れ ===== */
+.sec-flow{background:var(--cream);padding:120px 0}
+.flow-list{display:grid;grid-template-columns:repeat(5,1fr);gap:0;counter-reset:step;max-width:980px;margin:0 auto}
+.flow-item{position:relative;padding:0 18px;text-align:center}
+.flow-item+.flow-item::before{content:"";position:absolute;left:0;top:26px;width:1px;height:calc(100% - 26px);background:var(--line)}
+.flow-item .step{font-family:var(--serif);font-weight:800;color:var(--siena);font-size:1.9rem;display:block;line-height:1}
+.flow-item h3{font-size:.98rem;margin:14px 0 10px}
+.flow-item p{font-size:.8rem;line-height:1.9}
+
+/* ===== FAQ ===== */
+.sec-faq{background:var(--sage);padding:120px 0}
+.faq-list{max-width:760px;margin:0 auto}
+.faq-list details{background:var(--cream);border:1px solid var(--line);margin-bottom:14px}
+.faq-list summary{cursor:pointer;list-style:none;display:flex;gap:16px;align-items:baseline;padding:20px 24px;font-weight:700;font-size:.95rem}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list summary::before{content:"Q";font-family:var(--serif);font-weight:800;color:var(--siena);font-size:1.2rem}
+.faq-list summary::after{content:"+";margin-left:auto;font-family:var(--serif);color:var(--siena);font-size:1.2rem;transition:transform .3s}
+.faq-list details[open] summary::after{transform:rotate(45deg)}
+.faq-a{display:flex;gap:16px;padding:0 24px 22px;font-size:.9rem}
+.faq-a::before{content:"A";font-family:var(--serif);font-weight:800;color:var(--brown);font-size:1.2rem;line-height:1.6}
+
+/* ===== アクセス＋最終CTA ===== */
+.sec-access{background:var(--cream);padding:120px 0 0}
+.access-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;max-width:900px;margin:0 auto}
+.access-grid dl{font-size:.9rem}
+.access-grid dt{font-weight:700;font-size:.75rem;letter-spacing:.2em;color:var(--siena);margin-top:18px}
+.access-grid dd{margin:2px 0 0}
+.access-photo img{clip-path:polygon(3% 0,100% 2%,98% 100%,0 98%)}
+.sec-final{background:linear-gradient(rgba(51,38,30,.9),rgba(51,38,30,.94)),url("assets/siena-texture-paper.jpg");background-size:auto,480px;
+  color:var(--ink-rev);text-align:center;padding:130px 24px 140px;margin-top:120px}
+.sec-final h2{font-size:clamp(1.4rem,3.2vw,2rem);margin-bottom:14px}
+.sec-final .lead{font-family:var(--serif);font-weight:500;font-size:.95rem;letter-spacing:.16em;margin-bottom:44px;color:#D9A088}
+footer{background:var(--brown);color:var(--ink-rev);padding:36px 24px 110px;text-align:center;font-size:.72rem}
+footer .sns{margin-bottom:14px}
+footer .sns a{color:var(--ink-rev);text-decoration:none;letter-spacing:.2em;border-bottom:1px solid rgba(247,241,232,.3);padding-bottom:2px}
+footer .demo{opacity:.65;display:block;margin-top:10px;line-height:1.8}
+
+/* 固定CTA（モバイル） */
+.fixed-cta{position:fixed;left:0;right:0;bottom:0;z-index:100;display:none;padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+  background:var(--cream);border-top:1px solid var(--line)}
+.fixed-cta a{display:block;text-align:center;background:var(--siena);color:#fff;text-decoration:none;font-weight:700;
+  letter-spacing:.14em;padding:15px 10px;border-radius:2px;font-size:.95rem}
+
+/* ===== Responsive ===== */
+@media(max-width:900px){
+  .reason-item{grid-template-columns:1fr;gap:28px;margin-bottom:72px}
+  .reason-item:nth-child(even) .reason-photo{order:0}
+  .gallery-grid{grid-template-columns:repeat(2,1fr)}
+  .staff-grid{grid-template-columns:1fr;gap:36px}
+  .voice-grid{grid-template-columns:1fr;max-width:480px;margin:0 auto 20px}
+  .flow-list{grid-template-columns:1fr;max-width:480px}
+  .flow-item{display:grid;grid-template-columns:56px 1fr;text-align:left;gap:0 16px;padding:18px 0;border-bottom:1px solid var(--line)}
+  .flow-item+.flow-item::before{display:none}
+  .flow-item h3{margin:0}
+  .flow-item p{grid-column:2}
+  .access-grid{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+  .fv{min-height:auto;display:block}
+  .fv-photo{position:relative;width:100%;height:52vw;min-height:250px;clip-path:polygon(0 0,100% 0,100% 92%,0 100%)}
+  .fv-photo::after{display:none}
+  .fv-inner{padding:34px 0 120px}
+  .fv-tate{display:none}
+  .fv-copy{width:100%;min-width:0;padding:0 24px}
+  .fv-copy h1{font-size:clamp(1.65rem,7.2vw,2.2rem)}
+  .fv .demo-note{color:var(--ink);text-shadow:none;bottom:auto;top:calc(52vw - 26px);right:12px}
+  .fv-offer{display:block}
+  .fv-offer .price{font-size:1.5rem}
+  .fv-copy .brand{font-size:.7rem;letter-spacing:.2em}
+  .trust ul{flex-direction:column}
+  .trust li+li{border-left:none;border-top:1px solid rgba(247,241,232,.2)}
+  .trust li{padding:12px 10px}
+  .fixed-cta{display:block}
+  .sec-nayami,.sec-reason,.sec-gallery,.sec-menu,.sec-staff,.sec-voice,.sec-flow,.sec-faq{padding-top:72px;padding-bottom:80px}
+  .sec-access{padding-top:72px}
+  .sec-final{padding:88px 20px 96px;margin-top:72px}
+  .atelier-card{margin:-70px 20px 0;padding:36px 28px}
+  .cta-btn{display:block;padding:18px 20px}
+}
+@media(max-width:360px){
+  .nw{white-space:normal}
+}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  .gallery-grid img{transition:none}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" aria-hidden="true"><filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch"/></filter></svg>
+<div class="grain-overlay" aria-hidden="true"></div>
+
+<!-- FV -->
+<section class="fv">
+  <div class="fv-photo"><img src="assets/siena-fv.jpg" alt="ネイリストがお客様の爪にジェルを塗布している施術風景（デモ用生成画像）"></div>
+  <p class="fv-tate">爪を削らない、を当たり前に。</p>
+  <div class="fv-inner"><div class="fv-copy">
+    <p class="brand">NAIL ATELIER SIENA — JIYUGAOKA</p>
+    <h1><span class="nw thin">爪を削るネイル、</span><br><span class="nw">もう卒業しませんか。</span></h1>
+    <p class="sub"><span class="nw">自爪を削らないパラジェル×フィルインの、</span><span class="nw">1席だけのプライベートネイルサロン。</span><br><span class="nw">自由が丘駅 徒歩4分。</span></p>
+    <div class="fv-offer">
+      <span class="label">はじめての方へ</span>
+      <span class="price"><span class="nw">初回</span> <span class="nw">うるつやワンカラー</span> <span class="nw">5,980円</span></span>
+      <span style="display:block;font-size:.72rem;margin-top:2px">税込・甘皮ケア込み／約90分</span>
+    </div>
+    <div class="cta-block" style="text-align:left">
+      <a class="cta-btn" href="#" data-cta>初回ワンカラー 5,980円で予約する</a><!-- TODO: 予約URL確定後に差し替え -->
+      <p class="micro">勧誘・コース販売は一切ありません／都度払いのみ</p>
+    </div>
+  </div></div>
+  <p class="demo-note">※写真はデモ用生成画像です</p>
+  <div class="trust"><ul>
+    <li><strong>パラジェル登録サロン</strong>自爪を削らないジェル</li>
+    <li><strong>リピート率 <span class="num">89</span>%<span class="demo-mark">※</span></strong><span class="demo-mark">※デモ用の架空数値です</span></li>
+    <li><strong>完全予約制・1席貸切</strong>ほかのお客様と会いません</li>
+  </ul></div>
+</section>
+
+<!-- 悩み共感 -->
+<section class="sec-nayami">
+  <div class="wrap">
+    <div class="sec-head reveal" style="text-align:center">
+      <span class="en">Your Concern</span>
+      <h2><span class="nw">その爪の疲れ、</span><span class="nw">サロンのせいかもしれません。</span></h2>
+    </div>
+    <ul class="nayami-list">
+      <li class="reveal">マシンで削られて、爪がペラペラに薄くなった</li>
+      <li class="reveal">2〜3週間で先端から浮いてきて、つい剥がしてしまう</li>
+      <li class="reveal">隣の席のおしゃべりや店内の騒がしさに、行くたび疲れる</li>
+      <li class="reveal">「ケアは別料金です」と、会計のたびに膨らむオプション</li>
+      <li class="reveal">深爪気味で、人前に手を出すのがためらわれる</li>
+    </ul>
+    <p class="nayami-close reveal"><span class="nw">その我慢、ここで</span><strong class="nw">終わりにしませんか。</strong><br><span class="nw">Siena は「爪を守る」ことから</span><span class="nw">逆算して設計した、</span><span class="nw">小さなアトリエです。</span></p>
+  </div>
+</section>
+
+<!-- 選ばれる理由 -->
+<section class="sec-reason">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="en">Reason</span>
+      <h2><span class="nw">Siena が選ばれる、</span><span class="nw">3つの理由</span></h2>
+    </div>
+    <div class="reason-item reveal">
+      <div class="reason-photo"><span class="reason-num">01</span><img src="assets/siena-care-2b.jpg" loading="lazy" alt="サンディング不要のパラジェルを筆で塗布する様子（デモ用生成画像）"></div>
+      <div class="reason-text">
+        <h3><span class="nw">削らないから、</span><span class="nw">薄くならない</span></h3>
+        <p>サンディング（爪の表面削り）が不要なパラジェルを採用。付け替えの際もベースを一層残すフィルインで、自爪を削る工程そのものをなくしました。</p>
+      </div>
+    </div>
+    <div class="reason-item reveal">
+      <div class="reason-photo"><span class="reason-num">02</span><img src="assets/siena-care-oil.jpg" loading="lazy" alt="仕上げにネイルオイルで保湿する手元（デモ用生成画像）"></div>
+      <div class="reason-text">
+        <h3><span class="nw">ツヤが続く、</span><span class="nw">平均3〜4週間の持ち</span></h3>
+        <p>浮きの原因になる甘皮まわりのケアと保湿を、毎回の施術に標準で含めています。土台を整えてから塗るから、ツヤが長く続きます。</p>
+        <p class="note">※持ちには個人差があります</p>
+      </div>
+    </div>
+    <div class="reason-item reveal">
+      <div class="reason-photo"><span class="reason-num">03</span><img src="assets/siena-interior-1.jpg" loading="lazy" alt="1席だけの静かな店内（デモ用生成画像）"></div>
+      <div class="reason-text">
+        <h3><span class="nw">1席だけの、</span><span class="nw">静かな貸切空間</span></h3>
+        <p>完全予約制で、ほかのお客様と顔を合わせることはありません。施術中の会話は「おまかせ」もお選びいただけます。静かに過ごしたい方こそ、どうぞ。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ギャラリー -->
+<section class="sec-gallery">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="en">Design Gallery</span>
+      <h2><span class="nw">派手じゃないのに、</span><span class="nw">目を引く。</span><br><span class="nw">大人のニュアンスデザイン。</span></h2>
+    </div>
+    <div class="gallery-grid reveal">
+      <figure class="big"><img src="assets/siena-nail-08-nuance.jpg" loading="lazy" alt="キャラメルとクリームのニュアンスネイル（デモ用生成画像）"></figure>
+      <figure><img src="assets/siena-nail-01-greige.jpg" loading="lazy" alt="グレージュのワンカラーネイル（デモ用生成画像）"></figure>
+      <figure><img src="assets/siena-nail-02b-french.jpg" loading="lazy" alt="ミルクティーベージュのフレンチネイルでピアスに触れる手元（デモ用生成画像）"></figure>
+      <figure><img src="assets/siena-nail-03-terracotta.jpg" loading="lazy" alt="シアーテラコッタのワンカラーネイル（デモ用生成画像）"></figure>
+      <figure><img src="assets/siena-nail-04b-magnet.jpg" loading="lazy" alt="シャンパンベージュのマグネットネイルで香水瓶を持つ手元（デモ用生成画像）"></figure>
+      <figure><img src="assets/siena-nail-05-goldline.jpg" loading="lazy" alt="アイボリーにゴールドラインのネイル（デモ用生成画像）"></figure>
+      <figure><img src="assets/siena-nail-06b-rose.jpg" loading="lazy" alt="ダスティローズのネイルでドライフラワーの花束を持つ手元（デモ用生成画像）"></figure>
+      <figure><img src="assets/siena-nail-07b-shell.jpg" loading="lazy" alt="シェルニュアンスのネイルでパールのネックレスを持ち上げる手元（デモ用生成画像）"></figure>
+    </div>
+    <p class="gallery-note demo-note">※写真はデモ用の生成イメージです</p>
+  </div>
+</section>
+
+<!-- 料金 -->
+<section class="sec-menu">
+  <div class="wrap">
+    <div class="sec-head reveal" style="text-align:center">
+      <span class="en">Menu / Price</span>
+      <h2><span class="nw">メニュー・料金</span><span class="nw">（すべて税込）</span></h2>
+    </div>
+    <div class="menu-table reveal">
+      <div class="menu-row">
+        <p class="name">うるつやワンカラー<small>甘皮ケア・保湿込み／約90分</small></p>
+        <p class="price"><span class="reg">通常 7,480円</span>→ 初回 <span class="first">5,980</span>円</p>
+      </div>
+      <div class="menu-row">
+        <p class="name">ニュアンスデザイン<small>アート2〜4本込み／約120分</small></p>
+        <p class="price"><span class="reg">通常 9,680円〜</span>→ 初回 <span class="first">8,180</span>円〜</p>
+      </div>
+      <div class="menu-row">
+        <p class="name">自爪育成ケアコース<small>ジェルなし／甘皮ケア・保湿・磨き</small></p>
+        <p class="price"><span class="first" style="font-size:1.2rem">4,400</span>円</p>
+      </div>
+      <div class="menu-row">
+        <p class="name">オフのみ<small>当サロン付け替え時のオフは無料／他店ジェルオフ +1,100円</small></p>
+        <p class="price"><span class="first" style="font-size:1.2rem">3,300</span>円</p>
+      </div>
+    </div>
+    <p class="menu-note reveal">表示価格以外の追加料金はありません。都度払いのみ・コース販売はしていません。</p>
+    <div class="cta-block reveal">
+      <a class="cta-btn" href="#" data-cta>初回ワンカラー 5,980円で予約する</a><!-- TODO: 予約URL確定後に差し替え -->
+      <p class="micro">勧誘・コース販売は一切ありません／都度払いのみ</p>
+    </div>
+  </div>
+</section>
+
+<!-- ネイリスト -->
+<section class="sec-staff">
+  <div class="wrap">
+    <div class="staff-grid">
+      <div class="staff-photo reveal"><img src="assets/siena-nailist.jpg" loading="lazy" alt="ネイリスト 木村沙織のポートレート（デモ用生成画像）"></div>
+      <div class="reveal">
+        <span class="en" style="display:block;margin-bottom:14px">Nailist</span>
+        <h2 class="staff-name">木村 沙織 <span style="font-size:.7em;font-weight:500">Saori Kimura</span></h2>
+        <p class="staff-role">ネイリスト歴12年・のべ9,000名を施術<span class="demo-note">（※デモ用の架空プロフィールです）</span></p>
+        <p class="staff-quote">「削って整えるのは、いちばん簡単です。でもその一回で、爪は確実に薄くなる。遠回りに見えても、爪を守りながらきれいを続けるお手伝いがしたくて、この店をつくりました。」</p>
+        <p class="staff-sns"><a href="#">INSTAGRAM →</a><!-- TODO: Instagram URL確定後に差し替え --></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 店内 -->
+<div class="sec-atelier-outer">
+  <section class="sec-atelier">
+    <div class="atelier-photo"><img src="assets/siena-interior-2.jpg" loading="lazy" alt="店内の棚に並ぶケア用品とドライフラワー（デモ用生成画像）" style="object-position:center 60%"></div>
+    <div class="atelier-card reveal">
+      <span class="en" style="display:block;margin-bottom:12px">Atelier</span>
+      <h2><span class="nw">1席だけの、</span><span class="nw">小さなアトリエ。</span></h2>
+      <p style="margin-top:16px">漆喰調の白い壁に、テラコッタの椅子がひとつ。器具は施術ごとに洗浄・消毒し、ファイル類はお客様ごとに交換しています。<span class="demo-note">（写真はデモ用生成画像）</span></p>
+    </div>
+  </section>
+</div>
+
+<!-- お客様の声 -->
+<section class="sec-voice">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="en">Voice</span>
+      <h2>お客様の声</h2>
+    </div>
+    <div class="voice-grid">
+      <div class="voice-card reveal">
+        <img src="assets/siena-voice-1b.jpg" loading="lazy" alt="ベージュネイルの手元でキーボードを打つ様子（デモ用生成画像）">
+        <blockquote>「ここに変えてから、爪が薄くならなくなりました。1ヶ月近く経ってもツヤが残っていて驚いています。」</blockquote>
+        <cite>40代・会社員（女性）</cite>
+      </div>
+      <div class="voice-card reveal">
+        <img src="assets/siena-voice-2.jpg" loading="lazy" alt="結婚式で花束を持つダスティピンクのネイルの手元（デモ用生成画像）">
+        <blockquote>「ずっと深爪がコンプレックスでした。半年通って自爪がきれいに伸びて、友人の結婚式で初めて手元の写真を撮れました。」</blockquote>
+        <cite>30代・企画職</cite>
+      </div>
+      <div class="voice-card reveal">
+        <img src="assets/siena-voice-3.jpg" loading="lazy" alt="グレージュネイルの手でマグカップを持つ様子（デモ用生成画像）">
+        <blockquote>「静かに過ごさせてもらえるのが本当にありがたい。仕上がりも上品で、オンライン会議の画面に映る自分の手元が、ちょっと好きになりました。」</blockquote>
+        <cite>30代・在宅ワーク</cite>
+      </div>
+    </div>
+    <p class="voice-note demo-note">※個人の感想です。本ページはデモのため架空の声です。</p>
+    <div class="cta-block reveal">
+      <a class="cta-btn" href="#" data-cta>初回ワンカラー 5,980円で予約する</a><!-- TODO: 予約URL確定後に差し替え -->
+      <p class="micro">勧誘・コース販売は一切ありません／都度払いのみ</p>
+    </div>
+  </div>
+</section>
+
+<!-- 流れ -->
+<section class="sec-flow">
+  <div class="wrap">
+    <div class="sec-head reveal" style="text-align:center">
+      <span class="en">Flow</span>
+      <h2>ご利用の流れ</h2>
+    </div>
+    <ol class="flow-list" style="list-style:none">
+      <li class="flow-item reveal"><span class="step">1</span><h3>Web予約</h3><p>ご希望のメニューと日時をお選びください。</p></li>
+      <li class="flow-item reveal"><span class="step">2</span><h3>カウンセリング</h3><p>爪の状態とご希望を丁寧に伺います。</p></li>
+      <li class="flow-item reveal"><span class="step">3</span><h3>ケア</h3><p>甘皮まわりを整え、保湿します。</p></li>
+      <li class="flow-item reveal"><span class="step">4</span><h3>施術</h3><p>削らないパラジェルで仕上げます。</p></li>
+      <li class="flow-item reveal"><span class="step">5</span><h3>お会計</h3><p>都度払いのみ。勧誘はありません。</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec-faq">
+  <div class="wrap">
+    <div class="sec-head reveal" style="text-align:center">
+      <span class="en">FAQ</span>
+      <h2>よくあるご質問</h2>
+    </div>
+    <div class="faq-list reveal">
+      <details><summary>爪が傷んでいても施術できますか？</summary><p class="faq-a">まず状態を拝見し、ケアから始めるプランをご提案します。ジェルをお休みする選択肢も含めて、一緒に決めていきましょう。</p></details>
+      <details><summary>どのくらい持ちますか？</summary><p class="faq-a">平均3〜4週間です（個人差があります）。生活習慣に合わせた長持ちのコツもお伝えします。</p></details>
+      <details><summary>オフだけの利用もできますか？</summary><p class="faq-a">はい、他店ジェルのオフのみも承ります（3,300円・保湿ケア付き）。</p></details>
+      <details><summary>支払い方法は？</summary><p class="faq-a">現金・クレジットカード・QR決済に対応しています。都度払いのみです。</p></details>
+      <details><summary>予約の変更・キャンセルは？</summary><p class="faq-a">前日までにご連絡いただければ変更料はかかりません。当日は次回のご案内がしやすいようご一報ください。</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- アクセス -->
+<section class="sec-access">
+  <div class="wrap">
+    <div class="sec-head reveal" style="text-align:center">
+      <span class="en">Access</span>
+      <h2>店舗情報・アクセス</h2>
+    </div>
+    <div class="access-grid">
+      <div class="reveal"><dl>
+        <dt>店名</dt><dd>Nail atelier Siena（ネイルアトリエ シエナ）</dd>
+        <dt>所在地</dt><dd>東京都目黒区自由が丘（自由が丘駅 正面口より徒歩4分）<span class="demo-note">※デモのため番地非公開</span></dd>
+        <dt>営業時間</dt><dd>10:00〜19:00（最終受付 17:30）</dd>
+        <dt>定休日</dt><dd>火曜</dd>
+        <dt>ご予約</dt><dd>Webのみ（お電話でのご予約は承っていません）</dd>
+      </dl></div>
+      <div class="access-photo reveal"><img src="assets/siena-exterior-2.jpg" loading="lazy" alt="アーチ窓から灯りがもれる夕暮れの店構え（デモ用生成画像）"></div>
+    </div>
+  </div>
+  <div class="sec-final">
+    <h2><span class="nw">爪の10年後のために、</span><span class="nw">今日のサロンを選ぶ。</span></h2>
+    <p class="lead">爪を削らない、を当たり前に。</p>
+    <div class="cta-block">
+      <a class="cta-btn" href="#" data-cta>初回ワンカラー 5,980円で予約する</a><!-- TODO: 予約URL確定後に差し替え -->
+      <p class="micro">勧誘・コース販売は一切ありません／都度払いのみ</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p class="sns"><a href="#">INSTAGRAM</a></p><!-- TODO: Instagram URL確定後に差し替え -->
+  <p>&copy; Nail atelier Siena</p>
+  <span class="demo">本ページはLP制作ポートフォリオ用のデモです。<br>店舗・人物・実績数値・お客様の声はすべて架空です。写真は全点AI生成のデモ用画像です。</span>
+</footer>
+
+<div class="fixed-cta" aria-hidden="false">
+  <a href="#" data-cta>初回ワンカラー 5,980円で予約する</a><!-- TODO: 予約URL確定後に差し替え -->
+</div>
+
+<script>
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target);} });
+},{threshold:0.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

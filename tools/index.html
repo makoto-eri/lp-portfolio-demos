@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Python・Excel/VBAによる業務効率化ツールの自主制作実績。売上レポート自動集計、新着案件の自動監視・通知など、ビフォーアフター付きで紹介します。">
+  <title>業務効率化ツール 制作実績｜Makoto</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23255f54'/%3E%3Cpath d='M8 23V9h4.2l3.8 7.1L19.8 9H24v14h-3.4v-8.6L17.2 21h-2.4l-3.4-6.6V23z' fill='white'/%3E%3C/svg%3E" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800&family=Shippori+Mincho:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/script-page.css">
+  <style>
+    main{max-width:900px}
+    .tool{background:var(--white);border:1px solid var(--line);margin-bottom:44px;scroll-margin-top:80px}
+    .tool .shots{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border-bottom:1px solid var(--line)}
+    .tool .shots img{display:block;width:100%;height:100%;object-fit:cover;object-position:top;aspect-ratio:4/3;background:#fff}
+    .tool .body{padding:26px 28px}
+    .tool h2{margin:0 0 4px;font:700 clamp(22px,3vw,30px)/1.4 "Shippori Mincho",serif}
+    .tool .sub{margin:0 0 16px;font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--warm)}
+    .tool .what{font-size:14px;margin:0 0 18px}
+    .ba{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;background:#f0efe9;padding:16px 18px;margin-bottom:18px;font-size:13px}
+    .ba b{display:block;font-size:10px;font-weight:800;letter-spacing:.14em;color:var(--muted);margin-bottom:4px}
+    .ba .arrow{font-size:22px;color:var(--accent);font-weight:700}
+    .stack{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+    .stack span{padding:3px 10px;border:1px solid #c8c4bc;border-radius:99px;font-size:11px;font-weight:700;color:#555d64}
+    .vba-note{font-size:13px;color:#41484e;border-top:1px solid #ebe8e2;padding-top:14px;margin:0}
+    .shot-note{font-size:11px;color:var(--muted);padding:8px 28px;border-bottom:1px solid #ebe8e2;margin:0}
+    @media(max-width:640px){.tool .shots{grid-template-columns:1fr}.ba{grid-template-columns:1fr}.ba .arrow{transform:rotate(90deg);justify-self:center}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../">Makoto <span>AUTOMATION TOOLS</span></a>
+    <a class="header-link" href="../">ポートフォリオトップへ</a>
+  </header>
+
+  <main>
+    <p class="eyebrow">AUTOMATION TOOLS</p>
+    <h1>業務効率化ツール 制作実績</h1>
+
+    <div class="demo-notice" role="note">
+      <strong>自主制作・自家用ツールの紹介です。</strong>画面はすべて架空のダミーデータです。実在する顧客・取引先の情報は含まれていません。
+    </div>
+
+    <section class="tool" id="excel-auto-summary" aria-labelledby="tool1-title">
+      <div class="shots">
+        <img src="../assets/tools/excel-summary-1.png" alt="売上レポート自動集計ツールのアップロード・集計画面（ダミーデータ）">
+        <img src="../assets/tools/excel-summary-2.png" alt="売上レポート自動集計ツールのグラフ・要約画面（ダミーデータ）">
+      </div>
+      <p class="shot-note">画面はサンプルの売上データ（架空の商品・数値）を読み込ませたものです。</p>
+      <div class="body">
+        <h2 id="tool1-title">売上レポート自動集計ツール</h2>
+        <p class="sub">EXCEL AUTO SUMMARY</p>
+        <p class="what">月次売上Excelを複数アップロードすると、自動で合計・前月比・商品別ランキングを集計してグラフ化し、AI要約コメント付きのExcel／PDFレポートを出力します。毎月のレポート作成を「ファイルを置くだけ」にするツールです。</p>
+        <div class="ba">
+          <div><b>BEFORE</b>毎月の集計・グラフ作成・レポート整形に手作業 約2時間</div>
+          <div class="arrow">→</div>
+          <div><b>AFTER</b>ファイルをアップロードして数十秒で完成</div>
+        </div>
+        <div class="stack"><span>Python</span><span>pandas</span><span>Streamlit</span><span>Claude API</span><span>Excel / PDF出力</span></div>
+        <p class="vba-note">同じ集計・転記の自動化を .xlsm（Excelマクロ／VBA）で組むことも可能です。お使いの環境に合わせて実装方法をご提案します。</p>
+      </div>
+    </section>
+
+    <section class="tool" id="anken-monitor" aria-labelledby="tool2-title">
+      <div class="shots">
+        <img src="../assets/tools/anken-monitor-1.png" alt="新着案件監視ツールの通知メール画面（ダミーデータ）">
+        <img src="../assets/tools/anken-monitor-2.png" alt="新着案件監視ツールが自動保存した下書きファイル（ダミーデータ）">
+      </div>
+      <p class="shot-note">画面は架空の募集・架空のURLで生成した通知サンプルです。</p>
+      <div class="body">
+        <h2 id="tool2-title">新着案件の自動監視・通知ツール</h2>
+        <p class="sub">JOB MONITOR</p>
+        <p class="what">案件サイトの公開ページを低頻度で自動巡回し、条件に合う新着案件だけをAIで選別して、応募文の下書き付きでメール通知します。候補はファイルにも自動保存され、見逃しと手動チェックの手間をなくします。</p>
+        <div class="ba">
+          <div><b>BEFORE</b>1日数回サイトを開いて手動チェック、見逃しも発生</div>
+          <div class="arrow">→</div>
+          <div><b>AFTER</b>30分ごとに全自動で巡回、条件に合う案件だけ通知</div>
+        </div>
+        <div class="stack"><span>Python</span><span>タスクスケジューラ常駐</span><span>AI判定</span><span>メール通知</span></div>
+        <p class="vba-note">「毎日見に行く」「毎回コピペする」型の繰り返し作業は、この形の自動化に置き換えられます。Excel/VBAでの定型処理の自動化もご相談ください。</p>
+      </div>
+    </section>
+
+    <p class="closing">掲載しているのは自主制作・自家用として運用中のツールです。ご依頼の際は、業務内容をヒアリングのうえ「何分の手作業が何秒になるか」から一緒に整理してご提案します。</p>
+  </main>
+
+  <footer>
+    <span>Makoto</span>
+    <a href="../">← ポートフォリオトップへ戻る</a>
+    <small>自主制作サンプル</small>
+  </footer>
+</body>
+</html>
