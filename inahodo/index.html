@@ -42,6 +42,12 @@
             font-size:clamp(20px,5.6vw,28px);}
   /* 訴求ゲート用: ファーストビューで商品と価格を言い切る一行 */
   .ov-sub{font-size:clamp(14px,3.5vw,16px);color:var(--main);font-weight:400;}
+  /* 受け皿方式（image-lp-craft.md §2.5）: 画像内に生成した空の受け皿へ文字を載せる */
+  .ov-badge{font-family:var(--serif);font-weight:800;color:var(--main);flex-direction:column;
+            font-size:clamp(14px,3.4vw,16px);letter-spacing:.06em;line-height:1.3;}
+  .ov-cta{font-family:var(--sans);font-weight:500;color:#FFF8EF;
+          font-size:clamp(15px,4.2vw,19px);letter-spacing:.08em;text-decoration:none;}
+  .ov-cta:hover{filter:brightness(1.08);}
   .btn{background:var(--main);color:#FFF8EF;text-decoration:none;font-weight:500;font-family:var(--sans);
        border-radius:2px;font-size:clamp(14px,3.9vw,17px);letter-spacing:.08em;
        box-shadow:0 4px 16px rgba(179,62,44,.22);}
@@ -81,13 +87,14 @@
 <div class="lp">
   <h1 class="sr-only">稲穂堂 — 国産栗と砂糖だけで炊き上げた栗きんとんのお取り寄せ</h1>
 
-  <!-- ゾーンA+B: スライス1（ヒーロー） -->
+  <!-- ゾーンA+B: スライス1（ヒーロー・受け皿方式 v2） -->
   <div class="slice">
     <img src="images/01-hero.webp" width="1024" height="1820" loading="eager"
-         alt="ヒーロー: 稲穂堂。和紙の上の黒漆の皿に、栗きんとんが二つと笹の葉。秋を、ひと粒ずつ包みました。">
-    <p class="overlay ov-catch" style="top:59.5%;left:8%;width:84%;height:12.5%;">秋を、<br>ひと粒ずつ包みました。</p>
-    <p class="overlay ov-sub" style="top:72.5%;left:6%;width:88%;height:9.5%;">国産栗と砂糖だけの栗きんとん／桐箱六個入 3,240円</p>
-    <a class="overlay btn" href="#form" style="top:83%;left:16%;width:68%;height:7%;">お取り寄せする</a>
+         alt="ヒーロー: 稲穂堂。栗きんとんが金粉と栗の粒を散らしながら黒漆の皿の上に舞う。季節限定。秋を、ひと粒ずつ包みました。国産栗と砂糖だけの栗きんとん 桐箱六個入 3,240円。">
+    <p class="overlay ov-badge" style="top:4.6%;left:74%;width:19%;height:9.5%;">季節<br>限定</p>
+    <p class="overlay ov-catch" style="top:67.4%;left:5%;width:90%;height:5.6%;line-height:1.45;">秋を、ひと粒ずつ包みました。</p>
+    <p class="overlay ov-sub" style="top:73.4%;left:6%;width:88%;height:6.5%;line-height:1.25;">国産栗と砂糖だけの栗きんとん<br>桐箱六個入 3,240円（税込）</p>
+    <a class="overlay ov-cta" href="#form" style="top:82.5%;left:9.8%;width:81.8%;height:12.5%;">お取り寄せする →</a>
   </div>
 
   <!-- ゾーンA+B: スライス2（世界観・製法） -->
