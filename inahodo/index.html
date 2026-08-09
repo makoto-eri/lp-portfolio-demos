@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<script src="../shared/demo-banner.js" defer></script>
+<title>稲穂堂｜栗と砂糖だけで炊き上げた栗きんとん お取り寄せ（自主制作デモ）</title>
+<meta name="description" content="国産栗と砂糖だけで炊き上げた栗きんとんのお取り寄せ。桐箱六個入 3,240円（税込）。※LP制作ポートフォリオ用の自主制作デモです。実在の店舗・商品ではありません。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;800&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --base:#F5EFE3;   /* 和モダンパック ベース: 生成り */
+    --main:#B33E2C;   /* 和モダンパック メイン: 朱 */
+    --ink:#1C1C1C;    /* 和モダンパック アクセント: 墨 */
+    --dim:#6B6154;
+    --serif:"Shippori Mincho",serif;
+    --sans:"Noto Sans JP",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#EAE3D5;color:var(--ink);font-family:var(--sans);font-weight:300;
+       line-height:1.9;letter-spacing:.04em;-webkit-font-smoothing:antialiased;}
+  .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;}
+  /* 縦に途切れない墨の細線で、スライスと下部セクションを1本の柱としてつなぐ */
+  .lp{max-width:560px;margin:0 auto;background:var(--base);
+      border-left:1px solid rgba(28,28,28,.10);border-right:1px solid rgba(28,28,28,.10);}
+
+  /* ゾーンA: 画像スライス */
+  .slice{position:relative;line-height:0;}
+  .slice img{width:100%;height:auto;display:block;}
+
+  /* ゾーンB: %座標オーバーレイ */
+  .overlay{position:absolute;display:flex;align-items:center;justify-content:center;
+           text-align:center;line-height:1.8;margin:0;letter-spacing:.06em;}
+  .ov-catch{font-family:var(--serif);font-weight:600;color:var(--ink);
+            font-size:clamp(19px,5.4vw,27px);}
+  .ov-lead{font-size:clamp(14px,3.8vw,16px);color:var(--dim);font-weight:400;}
+  .ov-label{font-family:var(--serif);font-size:clamp(15px,4vw,18px);color:var(--main);font-weight:600;}
+  .ov-price{font-family:var(--serif);color:var(--ink);font-weight:800;
+            font-size:clamp(20px,5.6vw,28px);}
+  .btn{background:var(--main);color:#FFF8EF;text-decoration:none;font-weight:500;font-family:var(--sans);
+       border-radius:2px;font-size:clamp(14px,3.9vw,17px);letter-spacing:.08em;
+       box-shadow:0 4px 16px rgba(179,62,44,.22);}
+  .btn:hover{filter:brightness(1.06);}
+
+  /* ゾーンC: HTML/CSS（画像側の和紙の質感を薄く引き継ぐ） */
+  .sec{padding:56px 24px;border-top:1px solid rgba(28,28,28,.12);
+       background:radial-gradient(130% 55% at 50% 0%, rgba(179,62,44,.055), transparent 66%);}
+  .sec h2{font-family:var(--serif);font-size:20px;font-weight:800;color:var(--ink);
+          letter-spacing:.14em;margin:0 0 26px;text-align:center;}
+  .sec h2::after{content:"";display:block;width:56px;height:1px;margin:16px auto 0;background:var(--main);}
+  .row{display:flex;justify-content:space-between;gap:12px;padding:15px 0;
+       border-bottom:1px solid rgba(28,28,28,.1);font-size:15px;}
+  .row span:last-child{font-family:var(--serif);font-weight:600;white-space:nowrap;}
+  .note{font-size:12px;color:var(--dim);margin-top:16px;line-height:2;}
+  .steps{counter-reset:s;list-style:none;padding:0;margin:0;}
+  .steps li{counter-increment:s;position:relative;padding:0 0 24px 44px;font-size:15px;}
+  .steps li::before{content:counter(s);position:absolute;left:0;top:2px;width:28px;height:28px;
+       border:1px solid var(--main);border-radius:50%;color:var(--main);font-family:var(--serif);
+       display:flex;align-items:center;justify-content:center;font-size:13px;line-height:1;}
+  .faq dt{font-weight:500;font-size:15px;margin-top:22px;}
+  .faq dt::before{content:"問 ";color:var(--main);font-family:var(--serif);font-weight:600;}
+  .faq dd{margin:6px 0 0;font-size:14px;color:var(--dim);}
+  .cta-sec{text-align:center;padding:52px 24px 60px;}
+  .cta-sec .btn{display:inline-block;padding:17px 44px;}
+  form{display:grid;gap:14px;margin-top:8px;}
+  label{font-size:13px;color:var(--dim);}
+  input,textarea{width:100%;padding:12px;background:#FFFBF3;color:var(--ink);
+       border:1px solid rgba(28,28,28,.2);border-radius:2px;font:inherit;font-size:15px;}
+  input:focus,textarea:focus{outline:2px solid var(--main);outline-offset:1px;}
+  button[type=submit]{padding:16px;border:0;cursor:pointer;}
+  footer{padding:32px 24px 48px;text-align:center;font-size:12px;color:var(--dim);
+         border-top:1px solid rgba(28,28,28,.12);line-height:2.1;}
+</style>
+</head>
+<body>
+<div class="lp">
+  <h1 class="sr-only">稲穂堂 — 国産栗と砂糖だけで炊き上げた栗きんとんのお取り寄せ</h1>
+
+  <!-- ゾーンA+B: スライス1（ヒーロー） -->
+  <div class="slice">
+    <img src="images/01-hero.webp" width="1024" height="1820" loading="eager"
+         alt="ヒーロー: 稲穂堂。和紙の上の黒漆の皿に、栗きんとんが二つと笹の葉。秋を、ひと粒ずつ包みました。">
+    <p class="overlay ov-catch" style="top:66%;left:8%;width:84%;height:12%;">秋を、<br>ひと粒ずつ包みました。</p>
+    <a class="overlay btn" href="#form" style="top:83%;left:16%;width:68%;height:7%;">お取り寄せする</a>
+  </div>
+
+  <!-- ゾーンA+B: スライス2（世界観・製法） -->
+  <div class="slice">
+    <img src="images/02-craft.webp" width="1024" height="1820" loading="lazy"
+         alt="栗と砂糖だけ。職人の手が、蒸した栗の餡をさらしで絞って形をつくっている。銅鍋では栗が炊かれている。">
+    <p class="overlay ov-lead" style="top:72%;left:10%;width:80%;height:12%;">余計なものは入れません。<br>国産栗と砂糖だけで炊き上げます。</p>
+  </div>
+
+  <!-- ゾーンA+B: スライス3（オファー帯） -->
+  <div class="slice">
+    <img src="images/03-offer.webp" width="1024" height="1820" loading="lazy"
+         alt="オファー: 桐箱に六個並んだ栗きんとんと、朱色の紙帯。栗きんとん 六個入 3,240円（税込）。">
+    <p class="overlay ov-label" style="top:54%;left:10%;width:80%;height:6%;">栗きんとん 桐箱 六個入</p>
+    <p class="overlay ov-price" style="top:61%;left:10%;width:80%;height:8%;">3,240円（税込）</p>
+    <a class="overlay btn" href="#form" style="top:76%;left:16%;width:68%;height:7%;">お取り寄せする</a>
+  </div>
+
+  <!-- ゾーンC: HTML/CSS -->
+  <section class="sec">
+    <h2>お品書き</h2>
+    <div class="row"><span>栗きんとん 桐箱 六個入</span><span>3,240円</span></div>
+    <div class="row"><span>栗きんとん 桐箱 十二個入</span><span>6,264円</span></div>
+    <div class="row"><span>季節の詰め合わせ（栗・柿）</span><span>4,320円</span></div>
+    <div class="row"><span>のし・掛け紙</span><span>無料</span></div>
+    <p class="note">価格はすべて税込です。送料は全国一律850円、10,000円以上のご注文で無料です。冷蔵便でお届けします。</p>
+  </section>
+
+  <section class="sec">
+    <h2>ご注文から お届けまで</h2>
+    <ol class="steps">
+      <li>ご注文<br>お届け日は最短で3日後から指定いただけます。</li>
+      <li>その日の朝に炊く<br>受注分だけを当日の朝に炊き上げます。</li>
+      <li>手包み<br>ひと粒ずつさらしで絞り、桐箱に詰めます。</li>
+      <li>冷蔵便でお届け<br>賞味期限はお届け日を含めて4日間です。</li>
+    </ol>
+  </section>
+
+  <section class="sec">
+    <h2>よくあるご質問</h2>
+    <dl class="faq">
+      <dt>日持ちはどのくらいですか。</dt>
+      <dd>保存料を使っていないため、お届け日を含めて4日間です。冷凍はおすすめしていません。</dd>
+      <dt>贈り物として送れますか。</dt>
+      <dd>のし・掛け紙を無料でお付けします。ご注文時に表書きとお名前をお知らせください。</dd>
+      <dt>アレルギーが心配です。</dt>
+      <dd>原材料は国産栗と砂糖のみです。同じ工房で小麦・乳を含む菓子も製造しています。</dd>
+    </dl>
+  </section>
+
+  <section class="sec" id="form">
+    <h2>お取り寄せのご相談</h2>
+    <form onsubmit="event.preventDefault();alert('自主制作デモのため送信されません。');">
+      <div><label for="n">お名前</label><input id="n" type="text" autocomplete="name"></div>
+      <div><label for="e">メールアドレス</label><input id="e" type="email" autocomplete="email"></div>
+      <div><label for="m">ご希望・ご質問</label><textarea id="m" rows="4"></textarea></div>
+      <button type="submit" class="btn">送信する</button>
+    </form>
+    <p class="note">自主制作デモのため、送信・保存は行われません。</p>
+  </section>
+
+  <div class="cta-sec"><a class="btn" href="#form">お取り寄せする</a></div>
+
+  <footer>
+    稲穂堂（いなほどう）<br>
+    このページは web-design-studio「画像LPルート」の検証用に制作した自主制作デモです。<br>
+    店舗名・商品・価格・製法はすべて架空で、実在の店舗や商品とは関係ありません。
+  </footer>
+</div>
+</body>
+</html>
