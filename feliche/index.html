@@ -702,10 +702,11 @@ const io = new IntersectionObserver(es => es.forEach(e => {
 }), { threshold: .12 });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-/* 部位図解: スマホでは正面図に絞って拡大（背面の部位は下の一覧で確認できる） */
+/* 部位図解: 幅が狭くラベルが潰れる時だけ正面図に絞って拡大する（背面の部位は下の一覧で確認できる）。
+   タブレット幅では図が1カラムで広く使えるので、2体のまま表示したほうが縦に伸びない。 */
 const partsSvg = document.querySelector('.parts-figure svg');
 const fitParts = () => {
-  if (partsSvg) partsSvg.setAttribute('viewBox', window.innerWidth <= 768 ? '0 0 500 700' : '0 0 1000 690');
+  if (partsSvg) partsSvg.setAttribute('viewBox', window.innerWidth <= 560 ? '0 0 500 700' : '0 0 1000 690');
 };
 fitParts();
 window.addEventListener('resize', fitParts);
