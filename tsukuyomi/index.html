@@ -65,6 +65,11 @@
        border-bottom:1px solid rgba(255,255,255,.1);font-size:15px;}
   .row span:last-child{color:var(--main);font-family:var(--serif);font-weight:600;white-space:nowrap;}
   .note{font-size:12px;color:var(--dim);margin-top:16px;line-height:2;}
+  .voices{display:grid;gap:16px;}
+  .voice{background:rgba(255,255,255,.035);border:1px solid rgba(201,162,39,.22);padding:22px 20px;}
+  .voice p{margin:0;font-size:14.5px;line-height:2;}
+  .voice .who{margin-top:14px;padding-top:12px;border-top:1px solid rgba(201,162,39,.18);
+              font-family:var(--serif);font-size:12.5px;color:var(--main);letter-spacing:.08em;}
   .steps{counter-reset:s;list-style:none;padding:0;margin:0;}
   .steps li{counter-increment:s;position:relative;padding:0 0 24px 44px;font-size:15px;}
   .steps li::before{content:counter(s);position:absolute;left:0;top:2px;width:28px;height:28px;
@@ -137,6 +142,25 @@
   </section>
 
   <section class="sec">
+    <h2>お作りしたお二人から</h2>
+    <div class="voices">
+      <div class="voice">
+        <p>二人でデザインを決めていく時間そのものが、思い出になりました。彫りの日は手が震えましたが、最後まで横で見ていてくださいました。</p>
+        <p class="who">30代・ご夫婦</p>
+      </div>
+      <div class="voice">
+        <p>既製品では見つからなかった細い槌目が気に入っています。三年つけていますが、少しずつ表情が変わってきました。</p>
+        <p class="who">30代・ご結婚三年目</p>
+      </div>
+      <div class="voice">
+        <p>予算を先に伝えたら、その中でできることを正直に教えてくれました。上のプランを勧められなかったことが決め手でした。</p>
+        <p class="who">20代・ご相談時</p>
+      </div>
+    </div>
+    <p class="note">本ページは自主制作デモです。掲載のお客様の声はすべて架空のデモ用データで、実在の人物とは関係ありません。</p>
+  </section>
+
+  <section class="sec">
     <h2>よくあるご質問</h2>
     <dl class="faq">
       <dt>指輪のサイズが分かりません。</dt>
@@ -167,5 +191,6 @@
     店舗名・価格・実績はすべて架空で、実在の店舗や商品とは関係ありません。
   </footer>
 </div>
+<script src="../shared/reveal.js" data-reveal-targets=".slice, .sec > h2, .sec .row, .sec .steps li, .sec .faq dt, .sec .faq dd, .voice, .sec form, .cta-sec" defer></script>
 </body>
 </html>

@@ -327,6 +327,15 @@ footer .demo-note{opacity:.7}
   .sticky-cta{display:flex}
   .final{padding:88px 0}
 }
+/* ===== お客様の声 ===== */
+.voice-sec{background:var(--mint)}
+.voices{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:32px}
+.voice{background:var(--base);border-radius:var(--radius);padding:26px 22px;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.voice .q{margin:0;font-size:15px;line-height:1.95}
+.voice .who{margin:auto 0 0;padding-top:14px;border-top:1px solid var(--line);
+            font-size:12.5px;font-weight:700;color:var(--deep)}
+.voice-note{margin-top:22px;font-size:12px;line-height:1.9;color:#6b7770;text-align:center}
+@media(max-width:768px){.voices{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -537,6 +546,29 @@ footer .demo-note{opacity:.7}
         <p class="a">当院は自費のみです。そのぶん時間配分を体の説明とカウンセリングにしっかり使えます。</p>
       </details>
     </div>
+  </div>
+</section>
+
+<!-- ===== 9.5 お客様の声 ===== -->
+<section class="voice-sec">
+  <div class="wrap">
+    <p class="eyebrow">お客様の声</p>
+    <h2>通ってくださっている方から</h2>
+    <div class="voices">
+      <div class="voice">
+        <p class="q">痛いのを我慢する整体だと思っていました。何をするか先に説明してもらえるので、身構えずに受けられます。</p>
+        <p class="who">50代・肩こりで来院</p>
+      </div>
+      <div class="voice">
+        <p class="q">デスクワークで腰が固まっていました。初回に体の状態を図で説明してもらえて、自分で何をすればいいのか分かりました。</p>
+        <p class="who">40代・会社員</p>
+      </div>
+      <div class="voice">
+        <p class="q">回数券を勧められませんでした。次にいつ来ればいいかだけ教えてもらえるので、気負わずに続けられています。</p>
+        <p class="who">60代・腰の張りで来院</p>
+      </div>
+    </div>
+    <p class="voice-note">個人の感想です。効果や感じ方には個人差があります。※本ページのお客様の声はデモ用の架空データで、実在の人物とは関係ありません。</p>
   </div>
 </section>
 

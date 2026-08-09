@@ -1224,6 +1224,40 @@
         transition-duration: 0.01ms !important;
       }
     }
+    /* ===== お客様の声 ===== */
+    .voice-section { background: var(--rose-soft); }
+
+    .voice-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 44px;
+    }
+
+    .voice-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .voice-card p { margin: 0; font-size: 15px; line-height: 1.95; }
+
+    .voice-card .who {
+      margin-top: auto;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--berry);
+    }
+
+    .voice-note { margin: 24px 0 0; font-size: 12px; line-height: 1.9; color: var(--muted); }
+
+    @media (max-width: 900px) {
+      .voice-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -1419,6 +1453,30 @@
       </div>
     </section>
 
+    <section class="section voice-section" id="voices" aria-labelledby="voices-title">
+      <div class="section-inner">
+        <div class="section-heading">
+          <p class="section-kicker">VOICES</p>
+          <h2 id="voices-title">通ってくださっている方の声。</h2>
+        </div>
+        <div class="voice-grid">
+          <div class="voice-card">
+            <p>人に見られるのが苦手で、ずっと迷っていました。入口から個室まで誰ともすれ違わないので、それだけで通えるようになりました。</p>
+            <p class="who">30代・初回体験から</p>
+          </div>
+          <div class="voice-card">
+            <p>必要な部位だけ選べるのが良かったです。全身で契約しなくていいと言ってもらえて、気が楽になりました。</p>
+            <p class="who">20代・部分プラン</p>
+          </div>
+          <div class="voice-card">
+            <p>次回予約をその場で決めなくていいのが助かります。予定が読めない仕事なので、都度決められるほうが続きます。</p>
+            <p class="who">40代・自営業</p>
+          </div>
+        </div>
+        <p class="voice-note">個人の感想です。効果や感じ方には個人差があります。※本ページのお客様の声はデモ用の架空データで、実在の人物とは関係ありません。</p>
+      </div>
+    </section>
+
     <section class="section faq-section" id="faq" aria-labelledby="faq-title">
       <div class="section-inner">
         <div class="section-heading">
@@ -1490,5 +1548,6 @@
       });
     });
   </script>
+  <script src="../shared/reveal.js" data-reveal-targets=".section-heading, .concern-copy, .reason-list li, .treatment-section li, .menu-row, .trial-inner, .flow-section li, .faq-section details, .voice-card, .voice-note, .final-cta .section-inner" defer></script>
 </body>
 </html>

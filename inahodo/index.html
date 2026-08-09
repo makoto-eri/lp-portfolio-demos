@@ -79,6 +79,11 @@
        border:1px solid rgba(28,28,28,.2);border-radius:2px;font:inherit;font-size:15px;}
   input:focus,textarea:focus{outline:2px solid var(--main);outline-offset:1px;}
   button[type=submit]{padding:16px;border:0;cursor:pointer;}
+  .voices{display:grid;gap:16px;}
+  .voice{background:#FFFBF3;border:1px solid rgba(28,28,28,.12);padding:22px 20px;}
+  .voice p{margin:0;font-size:14.5px;line-height:2;}
+  .voice .who{margin-top:14px;padding-top:12px;border-top:1px solid rgba(28,28,28,.1);
+              font-family:var(--serif);font-size:12.5px;color:var(--dim);letter-spacing:.08em;}
   footer{padding:32px 24px 48px;text-align:center;font-size:12px;color:var(--dim);
          border-top:1px solid rgba(28,28,28,.12);line-height:2.1;}
 </style>
@@ -135,6 +140,25 @@
   </section>
 
   <section class="sec">
+    <h2>お召し上がりの声</h2>
+    <div class="voices">
+      <div class="voice">
+        <p>四日しか日持ちしないと聞いて驚きましたが、届いた日に食べて理由が分かりました。栗の香りがまだ立っていました。</p>
+        <p class="who">50代・贈答用に</p>
+      </div>
+      <div class="voice">
+        <p>両親への手土産にしました。桐箱を開けたときの反応が、これまで持って行ったお菓子とは違いました。</p>
+        <p class="who">40代・帰省の手土産に</p>
+      </div>
+      <div class="voice">
+        <p>甘さが控えめで、栗そのものの味がします。秋になると毎年この日を待つようになりました。</p>
+        <p class="who">60代・三年目のお取り寄せ</p>
+      </div>
+    </div>
+    <p class="note">本ページは自主制作デモです。掲載のお客様の声はすべて架空のデモ用データで、実在の人物とは関係ありません。</p>
+  </section>
+
+  <section class="sec">
     <h2>よくあるご質問</h2>
     <dl class="faq">
       <dt>日持ちはどのくらいですか。</dt>
@@ -165,5 +189,6 @@
     店舗名・商品・価格・製法はすべて架空で、実在の店舗や商品とは関係ありません。
   </footer>
 </div>
+<script src="../shared/reveal.js" data-reveal-targets=".slice, .sec > h2, .sec .row, .sec .steps li, .sec .faq dt, .sec .faq dd, .voice, .sec form, .cta-sec" defer></script>
 </body>
 </html>

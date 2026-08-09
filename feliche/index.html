@@ -206,6 +206,14 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--navy);outline-offse
 .camp-body .big .unit{font-size:20px;font-weight:900}
 .camp-body p{font-size:13.5px}
 
+/* ===== お客様の声 ===== */
+.voices{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:30px}
+.voice{background:#fff;border-radius:16px;padding:26px 22px;text-align:left;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.voice .q{margin:0;font-size:14.5px;line-height:1.95}
+.voice .who{margin:auto 0 0;padding-top:14px;border-top:1px solid rgba(74,34,51,.12);
+            font-size:12.5px;font-weight:700;color:#7C5566}
+.voice-note{text-align:center;font-size:12px;margin-top:22px;color:#7C5566}
+
 /* ===== 店舗情報 ===== */
 .fullbleed{margin:0 0 56px;position:relative}
 .fullbleed img{width:100%;height:420px;object-fit:cover}
@@ -607,6 +615,29 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--navy);outline-offse
       <a class="cta-btn" href="#">LINEで予約する（初回0円）<span class="arrow">▶</span></a>
       <p class="cta-note">24時間いつでも予約OK</p>
     </div>
+  </div>
+</section>
+
+<!-- 8.5 お客様の声 -->
+<section class="sec bg-stripe">
+  <div class="inner reveal">
+    <h2 class="sec-title">通ってくださっている方の声</h2>
+    <p class="sec-lead">はじめる前に、いちばん気にされていたことです。</p>
+    <div class="voices">
+      <div class="voice">
+        <p class="q">総額がいくらになるのか分からないまま契約するのが怖かったのですが、初回に全部教えてもらえました。あとから増えた費用はありません。</p>
+        <p class="who">20代・他サロンからのりかえ</p>
+      </div>
+      <div class="voice">
+        <p class="q">前の店ではシェービング代が毎回かかっていました。ここは追加がないので、月末に慌てなくなりました。</p>
+        <p class="who">30代・会社員</p>
+      </div>
+      <div class="voice">
+        <p class="q">勧誘されるものだと身構えて行きましたが、拍子抜けするほど何もありませんでした。都度払いで自分のペースで通えています。</p>
+        <p class="who">40代・都度払いプラン</p>
+      </div>
+    </div>
+    <p class="voice-note">個人の感想です。感じ方や通う回数には個人差があります。※本ページのお客様の声はデモ用の架空データで、実在の人物とは関係ありません。</p>
   </div>
 </section>
 

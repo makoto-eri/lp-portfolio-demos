@@ -246,6 +246,15 @@ footer{padding:48px 0;background:#0e2922;color:#c7d5cf;font-size:11px;line-heigh
 }
 
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+/* ===== お客様の声 ===== */
+.voices{background:var(--ivory)}
+.voice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.voice-card{background:var(--white);border:1px solid var(--line);padding:28px 24px;display:flex;flex-direction:column}
+.voice-card p{margin:0;font-size:15px;line-height:1.95}
+.voice-card .who{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);
+                 font-size:12.5px;font-weight:700;color:var(--green-2)}
+.voice-note{margin:24px 0 0;font-size:12px;line-height:1.9;color:var(--muted)}
+@media(max-width:900px){.voice-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -417,6 +426,29 @@ footer{padding:48px 0;background:#0e2922;color:#c7d5cf;font-size:11px;line-heigh
     </div>
   </section>
 
+  <!-- 6.5 お客様の声 -->
+  <section class="section voices" id="voices" aria-labelledby="voices-title">
+    <div class="container">
+      <p class="section-kicker">VOICES</p>
+      <h2 class="section-title" id="voices-title">続けている方の声。</h2>
+      <div class="voice-grid">
+        <div class="voice-card">
+          <p>サプリは何を選べばいいのか分からず、成分表を見ても判断できませんでした。1粒だけ、というのが続けやすいです。</p>
+          <p class="who">40代・会社員</p>
+        </div>
+        <div class="voice-card">
+          <p>寝る前の支度が増えるのが嫌でしたが、これは歯磨きのあとに置いておくだけでした。三か月続いています。</p>
+          <p class="who">30代・在宅勤務</p>
+        </div>
+        <div class="voice-card">
+          <p>粒が小さくて飲みやすいです。匂いも気になりませんでした。</p>
+          <p class="who">50代・パート勤務</p>
+        </div>
+      </div>
+      <p class="voice-note">個人の感想です。本品は食品であり、効果・効能を保証するものではありません。※本ページのお客様の声はデモ用の架空データで、実在の人物とは関係ありません。</p>
+    </div>
+  </section>
+
   <!-- 7. FAQ -->
   <section class="section faq" id="faq" aria-labelledby="faq-title">
     <div class="container">
@@ -515,5 +547,6 @@ footer{padding:48px 0;background:#0e2922;color:#c7d5cf;font-size:11px;line-heigh
   place();
 })();
 </script>
+  <script src="../shared/reveal.js" data-reveal-targets=".section-kicker, .section-title, .section-lead, .feature, .step, .ingredient .container > *, .offer .container > *, .faq details, .voice-card, .voice-note, .closing .container > *" defer></script>
 </body>
 </html>
