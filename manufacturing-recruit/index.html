@@ -1423,6 +1423,164 @@
         animation-iteration-count: 1 !important;
       }
     }
+    /* ===== セクション写真 ===== */
+    .section-media {
+      position: relative;
+      margin: 44px 0 0;
+      overflow: hidden;
+      background: var(--mist);
+      border: 1px solid var(--line);
+    }
+
+    .section-media img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+
+    .section-media figcaption {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      padding: 8px 13px;
+      color: var(--paper);
+      background: var(--graphite);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    /* ===== 導入企業の声 ===== */
+    .voice-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 44px;
+    }
+
+    .voice-card {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      padding: 30px 26px;
+      background: var(--paper);
+      border: 1px solid var(--line-strong);
+      border-top: 3px solid var(--cyan);
+    }
+
+    .voice-industry {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      color: var(--cyan-dark);
+    }
+
+    .voice-quote {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.95;
+    }
+
+    .voice-meta {
+      margin: 0;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    .voice-note {
+      margin: 26px 0 0;
+      font-size: 12px;
+      line-height: 1.8;
+      color: var(--muted);
+    }
+
+    @media (max-width: 900px) {
+      .voice-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+    }
+
+    /* ===== スクロール連動アニメーション ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 640ms cubic-bezier(0.22, 0.61, 0.36, 1),
+                  transform 640ms cubic-bezier(0.22, 0.61, 0.36, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .hero-copy > *,
+    .hero-media {
+      animation: heroRise 760ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+    }
+
+    .hero-copy > *:nth-child(1) { animation-delay: 60ms; }
+    .hero-copy > *:nth-child(2) { animation-delay: 130ms; }
+    .hero-copy > *:nth-child(3) { animation-delay: 200ms; }
+    .hero-copy > *:nth-child(4) { animation-delay: 270ms; }
+    .hero-copy > *:nth-child(5) { animation-delay: 340ms; }
+    .hero-copy > *:nth-child(6) { animation-delay: 410ms; }
+    .hero-media { animation-delay: 120ms; }
+
+    @keyframes heroRise {
+      from { opacity: 0; transform: translateY(22px); }
+      to { opacity: 1; transform: none; }
+    }
+
+    .support-row,
+    .interview-step,
+    .industry-item,
+    .voice-card,
+    .faq-item {
+      transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+    }
+
+    .support-row:hover,
+    .interview-step:hover,
+    .industry-item:hover,
+    .voice-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--cyan);
+      box-shadow: 0 10px 24px rgba(23, 33, 38, 0.08);
+    }
+
+    .section-media img {
+      transition: transform 900ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+
+    .section-media:hover img {
+      transform: scale(1.02);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal,
+      .hero-copy > *,
+      .hero-media {
+        opacity: 1;
+        transform: none;
+        transition: none;
+        animation: none;
+      }
+      .support-row:hover,
+      .interview-step:hover,
+      .industry-item:hover,
+      .voice-card:hover,
+      .section-media:hover img {
+        transform: none;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1442,6 +1600,7 @@
           <a href="#support">支援範囲</a>
           <a href="#interview">現地面接</a>
           <a href="#process">導入の流れ</a>
+          <a href="#voices">導入企業の声</a>
           <a href="#faq">よくある質問</a>
         </nav>
         <a class="header-cta" href="#contact">相談内容を整理</a>
@@ -1545,6 +1704,13 @@
           </article>
         </div>
       </div>
+
+      <div class="container">
+        <figure class="section-media">
+          <img src="assets/support-planning.jpg" alt="採用条件と進行表を並べて確認する採用担当者2名" loading="lazy" width="1600" height="1067">
+          <figcaption>CONDITION ALIGNMENT / DEMO VISUAL</figcaption>
+        </figure>
+      </div>
     </section>
 
     <section class="section interview-section" id="interview" aria-labelledby="interview-title">
@@ -1579,6 +1745,11 @@
             <p>面接内容を整理し、企業の基準に沿って採否を判断します。</p>
           </article>
         </div>
+
+        <figure class="section-media">
+          <img src="assets/local-interview.jpg" alt="現地で企業担当者と候補者が向かい合って面接している様子" loading="lazy" width="1600" height="1067">
+          <figcaption>LOCAL INTERVIEW / DEMO VISUAL</figcaption>
+        </figure>
 
         <div class="interview-note">
           <strong>判断主体は企業です</strong>
@@ -1644,13 +1815,55 @@
           <li><h3>入社準備</h3><p>必要書類、関係先との進行、配属初日までの確認項目を整理します。</p></li>
           <li><h3>定着支援</h3><p>入社後の相談導線を設け、必要に応じて状況確認を行います。</p></li>
         </ol>
+
+        <figure class="section-media">
+          <img src="assets/onboarding.jpg" alt="配属初日に現場の担当者が新しく入った海外人材2名へ手順を説明している様子" loading="lazy" width="1600" height="1067">
+          <figcaption>ONBOARDING / DEMO VISUAL</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="voices" aria-labelledby="voices-title">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-index">06 / VOICES</div>
+          <div>
+            <h2 class="section-title" id="voices-title">受け入れた側に、何が変わったか。</h2>
+            <p class="section-intro">支援の前後で採用担当者の手元がどう変わるかを、想定シーンとして整理したものです。</p>
+          </div>
+        </div>
+
+        <div class="voice-grid">
+          <article class="voice-card">
+            <span class="voice-industry">MANUFACTURING</span>
+            <p class="voice-quote">面接前に条件をそろえる作業で、毎回いちばん時間を取られていました。確認項目を先に整理してもらえたので、面接では人柄と仕事の理解を聞くことに集中できています。</p>
+            <p class="voice-meta">製造／従業員120名／生産管理部</p>
+          </article>
+          <article class="voice-card">
+            <span class="voice-industry">CARE</span>
+            <p class="voice-quote">書類の進行が今どこで止まっているのか、社内で分からなくなることがありました。残りの手続きが一覧で見えるので、配属初日までに何を用意するかで迷わなくなりました。</p>
+            <p class="voice-meta">介護／2施設運営／施設長</p>
+          </article>
+          <article class="voice-card">
+            <span class="voice-industry">LOGISTICS</span>
+            <p class="voice-quote">入社した本人が困っていても、現場からは見えにくいのが不安でした。相談窓口が現場とは別にあることで、早い段階で状況を共有してもらえています。</p>
+            <p class="voice-meta">物流／従業員80名／人事担当</p>
+          </article>
+        </div>
+
+        <figure class="section-media">
+          <img src="assets/after-joining.jpg" alt="入社後の面談で担当者が社員の相談を聞いている様子" loading="lazy" width="1600" height="1067">
+          <figcaption>AFTER JOINING / DEMO VISUAL</figcaption>
+        </figure>
+
+        <p class="voice-note">本ページは自主制作デモです。掲載の企業属性・コメントはすべて架空のデモ用データで、実在の企業・団体・人物とは関係ありません。写真はデモ用のAI生成画像です。</p>
       </div>
     </section>
 
     <section class="section section-muted" id="faq" aria-labelledby="faq-title">
       <div class="container">
         <div class="section-head">
-          <div class="section-index">06 / FAQ</div>
+          <div class="section-index">07 / FAQ</div>
           <div>
             <h2 class="section-title" id="faq-title">よくある確認事項</h2>
             <p class="section-intro">支援範囲や企業側の役割を、相談前に確認できるよう整理しています。</p>
@@ -1681,7 +1894,7 @@
     <section class="contact-section" id="contact" aria-labelledby="contact-title">
       <div class="contact-layout">
         <div class="contact-copy">
-          <div class="section-index">07 / CONSULTATION</div>
+          <div class="section-index">08 / CONSULTATION</div>
           <h2 id="contact-title">まずは採用条件と、社内で困っている作業を整理。</h2>
           <p>対象職種、採用時期、現在の受け入れ体制が分かる範囲で入力してください。実案件では内容を確認して、支援範囲をすり合わせる想定です。</p>
           <div class="contact-demo-note">自主制作デモのため、このフォームは送信されません。</div>
@@ -1753,6 +1966,66 @@
           status.textContent = '';
         }
       });
+    })();
+  </script>
+
+  <script>
+    /* スクロール連動の表示アニメーション。
+       JSでクラスを付けるので、JSが動かない環境では最初から表示されたままになる。 */
+    (() => {
+      const SELECTOR = [
+        '.section-head', '.support-summary', '.support-row', '.interview-step',
+        '.interview-note', '.industry-item', '.process-list li', '.voice-card',
+        '.faq-item', '.section-media', '.voice-note', '.scope-rail-item',
+        '.contact-copy', '.contact-form-wrap'
+      ].join(', ');
+
+      const targets = Array.from(document.querySelectorAll(SELECTOR));
+      if (!targets.length) return;
+
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduced || !('IntersectionObserver' in window)) return;
+
+      targets.forEach(el => {
+        el.classList.add('reveal');
+        const siblings = el.parentElement ? Array.from(el.parentElement.children) : [];
+        const idx = siblings.indexOf(el);
+        if (idx > 0) el.style.transitionDelay = Math.min(idx, 4) * 80 + 'ms';
+      });
+
+      const show = el => {
+        el.classList.add('is-visible');
+        io.unobserve(el);
+      };
+
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) show(entry.target);
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+
+      targets.forEach(el => io.observe(el));
+
+      /* アンカーで一気に飛ぶと、画面外から画面外へ移った要素は交差状態が変化せず
+         オブザーバのコールバックが呼ばれない。取り残された要素をスクロール時に回収する。 */
+      let ticking = false;
+      const sweep = () => {
+        ticking = false;
+        let remaining = 0;
+        targets.forEach(el => {
+          if (el.classList.contains('is-visible')) return;
+          if (el.getBoundingClientRect().top < window.innerHeight * 0.94) show(el);
+          else remaining += 1;
+        });
+        if (!remaining) window.removeEventListener('scroll', onScroll);
+      };
+      const onScroll = () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(sweep);
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('hashchange', sweep);
     })();
   </script>
 </body>
