@@ -52,7 +52,9 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 
 /* First view: copy / product / offer are independent so mobile can reorder them. */
 .hero{background:var(--ivory);border-bottom:10px solid var(--yellow)}
-.hero-grid{min-height:720px;display:grid;grid-template-columns:43% 57%;grid-template-rows:auto auto;column-gap:54px;align-content:center;padding-top:24px;padding-bottom:24px}
+/* 43% 57% は合計100%で、そこに column-gap が加算されて横スクロールが出ていた。
+   fr はギャップを差し引いてから分配するので、同じ比率のままはみ出さない。 */
+.hero-grid{min-height:720px;display:grid;grid-template-columns:43fr 57fr;grid-template-rows:auto auto;column-gap:54px;align-content:center;padding-top:24px;padding-bottom:24px}
 .hero-intro{align-self:end;padding-top:16px}
 .hero-eyebrow{display:inline-block;margin-bottom:15px;padding-left:12px;border-left:5px solid var(--coral);font-size:12px;font-weight:800;color:var(--green);letter-spacing:.06em}
 .hero h1{font-family:var(--serif);font-weight:700;letter-spacing:0;color:var(--green)}
@@ -155,7 +157,9 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 .closing .offer-cta{max-width:430px;border-color:var(--white);box-shadow:5px 5px 0 var(--yellow)}
 .closing-visual{position:relative;overflow:hidden;background:#b8946a}
 .closing-scene{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
-.closing-package-design{position:absolute;left:37%;top:45%;width:24%;transform:translate(-50%,-50%);color:var(--green);text-align:center;text-shadow:0 1px 0 rgba(255,255,255,.5)}
+/* ラベルの位置は object-fit:cover の実描画領域を基準に JS で補正する（下部の pkg-label スクリプト）。
+   ここの % は画像が切り取られない場合のフォールバック値。 */
+.closing-package-design{position:absolute;left:39.5%;top:45%;width:24%;transform:translate(-50%,-50%);color:var(--green);text-align:center;text-shadow:0 1px 0 rgba(255,255,255,.5)}
 .closing-package-design::before,.closing-package-design::after{content:'';position:absolute;top:-2px;width:8px;height:13px;border:1px solid currentColor;border-radius:80% 0 80% 0;opacity:.72}
 .closing-package-design::before{left:14px;transform:rotate(-28deg)}
 .closing-package-design::after{right:14px;transform:scaleX(-1) rotate(-28deg)}
@@ -163,7 +167,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 .closing-package-name{display:block;margin-top:6px;font-family:var(--serif);font-size:clamp(15px,1.9vw,25px);line-height:1.1;letter-spacing:.08em}
 .closing-package-detail{display:block;margin-top:5px;padding:4px 0;border-top:1px solid currentColor;border-bottom:1px solid currentColor;font-size:clamp(6px,.7vw,9px);font-weight:800;letter-spacing:.08em}
 .closing-package-days{display:block;margin-top:4px;font-size:clamp(6px,.62vw,8px);font-weight:700;letter-spacing:.08em}
-.hero-package-design{left:48%;top:46%;width:22%}
+.hero-package-design{left:47.6%;top:46%;width:22%}
 
 footer{padding:48px 0;background:#0e2922;color:#c7d5cf;font-size:11px;line-height:1.9}
 .footer-grid{display:grid;grid-template-columns:1fr 2fr;gap:50px}
@@ -174,7 +178,7 @@ footer{padding:48px 0;background:#0e2922;color:#c7d5cf;font-size:11px;line-heigh
 @media(max-width:900px){
   .container{width:min(100% - 36px,720px)}
   .section{padding:76px 0}
-  .hero-grid{grid-template-columns:48% 52%;column-gap:28px}
+  .hero-grid{grid-template-columns:48fr 52fr;column-gap:28px}
   .hero-visual{min-height:570px}
   .hero-cta{min-width:0;width:100%}
   .lifestyle-copy{padding-left:46px}
@@ -272,9 +276,9 @@ footer{padding:48px 0;background:#0e2922;color:#c7d5cf;font-size:11px;line-heigh
         <p class="hero-lead">睡眠の質（眠りの深さ）の向上に役立つ機能が報告されているGABAを、無理なく続ける夜の習慣へ。</p>
       </div>
 
-      <div class="hero-visual" aria-label="スヤミンの商品と利用場面">
+      <div class="hero-visual" aria-label="スヤミンの商品と利用場面" data-pkg-stage>
         <img class="hero-scene" src="images/hero-product-scene.jpg" alt="夜の木製カウンターに置いた架空商品スヤミンの白いパウチ、水の入ったグラス、不透明な1粒のカプセル" width="1448" height="1086" fetchpriority="high">
-        <span class="closing-package-design hero-package-design" aria-hidden="true">
+        <span class="closing-package-design hero-package-design" aria-hidden="true" data-pkg-label data-x="47.6" data-y="46" data-w="22">
           <span class="closing-package-kicker">Night balance</span>
           <strong class="closing-package-name">スヤミン</strong>
           <span class="closing-package-detail">GABA 100 mg</span>
@@ -449,9 +453,9 @@ footer{padding:48px 0;background:#0e2922;color:#c7d5cf;font-size:11px;line-heigh
         <a class="offer-cta" href="#" aria-describedby="closing-demo-note">デモの購入導線を確認する</a>
         <p class="small-note" id="closing-demo-note">自主制作デモのため、購入・送信は行われません。</p>
       </div>
-      <div class="closing-visual" aria-label="架空商品スヤミンの商品イメージ">
+      <div class="closing-visual" aria-label="架空商品スヤミンの商品イメージ" data-pkg-stage>
         <img class="closing-scene" src="images/closing-product-scene.jpg" alt="木製テーブルの上に置いた架空商品スヤミンの白いパウチ、水の入ったグラス、不透明な1粒のカプセル" width="1448" height="1086" loading="lazy">
-        <span class="closing-package-design" aria-hidden="true">
+        <span class="closing-package-design" aria-hidden="true" data-pkg-label data-x="39.5" data-y="45" data-w="24">
           <span class="closing-package-kicker">Night balance</span>
           <strong class="closing-package-name">スヤミン</strong>
           <span class="closing-package-detail">GABA 100 mg</span>
@@ -478,5 +482,38 @@ footer{padding:48px 0;background:#0e2922;color:#c7d5cf;font-size:11px;line-heigh
     <p class="copyright">© 2026 Suyamin LP Design Demo</p>
   </div>
 </footer>
+
+<script>
+/* パッケージのラベルを、画像の「実際に描画されている領域」に合わせる。
+   画像は object-fit:cover で切り取られるため、コンテナ基準の % では
+   画面幅が変わるたびにラベルがパウチから外れる。 */
+(function () {
+  var stages = document.querySelectorAll('[data-pkg-stage]');
+  if (!stages.length) return;
+
+  function place() {
+    stages.forEach(function (stage) {
+      var img = stage.querySelector('img');
+      var label = stage.querySelector('[data-pkg-label]');
+      if (!img || !label || !img.naturalWidth) return;
+      var cw = stage.clientWidth, ch = stage.clientHeight;
+      var scale = Math.max(cw / img.naturalWidth, ch / img.naturalHeight);
+      var pw = img.naturalWidth * scale, ph = img.naturalHeight * scale;
+      var ox = (cw - pw) / 2, oy = (ch - ph) / 2;
+      label.style.left = (ox + pw * parseFloat(label.dataset.x) / 100) + 'px';
+      label.style.top = (oy + ph * parseFloat(label.dataset.y) / 100) + 'px';
+      label.style.width = (pw * parseFloat(label.dataset.w) / 100) + 'px';
+    });
+  }
+
+  stages.forEach(function (stage) {
+    var img = stage.querySelector('img');
+    if (img && !img.complete) img.addEventListener('load', place);
+  });
+  window.addEventListener('load', place);
+  window.addEventListener('resize', place);
+  place();
+})();
+</script>
 </body>
 </html>
