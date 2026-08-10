@@ -558,7 +558,7 @@
     .price-line strong {
       margin-right: 4px;
       color: var(--berry-dark);
-      font-family: Georgia, "Yu Mincho", serif;
+      font-family: "Yu Mincho", "Times New Roman", serif;
       font-size: 52px;
       line-height: 1;
     }
@@ -822,6 +822,42 @@
 
       .hero-proofs li {
         min-width: 0;
+      }
+
+      /* 2カラム帯（781〜1080px）は列幅が細く、固定サイズの見出しだと
+         「を」「か。」だけの行に割れるため可変サイズにする */
+      .section-heading h2,
+      .concern-copy h2,
+      .final-cta h2 {
+        font-size: clamp(24px, 3vw, 40px);
+      }
+
+      .consultation-copy h3 {
+        font-size: clamp(21px, 2.8vw, 28px);
+      }
+
+      .trial-price h2 {
+        font-size: clamp(24px, 3vw, 34px);
+      }
+
+      .reason-list li {
+        padding: 30px 22px 32px;
+      }
+
+      .reason-list h3 {
+        font-size: clamp(18px, 2.4vw, 23px);
+      }
+
+      .hero-cta-row {
+        flex-wrap: wrap;
+      }
+
+      .hero-cta-row .button-primary {
+        white-space: nowrap;
+      }
+
+      .hero-price strong {
+        white-space: nowrap;
       }
 
       .concern-layout,

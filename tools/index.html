@@ -28,6 +28,10 @@
     .vba-note{font-size:13px;color:#41484e;border-top:1px solid #ebe8e2;padding-top:14px;margin:0}
     .shot-note{font-size:11px;color:var(--muted);padding:8px 28px;border-bottom:1px solid #ebe8e2;margin:0}
     @media(max-width:640px){.tool .shots{grid-template-columns:1fr}.ba{grid-template-columns:1fr}.ba .arrow{transform:rotate(90deg);justify-self:center}}
+    .catnav{max-width:900px;margin:auto;padding:18px 20px 0;display:flex;flex-wrap:wrap;gap:8px}
+    .catnav a{padding:7px 14px;border:1px solid var(--line);background:var(--white);font-size:12px;font-weight:700;color:#555d64}
+    .catnav a:hover{border-color:var(--accent);color:var(--accent)}
+    .catnav a[aria-current="page"]{background:var(--accent);border-color:var(--accent);color:#fff}
   </style>
 </head>
 <body>
@@ -35,6 +39,13 @@
     <a class="brand" href="../">Makoto <span>AUTOMATION TOOLS</span></a>
     <a class="header-link" href="../">ポートフォリオトップへ</a>
   </header>
+
+  <nav class="catnav" aria-label="ポートフォリオの種類">
+    <a href="../lp/">LP制作</a>
+    <a href="../scripts/">YouTube台本</a>
+    <a href="../articles/">ブログ・Web記事</a>
+    <a href="./" aria-current="page">業務効率化ツール</a>
+  </nav>
 
   <main>
     <p class="eyebrow">AUTOMATION TOOLS</p>

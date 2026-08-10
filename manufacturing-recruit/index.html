@@ -646,14 +646,15 @@
       display: grid;
       grid-template-columns: repeat(5, minmax(0, 1fr));
       border-top: 2px solid var(--graphite);
-      border-left: 1px solid var(--line-strong);
+      border-left: 1.5px solid var(--line-strong);
     }
 
+    /* 1px だと PDF 出力時にサブピクセル丸めで縦の区切り線が消えるため 1.5px */
     .industry-item {
       min-height: 230px;
       padding: 26px 22px;
-      border-right: 1px solid var(--line-strong);
-      border-bottom: 1px solid var(--line-strong);
+      border-right: 1.5px solid var(--line-strong);
+      border-bottom: 1.5px solid var(--line-strong);
       background: var(--paper);
     }
 
@@ -977,8 +978,18 @@
         padding-right: 44px;
       }
 
+      /* 2カラム維持帯（761〜1040px）は列幅が細く、46px固定だと
+         「を、」「まで」だけの行に割れるため可変サイズにする */
       .hero h1 {
-        font-size: 46px;
+        font-size: clamp(30px, 4.4vw, 46px);
+      }
+
+      .hero-actions {
+        flex-wrap: wrap;
+      }
+
+      .hero-actions .button {
+        white-space: nowrap;
       }
 
       .scope-rail-inner {

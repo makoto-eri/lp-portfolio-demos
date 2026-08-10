@@ -1,3 +1,8 @@
 output/
 .playwright-cli/
+.playwright-mcp/
 node_modules/
+
+# 旧版バックアップ（ローカルには残すが公開・追跡はしない）
+*.bak
+*.html.bak

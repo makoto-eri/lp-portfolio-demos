@@ -116,7 +116,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 .step{position:relative;padding:30px 40px 0 0}
 .step+ .step{padding-left:40px;border-left:1px solid #e6b9aa}
 .step-num{font-family:var(--serif);font-size:44px;line-height:1;color:var(--coral)}
-.step h3{margin:14px 0 8px;font-size:18px;color:var(--green)}
+.step h3{margin:14px 0 8px;font-size:18px;color:var(--green);word-break:keep-all}/* 中間幅で「で」1文字が2行目に落ちるのを防ぐ。折る位置は<wbr>で指定 */
 .step p{font-size:14px;color:#604f49}
 
 /* Price */
@@ -389,7 +389,7 @@ footer{padding:48px 0;background:#0e2922;color:#c7d5cf;font-size:11px;line-heigh
         </li>
         <li class="step">
           <span class="step-num">02</span>
-          <h3>水またはぬるま湯で</h3>
+          <h3>水または<wbr>ぬるま湯で</h3>
           <p>噛まずに、そのままお召し上がりください。</p>
         </li>
         <li class="step">
