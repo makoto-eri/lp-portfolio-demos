@@ -222,6 +222,11 @@
     .reveal,.hero .kicker,.hero h1 .l,.hero p.lead,.hero .cta-row,.hero .meta-strip{opacity:1 !important;transform:none !important}
     .hero h1 .mark::after{transform:scaleX(1) !important}
   }
+
+/* 行崩れ対策 2026-08-11: 見出しは行長を均し、本文は行末の1〜2文字残りを避ける（対応ブラウザのみ・非対応でも従来表示） */
+h1,h2,h3{text-wrap:balance}
+p,li,dt,dd{text-wrap:pretty}
+.bw{display:inline-block}
 </style>
 </head>
 <body>
@@ -272,11 +277,11 @@
 <section class="band band-paper2" id="problem">
   <div class="wrap">
     <div class="sec-head"><span class="sec-no">01</span></div>
-    <h2 class="sec-title reveal">なぜ、AIで作ったLPは<br>「あと一歩」で止まるのか。</h2>
+    <h2 class="sec-title reveal">なぜ、AIで作ったLPは<br><span class="bw">「あと一歩」で</span><span class="bw">止まるのか。</span></h2>
     <p class="sec-sub reveal">AIは“それっぽい全体”を一瞬で作ります。けれど伝わるLPに必要なのは、たった一人の読み手に向けた具体性と、迷わせない導線。ここはまだ人の仕事です。</p>
     <div class="prob-grid reveal">
-      <div class="prob"><div class="n">弱点 A</div><h3>テンプレ感（没個性）</h3><p>どこかで見たレイアウト、均等に並んだ3カラム、意味のないグラデーション。記憶に残らず、信頼にもつながりません。</p></div>
-      <div class="prob"><div class="n">弱点 B</div><h3>抽象的なコピー</h3><p>「高品質」「最適なソリューション」。誰にでも当てはまる言葉は、誰の心にも刺さりません。主語と数字が抜けています。</p></div>
+      <div class="prob"><div class="n">弱点 A</div><h3>テンプレ感（没個性）</h3><p>どこかで見たレイアウト、均等に並んだ3カラム、意味のないグラデーション。記憶に残らず、<span class="bw">信頼にもつながりません。</span></p></div>
+      <div class="prob"><div class="n">弱点 B</div><h3>抽象的なコピー</h3><p>「高品質」「最適なソリューション」。誰にでも当てはまる言葉は、誰の心にも刺さりません。主語と数字が<span class="bw">抜けています。</span></p></div>
       <div class="prob"><div class="n">弱点 C</div><h3>弱いCTA・迷う導線</h3><p>ボタンが多すぎる／弱すぎる。次に何をすればいいか一目で分からず、せっかくの興味が離脱に変わります。</p></div>
       <div class="prob"><div class="n">弱点 D</div><h3>信頼の不在</h3><p>実績・お客様の声・保証・運営者の顔。「本当に大丈夫？」を消す材料が足りず、申し込み直前で止まります。</p></div>
     </div>
@@ -359,7 +364,7 @@
 <section class="band band-dark" id="process">
   <div class="wrap">
     <div class="sec-head"><span class="sec-no" style="color:var(--gold)">03</span></div>
-    <h2 class="sec-title reveal">感覚で直さない。<br>診断 → 優先順位 → 改善 の順で。</h2>
+    <h2 class="sec-title reveal">感覚で直さない。<br><span class="bw">診断 → 優先順位 → 改善</span> <span class="bw">の順で。</span></h2>
     <p class="sec-sub reveal">「なんとなくおしゃれに」では再現できません。どこが・なぜ・どれだけ効くかを言葉にしてから手を動かします。</p>
     <div class="steps">
       <div class="step reveal"><div class="num">01</div><div><h3>現状診断</h3><p>ファーストビュー・CTA・セクション順・スマホ表示・AIっぽさが出ている箇所を洗い出し、スクリーンショットに直接コメントします。</p></div></div>
@@ -381,8 +386,8 @@
       <div class="sign"><div class="chk">2</div><div><b>すべて中央揃え</b><p>視線の流れが生まれず、のっぺり単調に見える。</p></div></div>
       <div class="sign"><div class="chk">3</div><div><b>均等に並んだ3カラム</b><p>「特徴3つ」の自動感。優先順位がなく印象に残らない。</p></div></div>
       <div class="sign"><div class="chk">4</div><div><b>抽象的な美辞麗句</b><p>「最適」「高品質」「次のステージへ」。主語と数字が抜けている。</p></div></div>
-      <div class="sign"><div class="chk">5</div><div><b>記号のようなアイコン</b><p>意味の薄い丸アイコンの羅列。内容を語っていない。</p></div></div>
-      <div class="sign"><div class="chk">6</div><div><b>弱い・多すぎるCTA</b><p>「詳しく見る」だけ、またはボタン乱立で迷わせる。</p></div></div>
+      <div class="sign"><div class="chk">5</div><div><b>記号のようなアイコン</b><p>意味の薄い丸アイコンの羅列。<span class="bw">内容を語っていない。</span></p></div></div>
+      <div class="sign"><div class="chk">6</div><div><b>弱い・多すぎるCTA</b><p>「詳しく見る」だけ、またはボタン乱立で<span class="bw">迷わせる。</span></p></div></div>
       <div class="sign"><div class="chk">7</div><div><b>信頼材料ゼロ</b><p>実績・声・保証・運営者の顔がなく、最後の一押しが効かない。</p></div></div>
     </div>
   </div>
@@ -393,7 +398,7 @@
   <div class="wrap">
     <div class="cta reveal">
       <h2>まずは、1枚の「AI LP改善ミニ診断」から。</h2>
-      <p>現状LPのURLかデータをいただければ、ファーストビュー・CTA・AIっぽさ・スマホ表示の観点で、優先度つきの改善ポイントをお出しします。いきなり大きく作り替えず、一番効く所から。</p>
+      <p>現状LPのURLかデータをいただければ、ファーストビュー・CTA・AIっぽさ・スマホ表示の観点で、優先度つきの改善ポイントをお出しします。いきなり大きく作り替えず、<span class="bw">一番効く所から。</span></p>
       <a href="../" class="btn btn-primary">他の制作デモを見る →</a>
       <p class="samplenote">※ 本ページはポートフォリオ用サンプルです。ボタンはデモのため、実際の送信は行われません。</p>
       <div class="profile">

@@ -88,6 +88,11 @@
   button[type=submit]{padding:16px;border:0;cursor:pointer;}
   footer{padding:32px 24px 48px;text-align:center;font-size:12px;color:var(--dim);
          border-top:1px solid rgba(201,162,39,.22);line-height:2.1;}
+
+/* 行崩れ対策 2026-08-11: 見出しは行長を均し、本文は行末の1〜2文字残りを避ける（対応ブラウザのみ・非対応でも従来表示） */
+h1,h2,h3{text-wrap:balance}
+p,li,dt,dd{text-wrap:pretty}
+.bw{display:inline-block}
 </style>
 </head>
 <body>
@@ -153,11 +158,11 @@
         <p class="who">30代・ご結婚三年目</p>
       </div>
       <div class="voice">
-        <p>予算を先に伝えたら、その中でできることを正直に教えてくれました。上のプランを勧められなかったことが決め手でした。</p>
+        <p>予算を先に伝えたら、その中でできることを正直に教えてくれました。上のプランを勧められなかったことが<span class="bw">決め手でした。</span></p>
         <p class="who">20代・ご相談時</p>
       </div>
     </div>
-    <p class="note">本ページは自主制作デモです。掲載のお客様の声はすべて架空のデモ用データで、実在の人物とは関係ありません。</p>
+    <p class="note">本ページは自主制作デモです。掲載のお客様の声はすべて架空のデモ用データで、実在の人物とは<span class="bw">関係ありません。</span></p>
   </section>
 
   <section class="sec">

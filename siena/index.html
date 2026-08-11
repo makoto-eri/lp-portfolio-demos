@@ -232,6 +232,11 @@ footer .demo{opacity:.65;display:block;margin-top:10px;line-height:1.8}
   .reveal{opacity:1;transform:none;transition:none}
   .gallery-grid img{transition:none}
 }
+
+/* 行崩れ対策 2026-08-11: 見出しは行長を均し、本文は行末の1〜2文字残りを避ける（対応ブラウザのみ・非対応でも従来表示） */
+h1,h2,h3{text-wrap:balance}
+p,li,dt,dd{text-wrap:pretty}
+.bw{display:inline-block}
 </style>
 </head>
 <body>
@@ -300,7 +305,7 @@ footer .demo{opacity:.65;display:block;margin-top:10px;line-height:1.8}
       <div class="reason-photo"><span class="reason-num">02</span><img src="assets/siena-care-oil.jpg" loading="lazy" alt="仕上げにネイルオイルで保湿する手元（デモ用生成画像）"></div>
       <div class="reason-text">
         <h3><span class="nw">ツヤが続く、</span><span class="nw">平均3〜4週間の持ち</span></h3>
-        <p>浮きの原因になる甘皮まわりのケアと保湿を、毎回の施術に標準で含めています。土台を整えてから塗るから、ツヤが長く続きます。</p>
+        <p>浮きの原因になる甘皮まわりのケアと保湿を、毎回の施術に標準で含めています。土台を整えてから塗るから、<span class="bw">ツヤが長く続きます。</span></p>
         <p class="note">※持ちには個人差があります</p>
       </div>
     </div>
@@ -346,11 +351,11 @@ footer .demo{opacity:.65;display:block;margin-top:10px;line-height:1.8}
     <div class="menu-table reveal">
       <div class="menu-row">
         <p class="name">うるつやワンカラー<small>甘皮ケア・保湿込み／約90分</small></p>
-        <p class="price"><span class="reg">通常 7,480円</span>→ 初回 <span class="first">5,980</span>円</p>
+        <p class="price"><span class="reg">通常 7,480円</span><span class="bw">→ 初回 <span class="first">5,980</span>円</span></p>
       </div>
       <div class="menu-row">
         <p class="name">ニュアンスデザイン<small>アート2〜4本込み／約120分</small></p>
-        <p class="price"><span class="reg">通常 9,680円〜</span>→ 初回 <span class="first">8,180</span>円〜</p>
+        <p class="price"><span class="reg">通常 9,680円〜</span><span class="bw">→ 初回 <span class="first">8,180</span>円〜</span></p>
       </div>
       <div class="menu-row">
         <p class="name">自爪育成ケアコース<small>ジェルなし／甘皮ケア・保湿・磨き</small></p>
@@ -437,7 +442,7 @@ footer .demo{opacity:.65;display:block;margin-top:10px;line-height:1.8}
       <h2>ご利用の流れ</h2>
     </div>
     <ol class="flow-list" style="list-style:none">
-      <li class="flow-item reveal"><span class="step">1</span><h3>Web予約</h3><p>ご希望のメニューと日時をお選びください。</p></li>
+      <li class="flow-item reveal"><span class="step">1</span><h3>Web予約</h3><p>ご希望のメニューと日時を<span class="bw">お選びください。</span></p></li>
       <li class="flow-item reveal"><span class="step">2</span><h3>カウンセリング</h3><p>爪の状態とご希望を丁寧に伺います。</p></li>
       <li class="flow-item reveal"><span class="step">3</span><h3>ケア</h3><p>甘皮まわりを整え、保湿します。</p></li>
       <li class="flow-item reveal"><span class="step">4</span><h3>施術</h3><p>削らないパラジェルで仕上げます。</p></li>

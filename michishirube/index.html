@@ -30,11 +30,12 @@ a{color:var(--civic)}
 /* ---- header ---- */
 .site-header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 24px;border-bottom:1px solid var(--line)}
 .brand{font-weight:900;font-size:18px;letter-spacing:.02em;color:var(--ink);text-decoration:none}
+.brand .bw{display:inline-block}/* 行の折り返しは文節間のみ（「事務所」だけが落ちる崩れを防ぐ） */
 .brand small{display:block;font-weight:500;font-size:11px;color:#55565C;letter-spacing:.08em}
 .header-cta{display:flex;align-items:center;gap:16px}
 .tel{font-weight:700;font-size:15px;color:var(--ink);text-decoration:none}
 .tel span{display:block;font-size:11px;font-weight:400;color:#55565C}
-.btn{display:inline-block;background:var(--civic);color:#fff;text-decoration:none;font-weight:700;border-radius:var(--radius);padding:12px 28px;border:1px solid var(--civic);transition:background-color .15s;font-family:inherit;font-size:15px;cursor:pointer}
+.btn{display:inline-block;background:var(--civic);color:#fff;text-decoration:none;font-weight:700;border-radius:var(--radius);padding:12px 28px;border:1px solid var(--civic);transition:background-color .15s;font-family:inherit;font-size:15px;cursor:pointer;white-space:nowrap}
 .btn:hover{background:var(--deep);border-color:var(--deep)}
 .btn[disabled]{background:#8B8F9C;border-color:#8B8F9C;cursor:not-allowed}
 .btn.small{padding:9px 18px;font-size:14px}
@@ -45,6 +46,7 @@ a{color:var(--civic)}
 .eyebrow{font-size:13px;font-weight:700;color:var(--civic);letter-spacing:.14em;margin-bottom:20px}
 .eyebrow::before{content:"";display:inline-block;width:28px;height:4px;background:var(--civic);margin-right:10px;vertical-align:middle}
 h1{font-size:clamp(30px,3.4vw,44px);font-weight:900;line-height:1.45;letter-spacing:.01em}
+h1 .bw{display:inline-block}
 .hero-sub{margin-top:20px;font-size:16px;font-weight:300;line-height:2.0}
 .trust{display:flex;margin-top:28px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .trust li{list-style:none;flex:1;text-align:center;padding:12px 4px;font-size:13px;font-weight:700}
@@ -52,7 +54,7 @@ h1{font-size:clamp(30px,3.4vw,44px);font-weight:900;line-height:1.45;letter-spac
 .hero-action{margin-top:28px}
 .cta-note{font-size:12px;color:#55565C;margin-top:8px}
 .hero-photo{position:relative;overflow:hidden}
-.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 22%}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:38% 55%}
 .demo-ribbon{position:absolute;top:14px;right:0;background:var(--ink);color:#fff;font-size:11px;font-weight:500;letter-spacing:.1em;padding:5px 14px}
 
 /* ---- sections ---- */
@@ -132,6 +134,8 @@ footer .demo-note{font-weight:700;color:var(--ink);margin-bottom:6px}
 /* ---- mobile ---- */
 @media (max-width:820px){
   .tel{display:none}
+  .brand{font-size:15px}
+  .brand small{font-size:10px}
   .hero{grid-template-columns:1fr;min-height:0}
   .hero-copy{padding:26px 20px 32px;max-width:none;justify-self:stretch}
   .hero-sub{font-size:14px;margin-top:14px;line-height:1.8}
@@ -139,8 +143,8 @@ footer .demo-note{font-weight:700;color:var(--ink);margin-bottom:6px}
   .hero-action{margin-top:18px}
   .eyebrow{margin-bottom:12px}
   h1{font-size:27px}
-  .hero-photo{order:-1;height:33vh;min-height:230px}
-  .hero-photo img{object-position:50% 16%}
+  .hero-photo{order:-1;height:30vh;min-height:210px}
+  .hero-photo img{object-position:45% 55%}
   section{padding:48px 20px}
   h2{font-size:24px;margin-bottom:28px}
   .services{grid-template-columns:1fr;grid-template-rows:auto}
@@ -164,12 +168,17 @@ footer .demo-note{font-weight:700;color:var(--ink);margin-bottom:6px}
   html{scroll-behavior:auto}
   .svc,.svc:hover{transition:none;transform:none}
 }
+
+/* 行崩れ対策 2026-08-11: 見出しは行長を均し、本文は行末の1〜2文字残りを避ける（対応ブラウザのみ・非対応でも従来表示） */
+h1,h2,h3{text-wrap:balance}
+p,li,dt,dd{text-wrap:pretty}
+.bw{display:inline-block}
 </style>
 </head>
 <body>
 
 <header class="site-header">
-  <a class="brand" href="#top">みちしるべ行政書士事務所<small>補助金・許認可・相続の申請代行</small></a>
+  <a class="brand" href="#top"><span class="bw">みちしるべ</span><span class="bw">行政書士事務所</span><small>補助金・許認可・相続の申請代行</small></a>
   <div class="header-cta">
     <span class="tel num">00-0000-0000（架空）<span>平日・土日祝 9:00-18:00</span></span>
     <a class="btn small" href="#contact">無料相談を予約</a>
@@ -180,7 +189,7 @@ footer .demo-note{font-weight:700;color:var(--ink);margin-bottom:6px}
   <div class="hero">
     <div class="hero-copy">
       <p class="eyebrow">補助金・許認可・相続の申請代行</p>
-      <h1>申請書類に、あなたの時間を使わせない。</h1>
+      <h1><span class="bw">申請書類に、</span><span class="bw">あなたの時間を</span><span class="bw">使わせない。</span></h1>
       <p class="hero-sub">補助金・許認可・相続——面倒な行政手続きを、行政書士がまるごとサポート。あなたは本業と暮らしに集中できます。</p>
       <ul class="trust">
         <li>初回相談無料</li>
@@ -193,8 +202,8 @@ footer .demo-note{font-weight:700;color:var(--ink);margin-bottom:6px}
       </div>
     </div>
     <div class="hero-photo">
-      <!-- 差し替え用生成プロンプト: 40代日本人男性行政書士・紺スーツ・明るい事務所・自然光・申請書類とペン・正面やや左向き（gen_hero.py に英語全文） -->
-      <img src="assets/hero.webp" alt="相談に応じる行政書士のイメージ（AI生成・架空人物）" width="1024" height="1536">
+      <!-- 2026-08-11 差し替え: 人物顔出しをやめ、申請書類に記入する手元のクローズアップに変更（本人指示）。旧画像は assets/hero-portrait-backup.webp -->
+      <img src="assets/hero.webp" alt="申請書類に記入する行政書士の手元のイメージ（AI生成）" width="2048" height="832">
       <span class="demo-ribbon">架空デモ</span>
     </div>
   </div>
@@ -255,15 +264,15 @@ footer .demo-note{font-weight:700;color:var(--ink);margin-bottom:6px}
       <div class="steps">
         <div class="step" data-n="01">
           <h3>無料相談<span class="badge">30分・オンライン可</span></h3>
-          <p>現在の状況とやりたいことを伺い、使える制度・必要な手続き・概算の費用感をその場でお伝えします。</p>
+          <p>現在の状況とやりたいことを伺い、使える制度・必要な手続き・概算の費用感を<span class="bw">その場でお伝えします。</span></p>
         </div>
         <div class="step" data-n="02">
           <h3>お見積り</h3>
-          <p>作業範囲と料金を書面でご提示します。着手前に金額が確定するので、あとから増える心配はありません。</p>
+          <p>作業範囲と料金を書面でご提示します。着手前に金額が確定するので、あとから増える<span class="bw">心配はありません。</span></p>
         </div>
         <div class="step" data-n="03">
           <h3>申請手続き</h3>
-          <p>書類の作成・収集・提出まで代行します。お客様にお願いするのは、押印と数点の資料準備だけです。</p>
+          <p>書類の作成・収集・提出まで代行します。お客様にお願いするのは、押印と数点の<span class="bw">資料準備だけです。</span></p>
         </div>
         <div class="step" data-n="04">
           <h3>完了報告・アフター</h3>

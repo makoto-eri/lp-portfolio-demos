@@ -33,3 +33,9 @@ footer{padding:30px clamp(20px,5vw,72px);display:flex;justify-content:space-betw
 footer span{font-family:"Shippori Mincho",serif;font-weight:700}
 footer a{color:#fff;border-bottom:1px solid #6b7178}
 @media(max-width:640px){.site-header{height:56px}.brand span{display:none}.meta{grid-template-columns:1fr}.spk{grid-template-columns:1fr;gap:2px}footer{flex-direction:column}}
+
+
+/* 行崩れ対策 2026-08-11: 見出しは行長を均し、本文は行末の1〜2文字残りを避ける（対応ブラウザのみ・非対応でも従来表示） */
+h1,h2,h3{text-wrap:balance}
+p,li,dt,dd{text-wrap:pretty}
+.bw{display:inline-block}

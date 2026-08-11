@@ -255,6 +255,11 @@ footer{padding:48px 0;background:#0e2922;color:#c7d5cf;font-size:11px;line-heigh
                  font-size:12.5px;font-weight:700;color:var(--green-2)}
 .voice-note{margin:24px 0 0;font-size:12px;line-height:1.9;color:var(--muted)}
 @media(max-width:900px){.voice-grid{grid-template-columns:1fr}}
+
+/* 行崩れ対策 2026-08-11: 見出しは行長を均し、本文は行末の1〜2文字残りを避ける（対応ブラウザのみ・非対応でも従来表示） */
+h1,h2,h3{text-wrap:balance}
+p,li,dt,dd{text-wrap:pretty}
+.bw{display:inline-block}
 </style>
 </head>
 <body>
@@ -315,7 +320,7 @@ footer{padding:48px 0;background:#0e2922;color:#c7d5cf;font-size:11px;line-heigh
       <img class="lifestyle-photo" src="images/morning_予備.jpg" alt="朝の光が入る窓辺と小さな植物" width="1080" height="720" loading="lazy">
       <div class="lifestyle-copy">
         <p class="section-kicker">Night routine</p>
-        <h2 class="section-title" id="lifestyle-title">寝る前の習慣は、<br>もっとシンプルでいい。</h2>
+        <h2 class="section-title" id="lifestyle-title">寝る前の習慣は、<br><span class="bw">もっと</span><span class="bw">シンプルでいい。</span></h2>
         <p class="section-lead">忙しい日も、旅先でも。特別な準備を増やさず、いつもの夜に1粒を足す設計です。</p>
         <p class="routine-statement">歯みがきのあとに、水と1粒。<br>それだけを、毎日の合図に。</p>
         <ul class="routine-points">
@@ -336,8 +341,8 @@ footer{padding:48px 0;background:#0e2922;color:#c7d5cf;font-size:11px;line-heigh
         <h2 class="section-title" id="ingredient-title">眠りの「深さ」に着目した、<br>GABA配合の設計。</h2>
         <div class="ingredient-number"><strong>100</strong><span>mg／1日1粒</span></div>
         <p>スヤミンは、機能性関与成分GABAを1日摂取目安量あたり100mg配合した、架空の機能性表示食品です。</p>
-        <p class="notice-copy"><strong>本デモでの届出表示設定</strong><br>本品にはGABAが含まれます。GABAには睡眠の質（眠りの深さ）の向上に役立つ機能があることが報告されています。</p>
-        <p class="small-note">※商品、配合、届出表示および届出番号はすべて架空のデモ設定です。実在する商品ではありません。<br>※本品は医薬品ではなく、疾病の診断、治療、予防を目的としたものではありません。</p>
+        <p class="notice-copy"><strong>本デモでの届出表示設定</strong><br>本品にはGABAが含まれます。GABAには睡眠の質（眠りの深さ）の向上に役立つ機能があることが<span class="bw">報告されています。</span></p>
+        <p class="small-note">※商品、配合、届出表示および届出番号はすべて架空のデモ設定です。実在する<span class="bw">商品ではありません。</span><br>※本品は医薬品ではなく、疾病の診断、治療、予防を目的としたものではありません。</p>
       </div>
     </div>
   </section>
@@ -346,8 +351,8 @@ footer{padding:48px 0;background:#0e2922;color:#c7d5cf;font-size:11px;line-heigh
   <section class="section features" id="features" aria-labelledby="features-title">
     <div class="container">
       <p class="section-kicker">Three features</p>
-      <h2 class="section-title" id="features-title">続けるために、<br>余計なものを増やさない。</h2>
-      <p class="section-lead">強い言葉や架空の実績ではなく、成分・飲み方・定期条件を購入前に確認できる構成にしています。</p>
+      <h2 class="section-title" id="features-title">続けるために、<br><span class="bw">余計なものを</span><span class="bw">増やさない。</span></h2>
+      <p class="section-lead">強い言葉や架空の実績ではなく、成分・飲み方・定期条件を購入前に確認できる<span class="bw">構成にしています。</span></p>
       <div class="feature-grid">
         <article class="feature">
           <span class="feature-no">01</span>
@@ -379,7 +384,7 @@ footer{padding:48px 0;background:#0e2922;color:#c7d5cf;font-size:11px;line-heigh
           <p class="section-kicker">How to take</p>
           <h2 class="section-title" id="howto-title">夜の流れに、<br>3ステップ。</h2>
         </div>
-        <p class="section-lead">飲む時間を固定する商品設定ではありません。生活の中で忘れにくいタイミングを決めてください。</p>
+        <p class="section-lead">飲む時間を固定する商品設定ではありません。生活の中で忘れにくいタイミングを<span class="bw">決めてください。</span></p>
       </div>
       <ol class="steps">
         <li class="step">
@@ -508,7 +513,7 @@ footer{padding:48px 0;background:#0e2922;color:#c7d5cf;font-size:11px;line-heigh
       <div class="footer-notes">
         <p>本ページの商品名、商品画像、配合、届出表示、届出番号、価格、定期条件はすべて架空の設定です。実在する商品・企業・販売実績を示すものではありません。</p>
         <p>本品は医薬品ではありません。疾病の診断、治療、予防を目的としたものではありません。食生活は、主食、主菜、副菜を基本に、食事のバランスを。</p>
-        <p>CTAはデモ表示であり、フォーム送信・決済・商品発送は行われません。</p>
+        <p>CTAはデモ表示であり、フォーム送信・決済・<span class="bw">商品発送は行われません。</span></p>
       </div>
     </div>
     <p class="copyright">© 2026 Suyamin LP Design Demo</p>

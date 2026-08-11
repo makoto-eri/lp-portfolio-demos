@@ -32,7 +32,12 @@
     .catnav a{padding:7px 14px;border:1px solid var(--line);background:var(--white);font-size:12px;font-weight:700;color:#555d64}
     .catnav a:hover{border-color:var(--accent);color:var(--accent)}
     .catnav a[aria-current="page"]{background:var(--accent);border-color:var(--accent);color:#fff}
-  </style>
+  
+/* 行崩れ対策 2026-08-11: 見出しは行長を均し、本文は行末の1〜2文字残りを避ける（対応ブラウザのみ・非対応でも従来表示） */
+h1,h2,h3{text-wrap:balance}
+p,li,dt,dd{text-wrap:pretty}
+.bw{display:inline-block}
+</style>
 </head>
 <body>
   <header class="site-header">
@@ -80,7 +85,7 @@
         <img src="../assets/tools/anken-monitor-1.png" alt="新着案件監視ツールの通知メール画面（ダミーデータ）">
         <img src="../assets/tools/anken-monitor-2.png" alt="新着案件監視ツールが自動保存した下書きファイル（ダミーデータ）">
       </div>
-      <p class="shot-note">画面は架空の募集・架空のURLで生成した通知サンプルです。</p>
+      <p class="shot-note">画面は架空の募集・架空のURLで生成した<span class="bw">通知サンプルです。</span></p>
       <div class="body">
         <h2 id="tool2-title">新着案件の自動監視・通知ツール</h2>
         <p class="sub">JOB MONITOR</p>

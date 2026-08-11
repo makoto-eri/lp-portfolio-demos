@@ -41,3 +41,9 @@ footer{padding:34px clamp(20px,5vw,72px);display:flex;justify-content:space-betw
 /* 中間幅で見出しがカタカナ語の途中（スタデ/ィ 等）で折れるのを防ぐ。
    折り返しはスペース・句読点の位置のみ許可 */
 .section-heading h2,.scope>h2,.card-body h3,.scope-grid h3{word-break:keep-all;overflow-wrap:anywhere}
+
+
+/* 行崩れ対策 2026-08-11: 見出しは行長を均し、本文は行末の1〜2文字残りを避ける（対応ブラウザのみ・非対応でも従来表示） */
+h1,h2,h3{text-wrap:balance}
+p,li,dt,dd{text-wrap:pretty}
+.bw{display:inline-block}

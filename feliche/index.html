@@ -283,6 +283,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--navy);outline-offse
   .parts{grid-template-columns:1fr}
   .plans{grid-template-columns:1fr}
   .camps{grid-template-columns:1fr}
+  .voices{grid-template-columns:1fr}
   .shop{grid-template-columns:1fr}
   .step,.step:nth-child(even){grid-template-columns:1fr;grid-template-areas:"photo" "body" "arrow"}
   .step-photo{margin:0 auto}
@@ -305,6 +306,11 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--navy);outline-offse
   .reveal{opacity:1;transform:none;transition:none}
   .cta-btn{transition:none}
 }
+
+/* 行崩れ対策 2026-08-11: 見出しは行長を均し、本文は行末の1〜2文字残りを避ける（対応ブラウザのみ・非対応でも従来表示） */
+h1,h2,h3{text-wrap:balance}
+p,li,dt,dd{text-wrap:pretty}
+.bw{display:inline-block}
 </style>
 </head>
 <body>
@@ -323,7 +329,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--navy);outline-offse
     <div>
       <span class="fv-hook">＼他サロンからの のりかえ大歓迎／</span><br>
       <span class="fv-define">全身脱毛33か所</span>
-      <h1>「結局いくら？」に、<br>ちゃんと答える脱毛サロンです。</h1>
+      <h1>「結局いくら？」に、<br><span class="bw">ちゃんと答える</span><span class="bw">脱毛サロンです。</span></h1>
       <div class="fv-offer">
         <span class="label">初回</span><span class="zero gold">0</span><span class="unit gold">円</span>
         <span class="fv-badge">期間<br>限定</span>
@@ -353,21 +359,21 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--navy);outline-offse
 <!-- 2. 乗り換え共感 -->
 <section class="sec">
   <div class="inner reveal">
-    <h2 class="sec-title">いまのサロン、<br>こんなモヤモヤありませんか？</h2>
-    <p class="sec-lead">のりかえを考えはじめた方から、よく伺うお悩みです。</p>
+    <h2 class="sec-title">いまのサロン、<br><span class="bw">こんなモヤモヤ</span><span class="bw">ありませんか？</span></h2>
+    <p class="sec-lead">のりかえを考えはじめた方から、よく伺う<span class="bw">お悩みです。</span></p>
     <div class="worry-cards">
-      <div class="worry"><div class="qmark">?</div><p>総額があといくらになるのか、よく分からない</p></div>
+      <div class="worry"><div class="qmark">?</div><p>総額があといくらになるのか、<span class="bw">よく分からない</span></p></div>
       <div class="worry"><div class="qmark">?</div><p>シェービング代などの追加費用で、想定より高くなった</p></div>
-      <div class="worry"><div class="qmark">?</div><p>やめ時も、のりかえの手順も、聞きづらい</p></div>
+      <div class="worry"><div class="qmark">?</div><p>やめ時も、のりかえの手順も、<span class="bw">聞きづらい</span></p></div>
     </div>
-    <p class="worry-answer">フェリシェは、その3つを<span class="marker">「わかりやすさ」で解決する</span>ためにつくったサロンです。</p>
+    <p class="worry-answer">フェリシェは、その3つを<span class="marker bw">「わかりやすさ」で解決する</span>ために<span class="bw">つくったサロンです。</span></p>
   </div>
 </section>
 
 <!-- 3. 理由6連帯 -->
 <section class="sec bg-stripe">
   <div class="inner reveal">
-    <h2 class="sec-title">フェリシェが選ばれる<span class="num" style="font-size:48px;color:#FF4D8D"> 6 </span>つの理由</h2>
+    <h2 class="sec-title"><span class="bw">フェリシェが</span><span class="bw">選ばれる</span><span class="bw"><span class="num" style="font-size:48px;color:#FF4D8D"> 6 </span>つの理由</span></h2>
     <p class="sec-lead">ぜんぶ、通う前に知っておいてほしいことです。</p>
     <div class="reasons">
       <div class="reasons-photo imgwrap">
@@ -399,8 +405,8 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--navy);outline-offse
 <!-- 5. 部位図解 -->
 <section class="sec">
   <div class="inner reveal">
-    <h2 class="sec-title">全身<span class="num gold" style="font-size:52px">33</span>か所、まるごとケア</h2>
-    <p class="sec-lead">「ここは別料金」がないから、あとから増えません。</p>
+    <h2 class="sec-title"><span class="bw">全身<span class="num gold" style="font-size:52px">33</span>か所、</span>まるごとケア</h2>
+    <p class="sec-lead">「ここは別料金」がないから、<span class="bw">あとから増えません。</span></p>
     <div class="parts">
       <div class="parts-figure" aria-hidden="true">
         <svg viewBox="0 0 1000 690" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="全身33か所の部位図解（正面図・背面図）">
@@ -520,7 +526,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--navy);outline-offse
 <section class="sec">
   <div class="inner reveal">
     <h2 class="sec-title">ご来店までの流れ</h2>
-    <p class="sec-lead">初回は約90分。当日に契約を決める必要はありません。</p>
+    <p class="sec-lead">初回は約90分。当日に契約を決める<span class="bw">必要はありません。</span></p>
     <ol class="steps">
       <li class="step">
         <div class="step-photo">
@@ -571,7 +577,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--navy);outline-offse
         <div class="step-body">
           <p class="step-no">STEP 04</p>
           <h3>次回は自分のペースで</h3>
-          <p>月額でも都度払いでも。通い方はいつでも変えられます。</p>
+          <p>月額でも都度払いでも。通い方は<span class="bw">いつでも変えられます。</span></p>
         </div>
       </li>
     </ol>
@@ -597,7 +603,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--navy);outline-offse
         <div class="camp-body">
           <h3>のりかえ相談<br>無料</h3>
           <div class="big"><span class="num gold">0</span><span class="unit">円</span></div>
-          <p>いまのサロンの解約手順から、一緒に整理します。</p>
+          <p>いまのサロンの解約手順から、<span class="bw">一緒に整理します。</span></p>
         </div>
       </div>
       <div class="camp">
@@ -622,7 +628,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--navy);outline-offse
 <section class="sec bg-stripe">
   <div class="inner reveal">
     <h2 class="sec-title">通ってくださっている方の声</h2>
-    <p class="sec-lead">はじめる前に、いちばん気にされていたことです。</p>
+    <p class="sec-lead">はじめる前に、いちばん<span class="bw">気にされていたことです。</span></p>
     <div class="voices">
       <div class="voice">
         <p class="q">総額がいくらになるのか分からないまま契約するのが怖かったのですが、初回に全部教えてもらえました。あとから増えた費用はありません。</p>
@@ -633,7 +639,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--navy);outline-offse
         <p class="who">30代・会社員</p>
       </div>
       <div class="voice">
-        <p class="q">勧誘されるものだと身構えて行きましたが、拍子抜けするほど何もありませんでした。都度払いで自分のペースで通えています。</p>
+        <p class="q">勧誘されるものだと身構えて行きましたが、拍子抜けするほど何もありませんでした。都度払いで<span class="bw">自分のペースで</span><span class="bw">通えています。</span></p>
         <p class="who">40代・都度払いプラン</p>
       </div>
     </div>
@@ -697,7 +703,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--navy);outline-offse
 <!-- 11. 最終CTA -->
 <section class="sec bg-navy last-cta">
   <div class="inner reveal">
-    <p class="lead">気になっていた「結局いくら？」は、<br>もう解決しています。</p>
+    <p class="lead">気になっていた<span class="bw">「結局いくら？」は、</span><br>もう解決しています。</p>
     <div class="cta-block">
       <p class="cta-micro">＼今なら全身33か所 初回0円／</p>
       <!-- TODO: LINE公式アカウントURL確定後に差し替え（公開ブロッカー） -->

@@ -246,6 +246,11 @@ footer .copy{margin-top:20px;font-size:11px;color:#7C7668;letter-spacing:.08em}
   .stat div+div{border-left:none;border-top:1px solid var(--line)}
   .fv-bgword{font-size:34vw}
 }
+
+/* 行崩れ対策 2026-08-11: 見出しは行長を均し、本文は行末の1〜2文字残りを避ける（対応ブラウザのみ・非対応でも従来表示） */
+h1,h2,h3{text-wrap:balance}
+p,li,dt,dd{text-wrap:pretty}
+.bw{display:inline-block}
 </style>
 </head>
 <body>
@@ -384,7 +389,7 @@ footer .copy{margin-top:20px;font-size:11px;color:#7C7668;letter-spacing:.08em}
       <div><div class="big">認定</div><div class="lb">認定エステティシャン在籍</div></div>
     </div>
     <div class="voices">
-      <div class="voice reveal d1"><p class="q">他店の流れ作業に疲れて来ました。毎回同じ方が担当で、肌の調子まで覚えていてくれるのが安心です。</p><p class="who">40代・会社員</p></div>
+      <div class="voice reveal d1"><p class="q">他店の流れ作業に疲れて来ました。毎回同じ方が担当で、肌の調子まで覚えていて<span class="bw">くれるのが安心です。</span></p><p class="who">40代・会社員</p></div>
       <div class="voice reveal d2"><p class="q">勧誘が一切なくて拍子抜け。都度払いなので、自分のペースで通えています。</p><p class="who">30代・自営業</p></div>
       <div class="voice reveal d3"><p class="q">完全個室で人目が気にならない。照明が心地よくて、つい眠ってしまうほどでした。</p><p class="who">30代</p></div>
     </div>

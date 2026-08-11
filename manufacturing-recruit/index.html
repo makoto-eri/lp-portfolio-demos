@@ -1592,7 +1592,14 @@
         transform: none;
       }
     }
-  </style>
+    /* 見出しの折り返しを文節間に限定する（1〜2文字だけが次行に落ちる崩れを防ぐ） */
+    .bw { display: inline-block; }
+  
+/* 行崩れ対策 2026-08-11: 見出しは行長を均し、本文は行末の1〜2文字残りを避ける（対応ブラウザのみ・非対応でも従来表示） */
+h1,h2,h3{text-wrap:balance}
+p,li,dt,dd{text-wrap:pretty}
+.bw{display:inline-block}
+</style>
 </head>
 <body>
   <a class="skip-link" href="#main">本文へ移動</a>
@@ -1658,7 +1665,7 @@
         <div class="section-head">
           <div class="section-index">01 / CHALLENGES</div>
           <div>
-            <h2 class="section-title" id="challenges-title">採用できても、現場定着までの実務がつながらない。</h2>
+            <h2 class="section-title" id="challenges-title"><span class="bw">採用できても、</span><span class="bw">現場定着までの</span><span class="bw">実務がつながらない。</span></h2>
             <p class="section-intro">候補者探しだけでなく、認識合わせ・書類・受け入れ・入社後対応まで、社内に点在する作業を一つずつ整える必要があります。</p>
           </div>
         </div>
@@ -1711,7 +1718,7 @@
           <article class="support-row">
             <span class="support-row-number">04</span>
             <h3>入社後フォロー</h3>
-            <p>仕事・生活に関する相談窓口を用意し、必要に応じて本人と企業双方の状況を確認します。</p>
+            <p>仕事・生活に関する相談窓口を用意し、必要に応じて本人と企業双方の<span class="bw">状況を確認します。</span></p>
           </article>
         </div>
       </div>
@@ -1730,7 +1737,7 @@
           <div class="section-index">03 / LOCAL INTERVIEW</div>
           <div>
             <h2 class="section-title" id="interview-title">現地面接を、採用判断の起点に。</h2>
-            <p class="section-intro">書類だけで進めず、企業担当者が候補者の人柄・仕事理解・就業意向を直接確認する前提で進行します。</p>
+            <p class="section-intro">書類だけで進めず、企業担当者が候補者の人柄・仕事理解・就業意向を直接確認する<span class="bw">前提で進行します。</span></p>
           </div>
         </div>
 
@@ -1775,7 +1782,7 @@
           <div class="section-index">04 / INDUSTRIES</div>
           <div>
             <h2 class="section-title" id="industries-title">現場業務のある、5つの分野を想定。</h2>
-            <p class="section-intro">この自主制作デモでは、受け入れ準備と配属後の確認が必要になりやすい業種を対象例として設計しています。</p>
+            <p class="section-intro">この自主制作デモでは、受け入れ準備と配属後の確認が必要になりやすい業種を対象例として<span class="bw">設計しています。</span></p>
           </div>
         </div>
 
@@ -1783,12 +1790,12 @@
           <article class="industry-item">
             <span class="industry-code">MF</span>
             <h3>製造</h3>
-            <p>組立、加工、検査、梱包など、工程と安全ルールの共有が必要な現場。</p>
+            <p>組立、加工、検査、梱包など、工程と安全ルールの<span class="bw">共有が必要な現場。</span></p>
           </article>
           <article class="industry-item">
             <span class="industry-code">CA</span>
             <h3>介護</h3>
-            <p>利用者対応、記録、チーム連携など、職場内の意思疎通が重要な現場。</p>
+            <p>利用者対応、記録、チーム連携など、職場内の<span class="bw">意思疎通が重要な現場。</span></p>
           </article>
           <article class="industry-item">
             <span class="industry-code">FD</span>
@@ -1798,12 +1805,12 @@
           <article class="industry-item">
             <span class="industry-code">LG</span>
             <h3>物流</h3>
-            <p>入出荷、仕分け、検品など、安全と正確な作業確認が求められる現場。</p>
+            <p>入出荷、仕分け、検品など、安全と正確な作業確認が<span class="bw">求められる現場。</span></p>
           </article>
           <article class="industry-item">
             <span class="industry-code">HT</span>
             <h3>宿泊</h3>
-            <p>客室整備、館内業務、接客補助など、役割分担と品質基準がある現場。</p>
+            <p>客室整備、館内業務、接客補助など、役割分担と<span class="bw">品質基準がある現場。</span></p>
           </article>
         </div>
       </div>
@@ -1815,15 +1822,15 @@
           <div class="section-index">05 / PROCESS</div>
           <div>
             <h2 class="section-title" id="process-title">相談から入社後まで、確認点を見える化。</h2>
-            <p class="section-intro">企業ごとの条件と必要な手続きに合わせて進行します。下記は支援の全体像を示すデモ用の標準フローです。</p>
+            <p class="section-intro">企業ごとの条件と必要な手続きに合わせて進行します。下記は支援の全体像を示すデモ用の<span class="bw">標準フローです。</span></p>
           </div>
         </div>
 
         <ol class="process-list">
           <li><h3>初回相談</h3><p>採用背景、職種、人数、時期、社内の受け入れ状況を確認します。</p></li>
           <li><h3>条件整理</h3><p>候補者へ伝える業務内容と条件、企業側の判断基準をそろえます。</p></li>
-          <li><h3>候補者面接</h3><p>現地で直接面接し、企業担当者が採用可否を判断します。</p></li>
-          <li><h3>入社準備</h3><p>必要書類、関係先との進行、配属初日までの確認項目を整理します。</p></li>
+          <li><h3>候補者面接</h3><p>現地で直接面接し、企業担当者が<span class="bw">採用可否を判断します。</span></p></li>
+          <li><h3>入社準備</h3><p>必要書類、関係先との進行、配属初日までの<span class="bw">確認項目を整理します。</span></p></li>
           <li><h3>定着支援</h3><p>入社後の相談導線を設け、必要に応じて状況確認を行います。</p></li>
         </ol>
 
@@ -1839,7 +1846,7 @@
         <div class="section-head">
           <div class="section-index">06 / VOICES</div>
           <div>
-            <h2 class="section-title" id="voices-title">受け入れた側に、何が変わったか。</h2>
+            <h2 class="section-title" id="voices-title"><span class="bw">受け入れた側に、</span><span class="bw">何が変わったか。</span></h2>
             <p class="section-intro">支援の前後で採用担当者の手元がどう変わるかを、想定シーンとして整理したものです。</p>
           </div>
         </div>
@@ -1847,17 +1854,17 @@
         <div class="voice-grid">
           <article class="voice-card">
             <span class="voice-industry">MANUFACTURING</span>
-            <p class="voice-quote">面接前に条件をそろえる作業で、毎回いちばん時間を取られていました。確認項目を先に整理してもらえたので、面接では人柄と仕事の理解を聞くことに集中できています。</p>
+            <p class="voice-quote">面接前に条件をそろえる作業で、毎回いちばん時間を取られていました。確認項目を先に整理してもらえたので、面接では人柄と仕事の理解を聞くことに<span class="bw">集中できています。</span></p>
             <p class="voice-meta">製造／従業員120名／生産管理部</p>
           </article>
           <article class="voice-card">
             <span class="voice-industry">CARE</span>
-            <p class="voice-quote">書類の進行が今どこで止まっているのか、社内で分からなくなることがありました。残りの手続きが一覧で見えるので、配属初日までに何を用意するかで迷わなくなりました。</p>
+            <p class="voice-quote">書類の進行が今どこで止まっているのか、社内で分からなくなることがありました。残りの手続きが一覧で見えるので、配属初日までに何を用意するかで<span class="bw">迷わなくなりました。</span></p>
             <p class="voice-meta">介護／2施設運営／施設長</p>
           </article>
           <article class="voice-card">
             <span class="voice-industry">LOGISTICS</span>
-            <p class="voice-quote">入社した本人が困っていても、現場からは見えにくいのが不安でした。相談窓口が現場とは別にあることで、早い段階で状況を共有してもらえています。</p>
+            <p class="voice-quote">入社した本人が困っていても、現場からは見えにくいのが不安でした。相談窓口が現場とは別にあることで、早い段階で状況を<span class="bw">共有してもらえています。</span></p>
             <p class="voice-meta">物流／従業員80名／人事担当</p>
           </article>
         </div>
@@ -1906,7 +1913,7 @@
       <div class="contact-layout">
         <div class="contact-copy">
           <div class="section-index">08 / CONSULTATION</div>
-          <h2 id="contact-title">まずは採用条件と、社内で困っている作業を整理。</h2>
+          <h2 id="contact-title"><span class="bw">まずは採用条件と、</span><span class="bw">社内で困っている</span><span class="bw">作業を整理。</span></h2>
           <p>対象職種、採用時期、現在の受け入れ体制が分かる範囲で入力してください。実案件では内容を確認して、支援範囲をすり合わせる想定です。</p>
           <div class="contact-demo-note">自主制作デモのため、このフォームは送信されません。</div>
         </div>

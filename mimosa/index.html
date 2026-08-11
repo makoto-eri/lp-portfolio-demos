@@ -1294,7 +1294,12 @@
     @media (max-width: 900px) {
       .voice-grid { grid-template-columns: 1fr; }
     }
-  </style>
+  
+/* 行崩れ対策 2026-08-11: 見出しは行長を均し、本文は行末の1〜2文字残りを避ける（対応ブラウザのみ・非対応でも従来表示） */
+h1,h2,h3{text-wrap:balance}
+p,li,dt,dd{text-wrap:pretty}
+.bw{display:inline-block}
+</style>
 </head>
 <body>
   <a class="skip-link" href="#main-content">本文へ移動</a>
@@ -1323,7 +1328,7 @@
       <div class="hero-grid">
         <div class="hero-copy">
           <p class="eyebrow">自由が丘・女性専用プライベート脱毛サロン</p>
-          <h1 id="hero-title">完全個室で、<br>自己処理をもっと軽く。</h1>
+          <h1 id="hero-title">完全個室で、<br><span class="bw">自己処理を</span><span class="bw">もっと軽く。</span></h1>
           <p class="hero-lead">人目を気にせず相談できる一室に、一日のお客様を限定。肌の状態と希望を聞きながら、必要な部位と通い方を一緒に整えます。</p>
         </div>
 
@@ -1429,7 +1434,7 @@
                 <dd>6,600円</dd>
               </div>
             </dl>
-            <p class="menu-note">※すべて税込のデモ価格です。施術時間には着替え・カウンセリング時間を含みません。効果や必要回数には個人差があります。</p>
+            <p class="menu-note">※すべて税込のデモ価格です。施術時間には着替え・カウンセリング時間を含みません。効果や必要回数には<span class="bw">個人差があります。</span></p>
           </div>
         </div>
       </div>
@@ -1497,7 +1502,7 @@
         </div>
         <div class="voice-grid">
           <div class="voice-card">
-            <p>人に見られるのが苦手で、ずっと迷っていました。入口から個室まで誰ともすれ違わないので、それだけで通えるようになりました。</p>
+            <p>人に見られるのが苦手で、ずっと迷っていました。入口から個室まで誰ともすれ違わないので、それだけで<span class="bw">通えるようになりました。</span></p>
             <p class="who">30代・初回体験から</p>
           </div>
           <div class="voice-card">
@@ -1545,7 +1550,7 @@
       <div class="final-inner">
         <div class="final-cta-copy">
           <p class="section-kicker">PRIVATE APPOINTMENT</p>
-          <h2 id="final-title">人目を気にしない一室で、<br>肌の悩みを相談してみませんか。</h2>
+          <h2 id="final-title"><span class="bw">人目を気にしない</span><span class="bw">一室で、</span><br><span class="bw">肌の悩みを</span><span class="bw">相談してみませんか。</span></h2>
           <p>自由が丘駅から徒歩3分／完全予約制／営業時間 10:00–19:00</p>
         </div>
         <div class="final-action">
