@@ -13,18 +13,23 @@ AGENTS.md「画像は出典、利用許諾、AI生成区分を確認する」「
 
 生成条件: GPT Image 2（mcp-image-gpt経由・OpenAI API）／aspectRatio 9:16・imageSize 2K・quality "quality"／02と03は inputImagePath に 01-hero の生成原本（tsukuyomi-hero-v3.png）を参照指定。実出力はいずれも1152×2048。
 
-### 01-hero.webp（参照画像なし・スタイルアンカー）
+### 01-hero.webp（参照画像なし・スタイルアンカー／2026-08-15 v4b・再生成2回で採用）
+
+v3採用後、本人指摘「石まで金一色は違和感」を受けて素材リアリズム指定を追加し再生成（1回目v4はバッジが輪郭線になり不採用、2回目v4bで採用）。原本: `tsukuyomi-hero-v4b.png`（04_素材/AI生成画像）。
 
 ```
-Vertical hero section of a luxury Japanese landing page for a custom jewelry atelier, designed as an advertisement layout with reserved text zones. Color palette strictly limited to: deep black #0A0A0A base, gold #C9A227 main, white #FFFFFF accent. No other colors. Texture: gold foil stamping, engraved metal detail, black velvet fabric with visible weave. Lighting: single dramatic side spotlight on a dark background, deep natural shadows, shallow depth of field, studio product photography realism. Absolutely no floating particles, no sparks, no glitter dust, no light trails, no glow effects, no lens flare. The very top edge and the very bottom edge of the image must end in solid flat #0A0A0A black.
+Vertical hero section of a luxury Japanese landing page for a custom jewelry atelier, designed as an advertisement layout with reserved text zones. Color palette: deep black #0A0A0A base, gold #C9A227 main, white #FFFFFF accent. Texture: gold foil stamping, engraved metal detail, black velvet fabric with visible weave. Lighting: single dramatic side spotlight on a dark background, deep natural shadows, shallow depth of field, studio product photography realism. Absolutely no floating particles, no sparks, no glitter dust, no light trails, no glow effects, no lens flare. The very top edge and the very bottom edge of the image must end in solid flat #0A0A0A black.
+Material realism is critical: the ring band is engraved yellow gold, but the center stone is a brilliant-cut COLORLESS WHITE DIAMOND — transparent, icy white with crisp white facet reflections, absolutely not gold-tinted, not champagne, not yellow — held by bright platinum (silver-white) prongs. The diamond and prongs must clearly read as different materials from the gold band.
 Zone map from top to bottom:
 1) Upper area (top 4-10%): render exactly and only these two Japanese kanji characters as an elegant gold serif logotype: 「月讀」. Do not add any other letters, words, or characters anywhere in the image.
-2) Upper right (roughly 70-95% width, 10-23% height): one empty circular badge made of gold foil texture, completely blank inside, no text, no icon.
-3) Middle (25-60% height): one handcrafted gold engagement ring with a single diamond, dramatically oversized and tilted diagonally, resting partly on black velvet, crisp rim light tracing the engraved band, the metal engraving detail sharply in focus, background falling into soft dark bokeh.
+2) Upper right (roughly 70-95% width, 10-23% height): one SOLID FILLED circular disc of hammered gold foil, like a round wax seal or a gold coin — the entire disc surface completely covered in gold foil texture edge to edge, NOT an outline, NOT a ring shape, no hole, no text, no icon. It will be used as a background plate for dark text.
+3) Middle (25-60% height): the handcrafted engagement ring described above, dramatically oversized and tilted diagonally, resting partly on black velvet, crisp rim light tracing the engraved gold band, the white diamond catching a clean white highlight, background falling into soft dark bokeh.
 4) A horizontal band of black velvet fabric (roughly 62-78% height): empty, low contrast, no detail, reserved for headline text overlay.
-5) A glossy rounded gold pill plate (roughly 81-91% height, centered, about 65% of the width): completely blank, reserved for a button label overlay.
+5) A glossy rounded gold pill plate (roughly 81-91% height, horizontally centered, about 65% of the width): completely blank, reserved for a button label overlay.
 No text anywhere except the logotype in zone 1.
 ```
+
+受け皿の実測（ピクセル走査・v4b）: 金箔バッジ円 x73.4〜96.9% / y9.8〜23.3%（中心 85.2, 16.6）、金ピル x16.6〜82.6% / y81.9〜90.8%（中心 49.6, 86.4）。オーバーレイは中心合わせで配置。
 
 ### 02-craft.webp（参照画像: tsukuyomi-hero-v3.png）
 
