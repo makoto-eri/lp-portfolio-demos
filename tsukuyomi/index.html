@@ -53,8 +53,8 @@
   .ov-badge{font-family:var(--serif);font-weight:800;color:#3B2A00;flex-direction:column;
             font-size:clamp(14px,3.8vw,17px);letter-spacing:0;line-height:1.4;text-shadow:none;
             white-space:nowrap;}
-  /* 356px以下ではバッジ枠を金円の外周幅まで広げる（14px下限の「初回相談」56pxが15.8%枠に入らないため。
-     357px以上は15.8%枠=56px以上で収まる。white-space:nowrapで途中改行=3行化も禁止 */
+  /* 356px以下ではバッジ枠を金円の外周幅まで広げる（14px下限の「初回相談」56pxが16%枠に入らないため。
+     357px以上は16%枠=56px超で収まる。white-space:nowrapで途中改行=3行化も禁止 */
   @media (max-width:356px){ .ov-badge{width:18% !important;left:74.9% !important;} }
   .ov-cta{font-family:var(--sans);font-weight:700;color:#1A1200;
           font-size:clamp(15px,4.2vw,19px);letter-spacing:.06em;text-decoration:none;}
