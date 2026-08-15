@@ -2,6 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<script>document.documentElement.classList.add('js')</script><!-- reveal演出のJSゲート: JSが動かない環境で内容を隠さない -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 <script src="../shared/demo-banner.js" defer></script>
@@ -255,9 +256,11 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--navy);outline-offse
   box-shadow:0 -4px 14px rgba(74,34,51,.16);padding:10px 14px;text-align:center}
 .fixed-cta .cta-btn{font-size:16px;padding:13px 30px;width:min(560px,100%);box-shadow:0 4px 0 var(--pink-dk)}
 
-/* ===== フェードイン ===== */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
-.reveal.on{opacity:1;transform:none}
+/* ===== フェードイン（html.js 配下のみ隠す: JS無効・印刷・reduced-motionでは常に表示） ===== */
+html.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+html.js .reveal.on{opacity:1;transform:none}
+@media print{html.js .reveal{opacity:1 !important;transform:none !important}}
+@media (prefers-reduced-motion: reduce){html.js .reveal{opacity:1;transform:none;transition:none}}
 
 /* ===== レスポンシブ ===== */
 @media (min-width:861px){
@@ -738,6 +741,8 @@ const io = new IntersectionObserver(es => es.forEach(e => {
   if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }
 }), { threshold: .12 });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+// 時限フェイルセーフ: スクロールしない全画面キャプチャでもIOが発火せず空白にならないよう、5秒後に全表示
+setTimeout(() => document.querySelectorAll('.reveal:not(.on)').forEach(el => { el.classList.add('on'); io.unobserve(el); }), 5000);
 
 /* 部位図解: 幅が狭くラベルが潰れる時だけ正面図に絞って拡大する（背面の部位は下の一覧で確認できる）。
    タブレット幅では図が1カラムで広く使えるので、2体のまま表示したほうが縦に伸びない。 */

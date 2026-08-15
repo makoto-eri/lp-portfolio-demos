@@ -2,6 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<script>document.documentElement.classList.add('js')</script><!-- reveal演出のJSゲート: JSが動かない環境で内容を隠さない -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 <script src="../shared/demo-banner.js" defer></script>
@@ -29,8 +30,10 @@ h1,h2,h3{font-family:var(--serif);font-weight:800;line-height:1.5}
 .sec-head{margin-bottom:56px}
 .sec-head .en{display:block;margin-bottom:14px}
 .sec-head h2{font-size:clamp(1.5rem,3.4vw,2.2rem)}
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
-.reveal.is-visible{opacity:1;transform:none}
+html.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+html.js .reveal.is-visible{opacity:1;transform:none}
+@media print{html.js .reveal{opacity:1 !important;transform:none !important}}
+@media (prefers-reduced-motion: reduce){html.js .reveal{opacity:1;transform:none;transition:none}}
 .demo-note{font-size:.68rem;color:inherit;opacity:.62;letter-spacing:.06em}
 
 /* CTA */
@@ -511,6 +514,8 @@ const io = new IntersectionObserver((entries)=>{
   entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target);} });
 },{threshold:0.15});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+// 時限フェイルセーフ: スクロールしない全画面キャプチャでもIOが発火せず空白にならないよう、5秒後に全表示
+setTimeout(()=>document.querySelectorAll('.reveal:not(.is-visible)').forEach(el=>{ el.classList.add('is-visible'); io.unobserve(el); }),5000);
 </script>
 </body>
 </html>

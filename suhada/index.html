@@ -2,6 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
+<script>document.documentElement.classList.add('js')</script><!-- reveal演出のJSゲート: JSが動かない環境で内容を隠さない -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <script src="../shared/demo-banner.js" defer></script>
@@ -56,9 +57,11 @@ section{position:relative}
 .snum{font-family:var(--serif);font-weight:400;font-style:normal;color:var(--copper);
   font-size:13px;letter-spacing:.18em}
 
-/* ---- reveal ---- */
-.reveal{opacity:0;transform:translateY(26px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
-.reveal.vis{opacity:1;transform:none}
+/* ---- reveal（html.js 配下のみ隠す: JS無効・印刷・reduced-motionでは常に表示） ---- */
+html.js .reveal{opacity:0;transform:translateY(26px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
+html.js .reveal.vis{opacity:1;transform:none}
+@media print{html.js .reveal{opacity:1 !important;transform:none !important}}
+@media (prefers-reduced-motion: reduce){html.js .reveal{opacity:1;transform:none;transition:none}}
 .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
 
 /* ---- header ---- */
@@ -458,6 +461,8 @@ p,li,dt,dd{text-wrap:pretty}
     es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('vis'); io.unobserve(e.target); } });
   },{threshold:0.14,rootMargin:'0px 0px -8% 0px'});
   document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  // 時限フェイルセーフ: スクロールしない全画面キャプチャでもIOが発火せず空白にならないよう、5秒後に全表示
+  setTimeout(function(){ document.querySelectorAll('.reveal:not(.vis)').forEach(function(el){ el.classList.add('vis'); io.unobserve(el); }); }, 5000);
 })();
 </script>
 </body>

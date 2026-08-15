@@ -1531,6 +1531,10 @@
       transform: none;
     }
 
+    @media print {
+      .reveal { opacity: 1 !important; transform: none !important; }
+    }
+
     .hero-copy > *,
     .hero-media {
       animation: heroRise 760ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
@@ -2044,6 +2048,12 @@ p,li,dt,dd{text-wrap:pretty}
       };
       window.addEventListener('scroll', onScroll, { passive: true });
       window.addEventListener('hashchange', sweep);
+
+      /* 時限フェイルセーフ: スクロールしない全画面キャプチャでもIOが発火せず空白にならないよう、5秒後に全表示 */
+      setTimeout(() => {
+        targets.forEach(el => { if (!el.classList.contains('is-visible')) show(el); });
+        window.removeEventListener('scroll', onScroll);
+      }, 5000);
     })();
   </script>
 </body>

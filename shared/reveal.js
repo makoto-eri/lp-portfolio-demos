@@ -9,6 +9,11 @@
  * - クラス名は lp-rv / lp-rv-in。各LPが独自に持つ .reveal（feliche・suhada・siena）や
  *   .rv（kokage-seitai）と衝突させないため、共通版だけの接頭辞を付けている。
  * - prefers-reduced-motion では何もしない（クラスを付けないので静止したまま表示される）。
+ * - 時限フェイルセーフ（2026-08-15 追加）: 読み込み5秒後に未表示要素を全て表示する。
+ *   スクロールせずに全画面を撮るキャプチャツール（DevTools・Playwright fullPage等）では
+ *   IntersectionObserverが発火せず画面外が空白のまま写るため。画面外での表示なので閲覧者には見えず、
+ *   スクロール演出は最初の5秒間だけ担保されれば体験上十分。
+ * - 印刷・PDF保存では全要素を強制表示する（@media print）。
  */
 (() => {
   const tag = document.querySelector('script[data-reveal-targets]');
@@ -31,7 +36,8 @@
     '.lp-rv{opacity:0;transform:translateY(20px);' +
     'transition:opacity 640ms cubic-bezier(.22,.61,.36,1),transform 640ms cubic-bezier(.22,.61,.36,1);' +
     'will-change:opacity,transform}' +
-    '.lp-rv-in{opacity:1;transform:none}';
+    '.lp-rv-in{opacity:1;transform:none}' +
+    '@media print{.lp-rv{opacity:1 !important;transform:none !important}}';
   document.head.appendChild(style);
 
   targets.forEach(el => {
@@ -75,4 +81,12 @@
   };
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('hashchange', sweep);
+
+  /* 時限フェイルセーフ: 5秒経っても表示されていない要素を全て表示する（設計メモ参照） */
+  setTimeout(() => {
+    targets.forEach(el => {
+      if (!el.classList.contains('lp-rv-in')) show(el);
+    });
+    window.removeEventListener('scroll', onScroll);
+  }, 5000);
 })();

@@ -2,6 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<script>document.documentElement.classList.add('js')</script><!-- reveal演出のJSゲート: JSが動かない環境で内容を隠さない -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 <script src="../shared/demo-banner.js" defer></script>
@@ -84,6 +85,18 @@
   .loaded .hero .cta-row{animation:rise .9s .9s forwards}
   .loaded .hero .meta-strip{animation:rise .9s 1.05s forwards}
   @keyframes rise{to{opacity:1;transform:translateY(0)}}
+
+  /* 演出の安全弁: JSが動かない環境・印刷・reduced-motion では隠さず全表示する
+     （opacity:0 の初期状態はJS前提の演出。JSなしで永久非表示になる事故を防ぐ） */
+  html:not(.js) .hero .kicker, html:not(.js) .hero h1 .l, html:not(.js) .hero p.lead,
+  html:not(.js) .hero .cta-row, html:not(.js) .hero .meta-strip, html:not(.js) .reveal{
+    opacity:1 !important; transform:none !important; animation:none !important}
+  @media print{
+    .hero .kicker, .hero h1 .l, .hero p.lead, .hero .cta-row, .hero .meta-strip, .reveal{
+      opacity:1 !important; transform:none !important; animation:none !important}}
+  @media (prefers-reduced-motion: reduce){
+    .hero .kicker, .hero h1 .l, .hero p.lead, .hero .cta-row, .hero .meta-strip, .reveal{
+      opacity:1 !important; transform:none !important; animation:none !important; transition:none !important}}
 
   /* ---- section frame ---- */
   section{position:relative;z-index:2}
@@ -434,6 +447,8 @@ p,li,dt,dd{text-wrap:pretty}
       entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
     }, {threshold:.14, rootMargin:'0px 0px -4% 0px'});
     reveals.forEach(function(el){ io.observe(el); });
+    // 時限フェイルセーフ: スクロールしない全画面キャプチャでもIOが発火せず空白にならないよう、5秒後に全表示
+    setTimeout(function(){ reveals.forEach(function(el){ if(!el.classList.contains('in')){ el.classList.add('in'); io.unobserve(el); } }); }, 5000);
   })();
 </script>
 </body>

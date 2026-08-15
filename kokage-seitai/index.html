@@ -2,6 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<script>document.documentElement.classList.add('js')</script><!-- reveal演出のJSゲート: JSが動かない環境で内容を隠さない -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 <script src="../shared/demo-banner.js" defer></script>
@@ -285,11 +286,12 @@ footer .demo-note{opacity:.7}
 .sticky-cta .sticky-price strong{display:block;font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:16px;color:var(--deep)}
 .sticky-cta .cta-btn{flex:1;padding:14px 12px;font-size:15px;white-space:nowrap}
 
-/* ===== reveal（transform/opacityのみ） ===== */
-.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
-.rv.in{opacity:1;transform:none}
+/* ===== reveal（transform/opacityのみ・html.js 配下のみ隠す: JS無効・印刷では常に表示） ===== */
+html.js .rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+html.js .rv.in{opacity:1;transform:none}
+@media print{html.js .rv{opacity:1 !important;transform:none !important}}
 @media (prefers-reduced-motion: reduce){
-  .rv{opacity:1;transform:none;transition:none}
+  html.js .rv{opacity:1;transform:none;transition:none}
   .sticky-cta{transition:none}
   .cta-btn{transition:none}
   html{scroll-behavior:auto}
@@ -646,6 +648,8 @@ p,li,dt,dd{text-wrap:pretty}
       });
     }, { threshold: .15 });
     els.forEach(function(e){ io.observe(e); });
+    // 時限フェイルセーフ: スクロールしない全画面キャプチャでもIOが発火せず空白にならないよう、5秒後に全表示
+    setTimeout(function(){ els.forEach(function(e){ if(!e.classList.contains('in')){ e.classList.add('in'); io.unobserve(e); } }); }, 5000);
   }
 
   /* モバイル固定CTA: FVのCTAが画面外 かつ 最終CTA・フッターが画面外のときだけ表示 */

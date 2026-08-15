@@ -21,11 +21,17 @@
   }
   *{box-sizing:border-box;}
   body{margin:0;background:#050505;color:var(--accent);font-family:var(--sans);font-weight:300;
-       line-height:1.9;letter-spacing:.04em;-webkit-font-smoothing:antialiased;}
+       line-height:1.9;letter-spacing:.04em;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  /* PC表示規定（image-lp-craft.md §6.5a）: 細帯の左右をヒーローのぼかし拡大で満たし、
+     スマホ幅の帯が黒画面に浮くだけのPC表示にしない */
+  body::before{content:"";position:fixed;inset:0;z-index:-1;
+       background:url(images/01-hero.webp) center 20%/cover no-repeat;
+       filter:blur(30px) brightness(.42);transform:scale(1.2);}
   .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;}
   /* 縦に途切れない金の細線で、スライスと下部セクションを1本の柱としてつなぐ */
   .lp{max-width:560px;margin:0 auto;background:var(--base);
-      border-left:1px solid rgba(201,162,39,.20);border-right:1px solid rgba(201,162,39,.20);}
+      border-left:1px solid rgba(201,162,39,.20);border-right:1px solid rgba(201,162,39,.20);
+      box-shadow:0 0 60px rgba(0,0,0,.55);}
 
   /* ゾーンA: 画像スライス */
   .slice{position:relative;line-height:0;}
