@@ -51,7 +51,9 @@
           text-shadow:0 2px 10px rgba(0,0,0,.9);}
   /* 受け皿方式（image-lp-craft.md §2.5）: 画像内に生成した空の受け皿へ文字を載せる */
   .ov-badge{font-family:var(--serif);font-weight:800;color:#3B2A00;flex-direction:column;
-            font-size:clamp(14px,3.8vw,17px);letter-spacing:.04em;line-height:1.4;text-shadow:none;}
+            font-size:clamp(14px,3.8vw,17px);letter-spacing:0;line-height:1.4;text-shadow:none;}
+  /* 320px級の狭幅ではバッジ枠を金円の外周幅まで広げる（14px下限を守るため。円の内側には収まる） */
+  @media (max-width:340px){ .ov-badge{width:18% !important;left:74.9% !important;} }
   .ov-cta{font-family:var(--sans);font-weight:700;color:#1A1200;
           font-size:clamp(15px,4.2vw,19px);letter-spacing:.06em;text-decoration:none;}
   .ov-cta:hover{filter:brightness(1.15);}
@@ -108,25 +110,25 @@ p,li,dt,dd{text-wrap:pretty}
   <!-- ゾーンA+B: スライス1（ヒーロー・受け皿方式 v2） -->
   <div class="slice">
     <img src="images/01-hero.webp" width="1024" height="1820" loading="eager"
-         alt="ヒーロー: 月讀（つくよみ）。金の婚約指輪が光の尾を引いて斜めに浮かぶ。初回相談無料。一生に一度を、あなただけの一点に。オーダーメイドの結婚指輪・婚約指輪 ペア248,000円から。">
-    <p class="overlay ov-badge" style="top:9.6%;left:70.5%;width:25%;height:13.5%;">初回相談<br>無料</p>
-    <!-- 受け皿の実測値（ピクセル走査）: ベルベット帯の内側 62.2〜78.0% / 金ピルの内側 81.5〜90.7% -->
-    <p class="overlay ov-catch" style="top:64%;left:2%;width:96%;height:5.8%;line-height:1.5;">一生に一度を、あなただけの一点に。</p>
-    <p class="overlay ov-sub" style="top:70.2%;left:4%;width:92%;height:7%;line-height:1.25;">オーダーメイドの結婚指輪・婚約指輪<br>ペア 248,000円〜（税込）</p>
-    <a class="overlay ov-cta" href="#form" style="top:81.5%;left:17.5%;width:65%;height:9.2%;">無料でデザイン相談する →</a>
+         alt="ヒーロー: 月讀（つくよみ）。唐草彫りの金の婚約指輪が黒いベルベットの上でサイド光を受ける。初回相談無料。一生に一度を、あなただけの一点に。オーダーメイドの結婚指輪・婚約指輪 ペア248,000円から。">
+    <!-- 受け皿の実測値（v3・目視走査）: 金箔バッジの内側 x76.1〜92.1% y10.9〜19.9% / 金ピルの内側 y79.6〜86.6% -->
+    <p class="overlay ov-badge" style="top:11.3%;left:76.2%;width:15.8%;height:8.2%;">初回相談<br>無料</p>
+    <p class="overlay ov-catch" style="top:63.5%;left:2%;width:96%;height:5.8%;line-height:1.5;">一生に一度を、あなただけの一点に。</p>
+    <p class="overlay ov-sub" style="top:69.8%;left:4%;width:92%;height:7%;line-height:1.25;">オーダーメイドの結婚指輪・婚約指輪<br>ペア 248,000円〜（税込）</p>
+    <a class="overlay ov-cta" href="#form" style="top:80%;left:18%;width:64%;height:6.6%;">無料でデザイン相談する →</a>
   </div>
 
   <!-- ゾーンA+B: スライス2（世界観・彫金） -->
   <div class="slice">
     <img src="images/02-craft.webp" width="1024" height="1820" loading="lazy"
-         alt="彫金師が、ひとつずつ。職人の手が細いタガネで金の指輪に彫りを入れ、金箔と火花が舞う。図面から仕上げまで、ひとりの彫金師が担当します。">
+         alt="彫金師が、ひとつずつ。職人の手が細いタガネで、万力に固定した金の指輪へ唐草の彫りを入れる。削った金屑が作業台に散る。図面から仕上げまで、ひとりの彫金師が担当します。">
     <p class="overlay ov-lead" style="top:77%;left:10%;width:80%;height:10%;">図面から仕上げまで、<br>ひとりの彫金師が担当します。</p>
   </div>
 
   <!-- ゾーンA+B: スライス3（オファー帯） -->
   <div class="slice">
     <img src="images/03-offer.webp" width="1024" height="1820" loading="lazy"
-         alt="オファー: 黒いベルベットの上で、唐草彫りのペアの結婚指輪が金の光の尾と金箔をまといながら傾いている。オーダーメイド結婚指輪 ペア248,000円から。">
+         alt="オファー: 黒いベルベットの上に、唐草彫りのペアの結婚指輪が寄り添って置かれている。オーダーメイド結婚指輪 ペア248,000円から。">
     <p class="overlay ov-lead" style="top:62%;left:10%;width:80%;height:5%;">オーダーメイド結婚指輪</p>
     <p class="overlay ov-price" style="top:68%;left:10%;width:80%;height:7%;">ペア 248,000円〜（税込）</p>
     <a class="overlay btn" href="#form" style="top:80%;left:14%;width:72%;height:7.2%;">無料でデザイン相談する</a>
