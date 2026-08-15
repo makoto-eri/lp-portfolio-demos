@@ -510,12 +510,17 @@ p,li,dt,dd{text-wrap:pretty}
 </div>
 
 <script>
-const io = new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target);} });
-},{threshold:0.15});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-// 時限フェイルセーフ: スクロールしない全画面キャプチャでもIOが発火せず空白にならないよう、5秒後に全表示
-setTimeout(()=>document.querySelectorAll('.reveal:not(.is-visible)').forEach(el=>{ el.classList.add('is-visible'); io.unobserve(el); }),5000);
+// IntersectionObserver非対応環境では即時全表示（html.jsゲートで隠した要素を残さない）
+if(!('IntersectionObserver' in window)){
+  document.querySelectorAll('.reveal').forEach(el=>el.classList.add('is-visible'));
+}else{
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target);} });
+  },{threshold:0.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  // 時限フェイルセーフ: スクロールしない全画面キャプチャでもIOが発火せず空白にならないよう、5秒後に即時全表示
+  setTimeout(()=>document.querySelectorAll('.reveal:not(.is-visible)').forEach(el=>{ el.style.transition='none'; el.classList.add('is-visible'); io.unobserve(el); }),5000);
+}
 </script>
 </body>
 </html>

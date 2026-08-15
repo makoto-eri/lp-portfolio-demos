@@ -243,7 +243,6 @@ p,li,dt,dd{text-wrap:pretty}
 </style>
 </head>
 <body>
-<script>document.documentElement.className += ' js';</script>
 
 <div class="topbar">
   <div class="brand">Makoto<small>WEB / AI / LP IMPROVEMENT</small></div>
@@ -447,8 +446,8 @@ p,li,dt,dd{text-wrap:pretty}
       entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
     }, {threshold:.14, rootMargin:'0px 0px -4% 0px'});
     reveals.forEach(function(el){ io.observe(el); });
-    // 時限フェイルセーフ: スクロールしない全画面キャプチャでもIOが発火せず空白にならないよう、5秒後に全表示
-    setTimeout(function(){ reveals.forEach(function(el){ if(!el.classList.contains('in')){ el.classList.add('in'); io.unobserve(el); } }); }, 5000);
+    // 時限フェイルセーフ: スクロールしない全画面キャプチャでもIOが発火せず空白にならないよう、5秒後に即時全表示
+    setTimeout(function(){ reveals.forEach(function(el){ if(!el.classList.contains('in')){ el.style.transition='none'; el.classList.add('in'); io.unobserve(el); } }); }, 5000);
   })();
 </script>
 </body>

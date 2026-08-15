@@ -648,8 +648,8 @@ p,li,dt,dd{text-wrap:pretty}
       });
     }, { threshold: .15 });
     els.forEach(function(e){ io.observe(e); });
-    // 時限フェイルセーフ: スクロールしない全画面キャプチャでもIOが発火せず空白にならないよう、5秒後に全表示
-    setTimeout(function(){ els.forEach(function(e){ if(!e.classList.contains('in')){ e.classList.add('in'); io.unobserve(e); } }); }, 5000);
+    // 時限フェイルセーフ: スクロールしない全画面キャプチャでもIOが発火せず空白にならないよう、5秒後に即時全表示
+    setTimeout(function(){ els.forEach(function(e){ if(!e.classList.contains('in')){ e.style.transition='none'; e.classList.add('in'); io.unobserve(e); } }); }, 5000);
   }
 
   /* モバイル固定CTA: FVのCTAが画面外 かつ 最終CTA・フッターが画面外のときだけ表示 */

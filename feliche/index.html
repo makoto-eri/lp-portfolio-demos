@@ -737,12 +737,17 @@ p,li,dt,dd{text-wrap:pretty}
 </div>
 
 <script>
-const io = new IntersectionObserver(es => es.forEach(e => {
-  if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }
-}), { threshold: .12 });
-document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-// 時限フェイルセーフ: スクロールしない全画面キャプチャでもIOが発火せず空白にならないよう、5秒後に全表示
-setTimeout(() => document.querySelectorAll('.reveal:not(.on)').forEach(el => { el.classList.add('on'); io.unobserve(el); }), 5000);
+// IntersectionObserver非対応環境では即時全表示（html.jsゲートで隠した要素を残さない）
+if (!('IntersectionObserver' in window)) {
+  document.querySelectorAll('.reveal').forEach(el => el.classList.add('on'));
+} else {
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }
+  }), { threshold: .12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  // 時限フェイルセーフ: スクロールしない全画面キャプチャでもIOが発火せず空白にならないよう、5秒後に即時全表示
+  setTimeout(() => document.querySelectorAll('.reveal:not(.on)').forEach(el => { el.style.transition = 'none'; el.classList.add('on'); io.unobserve(el); }), 5000);
+}
 
 /* 部位図解: 幅が狭くラベルが潰れる時だけ正面図に絞って拡大する（背面の部位は下の一覧で確認できる）。
    タブレット幅では図が1カラムで広く使えるので、2体のまま表示したほうが縦に伸びない。 */

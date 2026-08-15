@@ -2049,9 +2049,15 @@ p,li,dt,dd{text-wrap:pretty}
       window.addEventListener('scroll', onScroll, { passive: true });
       window.addEventListener('hashchange', sweep);
 
-      /* 時限フェイルセーフ: スクロールしない全画面キャプチャでもIOが発火せず空白にならないよう、5秒後に全表示 */
+      /* 時限フェイルセーフ: スクロールしない全画面キャプチャでもIOが発火せず空白にならないよう、5秒後に即時全表示 */
       setTimeout(() => {
-        targets.forEach(el => { if (!el.classList.contains('is-visible')) show(el); });
+        targets.forEach(el => {
+          if (!el.classList.contains('is-visible')) {
+            el.style.transition = 'none';
+            el.style.transitionDelay = '0s';
+            show(el);
+          }
+        });
         window.removeEventListener('scroll', onScroll);
       }, 5000);
     })();

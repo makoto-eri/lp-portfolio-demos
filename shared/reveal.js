@@ -82,10 +82,15 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('hashchange', sweep);
 
-  /* 時限フェイルセーフ: 5秒経っても表示されていない要素を全て表示する（設計メモ参照） */
+  /* 時限フェイルセーフ: 5秒経っても表示されていない要素を全て即時表示する（設計メモ参照）。
+     transitionを切ってから表示クラスを付け、5秒時点でフェード途中の状態を残さない */
   setTimeout(() => {
     targets.forEach(el => {
-      if (!el.classList.contains('lp-rv-in')) show(el);
+      if (!el.classList.contains('lp-rv-in')) {
+        el.style.transition = 'none';
+        el.style.transitionDelay = '0s';
+        show(el);
+      }
     });
     window.removeEventListener('scroll', onScroll);
   }, 5000);
