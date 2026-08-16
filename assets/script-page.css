@@ -39,3 +39,6 @@ footer a{color:#fff;border-bottom:1px solid #6b7178}
 h1,h2,h3{text-wrap:balance}
 p,li,dt,dd{text-wrap:pretty}
 .bw{display:inline-block}
+
+/* 場面テロップ（2026-08-16 本人指示: 図解・情報テロップはページ非表示にし、場面転換のタイトルだけを中央寄せで表示） */
+.line.scene{text-align:center;margin:40px 0 22px;font:700 15px/1.7 "Shippori Mincho",serif;letter-spacing:.05em}
