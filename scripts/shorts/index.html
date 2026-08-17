@@ -12,9 +12,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800&family=Shippori+Mincho:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../assets/script-page.css">
   <style>
-    .short{background:#fff;border:1px solid var(--line);padding:22px 24px;margin-bottom:26px}
+    .short{background:#fff;border:1px solid var(--line);padding:22px 24px;margin-bottom:26px;scroll-margin-top:80px}
     .short h2{margin:0 0 4px;font:700 20px/1.5 "Shippori Mincho",serif}
     .short .cap{margin:0 0 16px;font-size:12px;color:var(--muted)}
+    /* 3本への直接移動（2026-08-17 追加: 1ページに3本あり目的の台本へ飛べなかった） */
+    .toc{margin:0 0 26px;padding:16px 20px;background:#fff;border:1px solid var(--line)}
+    .toc h2{margin:0 0 10px;font-size:13px;font-family:"Noto Sans JP",sans-serif;color:var(--muted);letter-spacing:.04em}
+    .toc ol{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+    .toc a{display:flex;gap:10px;align-items:baseline;text-decoration:none;color:inherit;font-size:14px;line-height:1.7;padding:7px 10px;border:1px solid var(--line);background:#fafaf8}
+    .toc a:hover,.toc a:focus-visible{background:#f0f4f2;border-color:var(--accent,#255f54)}
+    .toc a b{font:700 13px/1.7 "Noto Sans JP",sans-serif;color:var(--accent,#255f54);flex:none}
+    .toc a .t{font-weight:600}
+    .toc a .c{margin-left:auto;font-size:11px;color:var(--muted);flex:none}
+    .backtop{display:inline-block;margin-top:14px;font-size:12px;color:var(--muted);text-decoration:none}
+    .backtop:hover{text-decoration:underline}
+    @media(max-width:640px){.toc a .c{display:none}}
     .src{margin-top:30px;padding:18px 22px;background:#fff;border:1px solid var(--line);font-size:12px;line-height:1.9}
     .src h2{margin:0 0 10px;font-size:13px;font-family:"Noto Sans JP",sans-serif}
     .src ul{margin:0;padding-left:18px}
@@ -47,6 +59,15 @@ p,li,dt,dd{text-wrap:pretty}
       <div><b>構成</b>フック（0〜3秒）→前提→意外な事実→締め</div>
     </div>
 
+    <nav class="toc" id="toc" aria-label="収録している3本">
+      <h2>収録している3本（クリックで各台本へ）</h2>
+      <ol>
+        <li><a href="#s1"><b>①</b><span class="t">青信号は、緑</span><span class="c">約45秒／307字</span></a></li>
+        <li><a href="#s2"><b>②</b><span class="t">非常口のあの人は、日本人</span><span class="c">約45秒／307字</span></a></li>
+        <li><a href="#s3"><b>③</b><span class="t">郵便マークは、<span class="bw">書き間違いから生まれた</span></span><span class="c">約45秒／307字</span></a></li>
+      </ol>
+    </nav>
+
     <div class="chars">
       <h2>この3本で見ていただきたいところ</h2>
       <ul>
@@ -57,7 +78,7 @@ p,li,dt,dd{text-wrap:pretty}
       </ul>
     </div>
 
-    <section class="short">
+    <section class="short" id="s1">
       <h2>① 青信号は、緑</h2>
       <p class="cap">約45秒／307字前後</p>
       <p class="line">テロップ：<span class="telop">「これ、何色?」</span></p>
@@ -74,9 +95,10 @@ p,li,dt,dd{text-wrap:pretty}
       <div class="line spk"><b>ナレーション</b><span>法律が、みんなの言い間違いに合わせにいったわけです。</span></div>
       <div class="line spk"><b>ナレーション</b><span>ちなみに1973年以降の信号機は、少しだけ青寄りの色で作られています。呼び名に、色のほうも<span class="bw">寄せていったんですね。</span></span></div>
       <p class="line">テロップ：<span class="telop">「1973年以降は色も青寄りに」</span></p>
+      <a class="backtop" href="#toc">↑ 3本の一覧へ戻る</a>
     </section>
 
-    <section class="short">
+    <section class="short" id="s2">
       <h2>② 非常口のあの人は、日本人</h2>
       <p class="cap">約45秒／307字前後</p>
       <p class="line">テロップ：<span class="telop">「この人、日本生まれ」</span></p>
@@ -92,9 +114,10 @@ p,li,dt,dd{text-wrap:pretty}
       <p class="line">テロップ：<span class="telop">「1987年 ISO国際規格に採用」</span></p>
       <div class="line spk"><b>ナレーション</b><span>言葉が通じない場所でも、逃げ道だけは伝わる。そのために作られた絵が、日本から世界へ渡っていきました。</span></div>
       <div class="line spk"><b>ナレーション</b><span>明日どこかで見かけたら、ちょっとだけ誇らしくなるかもしれません。</span></div>
+      <a class="backtop" href="#toc">↑ 3本の一覧へ戻る</a>
     </section>
 
-    <section class="short">
+    <section class="short" id="s3">
       <h2>③ 郵便マークは、書き間違いから生まれた</h2>
       <p class="cap">約45秒／307字前後</p>
       <p class="line">テロップ：<span class="telop">「このマーク、<span class="bw">誤字から生まれた説」</span></span></p>
@@ -111,6 +134,7 @@ p,li,dt,dd{text-wrap:pretty}
       <p class="line">テロップ：<span class="telop">「『Tは〒の誤りだった』」</span></p>
       <div class="line spk"><b>ナレーション</b><span>カタカナの「テ」を図案化した形、ということにして、まるく収めたわけですね。</span></div>
       <div class="line spk"><b>ナレーション</b><span>今日ポストを見かけたら、思い出してみてください。あの記号、明治の役所がひやりとした跡なんです。</span></div>
+      <a class="backtop" href="#toc">↑ 3本の一覧へ戻る</a>
     </section>
 
     <div class="src">
