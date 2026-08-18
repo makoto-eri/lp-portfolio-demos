@@ -34,6 +34,18 @@
     .catnav a{padding:7px 14px;border:1px solid var(--line);background:var(--white);font-size:12px;font-weight:700;color:#555d64}
     .catnav a:hover{border-color:var(--accent);color:var(--accent)}
     .catnav a[aria-current="page"]{background:var(--accent);border-color:var(--accent);color:#fff}
+    /* AIから呼べる自作ツール（2026-08-19 追加）。スクショが無いのでカード3枚の文字組みで見せる */
+    .api-group{background:var(--white);border:1px solid var(--line);padding:26px 28px;margin-bottom:44px}
+    .api-group h2{margin:0 0 14px;font:700 clamp(20px,2.6vw,26px)/1.45 "Shippori Mincho",serif}
+    .api-lead{font-size:14px;margin:0 0 20px}
+    .api-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:18px}
+    .api-card{border:1px solid var(--line);background:#faf9f6;padding:18px 18px 16px}
+    .api-card h3{margin:0 0 2px;font-size:16px;font-weight:700}
+    .api-card .api-sub{margin:0 0 10px;font-size:10px;font-weight:800;letter-spacing:.12em;color:var(--warm)}
+    .api-card p{font-size:13px;margin:0 0 10px}
+    .api-card .api-meta{margin:0;padding-top:10px;border-top:1px solid #e6e2da;font-size:11.5px;color:#555d64}
+    .api-note{font-size:13px;color:#41484e;border-top:1px solid #ebe8e2;padding-top:14px;margin:0}
+    @media(max-width:860px){.api-cards{grid-template-columns:1fr}}
   
 /* 行崩れ対策 2026-08-11: 見出しは行長を均し、本文は行末の1〜2文字残りを避ける（対応ブラウザのみ・非対応でも従来表示） */
 h1,h2,h3{text-wrap:balance}
@@ -100,6 +112,32 @@ p,li,dt,dd{text-wrap:pretty}
         <div class="stack"><span>Python</span><span>タスクスケジューラ常駐</span><span>AI判定</span><span>メール通知</span></div>
         <p class="vba-note">「毎日見に行く」「毎回コピペする」型の繰り返し作業は、この形の自動化に置き換えられます。Excel/VBAでの定型処理の自動化もご相談ください。</p>
       </div>
+    </section>
+
+    <section class="api-group" aria-labelledby="api-title">
+      <h2 id="api-title">AIから直接呼べる自作ツール（3本・稼働中）</h2>
+      <p class="api-lead">Cloudflare Workers 上で動かしている自作のリモートMCPサーバーです。ChatGPTやClaudeなどのAIに登録しておくと、AIが会話の途中でこのツールを呼び出し、機械が判定した結果を返します。人が毎回チェックしていた作業を、AI側の手順に組み込む形の自動化です。<span class="bw">（URLは認証用の文字列を含むため非公開）</span></p>
+      <div class="api-cards">
+        <article class="api-card">
+          <h3>案件の一次判定</h3>
+          <p class="api-sub">JOB SCREEN</p>
+          <p>募集文を渡すと、受けられない領域・断る条件・勧誘の疑いを機械照合して、根拠となる検出箇所つきで返します。単語1個で断定せず、文脈が要る語は「原文を確認」として分けて返す設計です。</p>
+          <p class="api-meta">判定は3値（要注意／要確認／既知パターンなし）・テスト83件が本番環境で全通過</p>
+        </article>
+        <article class="api-card">
+          <h3>LPの納品前検品</h3>
+          <p class="api-sub">LP CHECK</p>
+          <p>HTMLを渡すと、制作途中の残骸やAPIキーの混入、リンク切れ、メタ情報の不足、表現のリスクを検出します。あわせてPC 1280pxとスマホ 375pxで実際に描画し、画面幅からのはみ出しや画像のつぶれ、文字の重なりをスクリーンショット付きで返します。</p>
+          <p class="api-meta">自動テスト151件・本番疎通テスト49件が通過。外部への通信は既定で遮断</p>
+        </article>
+        <article class="api-card">
+          <h3>LP見積もりの自動計算</h3>
+          <p class="api-sub">LP ESTIMATE</p>
+          <p>プラン・業種・オプションを選ぶと、明細・合計・納期目安・含まないものまでを自動で組み立てます。価格表のデータだけを差し替えれば計算側を触らずに改定できる作りで、矛盾する入力では金額を出さずにエラーを返します。</p>
+          <p class="api-meta">価格表との照合60項目で不一致ゼロ・氏名や連絡先の入力欄を持たない設計</p>
+        </article>
+      </div>
+      <p class="api-note">同じ形で、社内の判断基準やチェック項目を「AIが呼べる道具」にできます。判断基準はデータファイル1枚にまとめてあるので、運用しながら基準だけを更新していけます。</p>
     </section>
 
     <p class="closing">掲載しているのは自主制作・自家用として運用中のツールです。ご依頼の際は、業務内容をヒアリングのうえ「何分の手作業が何秒になるか」から一緒に整理してご提案します。</p>
