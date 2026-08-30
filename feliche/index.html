@@ -75,6 +75,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--navy);outline-offse
 /* ===== FV ===== */
 .fv{padding:56px 0 0;overflow:hidden}
 .fv .inner{display:grid;grid-template-columns:1.15fr 1fr;gap:32px;align-items:center}
+.fv-target{font-weight:700;font-size:15px;letter-spacing:.04em;color:#8A3D5A;margin:0 0 10px}
 .fv-hook{display:inline-block;background:var(--yellow);font-weight:900;font-size:17px;
   padding:8px 18px;border-radius:8px;margin-bottom:14px}
 .fv-define{display:inline-block;background:var(--blue);color:#fff;font-weight:900;font-size:26px;
@@ -84,7 +85,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--navy);outline-offse
 .fv-offer .label{font-size:44px;font-weight:900;vertical-align:baseline}
 .fv-offer .zero{font-family:'Montserrat','Noto Sans JP',sans-serif;font-weight:800;font-size:150px;vertical-align:baseline}
 .fv-offer .unit{font-size:46px;font-weight:900;vertical-align:baseline}
-.fv-badge{position:absolute;top:-28px;right:-64px;width:92px;height:92px;border-radius:50%;
+.fv-badge{position:absolute;top:-16px;right:-112px;width:92px;height:92px;border-radius:50%;
   background:var(--pink);color:#fff;display:flex;align-items:center;justify-content:center;
   font-weight:900;font-size:16px;line-height:1.35;text-align:center;transform:rotate(-8deg);
   box-shadow:var(--shadow)}
@@ -278,7 +279,7 @@ html.js .reveal.on{opacity:1;transform:none}
   .fv-offer .label{font-size:30px}
   .fv-offer .zero{font-size:96px}
   .fv-offer .unit{font-size:32px}
-  .fv-badge{top:-22px;right:-6px;width:76px;height:76px;font-size:13px}
+  .fv-badge{position:static;display:inline-flex;align-items:center;justify-content:center;width:auto;height:auto;border-radius:999px;padding:7px 13px;font-size:12px;line-height:1.35;margin-left:10px;vertical-align:24px}
   .fv .cta-block{text-align:center}
   .worry-cards{grid-template-columns:1fr;gap:14px}
   .reasons{grid-template-columns:1fr}
@@ -330,7 +331,7 @@ p,li,dt,dd{text-wrap:pretty}
 <section class="fv bg-stripe">
   <div class="inner">
     <div>
-      <span class="fv-hook">＼他サロンからの のりかえ大歓迎／</span><br>
+      <p class="fv-target">池袋駅 徒歩3分・女性専用｜はじめての方も、他サロンからの のりかえも</p>
       <span class="fv-define">全身脱毛33か所</span>
       <h1>「結局いくら？」に、<br><span class="bw">ちゃんと答える</span><span class="bw">脱毛サロンです。</span></h1>
       <div class="fv-offer">
@@ -339,8 +340,7 @@ p,li,dt,dd{text-wrap:pretty}
       </div>
       <p class="fv-anchor">2回目以降は月額9,800円（税込）</p>
       <div class="cta-block">
-        <p class="cta-micro">＼今なら全身33か所 初回0円／</p>
-        <!-- TODO: LINE公式アカウントURL確定後に差し替え（公開ブロッカー） -->
+                <!-- TODO: LINE公式アカウントURL確定後に差し替え（公開ブロッカー） -->
         <a class="cta-btn" href="#">LINEで予約する（初回0円）<span class="arrow">▶</span></a>
         <p class="cta-note">カウンセリングのみでもOK・無理な勧誘はいたしません</p>
       </div>

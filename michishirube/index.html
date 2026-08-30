@@ -41,21 +41,24 @@ a{color:var(--civic)}
 .btn.small{padding:9px 18px;font-size:14px}
 
 /* ---- hero ---- */
-.hero{display:grid;grid-template-columns:50% 50%;min-height:82vh;border-bottom:1px solid var(--line)}
-.hero-copy{display:flex;flex-direction:column;justify-content:center;padding:56px 44px 56px 24px;max-width:620px;justify-self:end;width:100%}
+.hero{display:grid;grid-template-columns:46% 54%;min-height:0;border-bottom:1px solid var(--line)}
+.hero-copy{display:flex;flex-direction:column;justify-content:flex-start;padding:68px 44px 64px 24px;max-width:620px;justify-self:end;width:100%}
 .eyebrow{font-size:13px;font-weight:700;color:var(--civic);letter-spacing:.14em;margin-bottom:20px}
 .eyebrow::before{content:"";display:inline-block;width:28px;height:4px;background:var(--civic);margin-right:10px;vertical-align:middle}
 h1{font-size:clamp(30px,3.4vw,44px);font-weight:900;line-height:1.45;letter-spacing:.01em}
 h1 .bw{display:inline-block}
 .hero-sub{margin-top:20px;font-size:16px;font-weight:300;line-height:2.0}
-.trust{display:flex;margin-top:28px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.trust li{list-style:none;flex:1;text-align:center;padding:12px 4px;font-size:13px;font-weight:700}
+.trust{grid-column:1/-1;display:flex;margin:0;background:var(--mist);border-top:1px solid var(--line)}
+.trust li{list-style:none;flex:1;text-align:center;padding:18px 4px;font-size:14px;font-weight:700}
+.trust li::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--civic);margin-right:9px;vertical-align:2px}
 .trust li+li{border-left:1px solid var(--line)}
-.hero-action{margin-top:28px}
+.hero-action{margin-top:32px}
 .cta-note{font-size:12px;color:#55565C;margin-top:8px}
-.hero-photo{position:relative;overflow:hidden}
-.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 56%}
-.demo-ribbon{position:absolute;top:14px;right:0;background:var(--ink);color:#fff;font-size:11px;font-weight:500;letter-spacing:.1em;padding:5px 14px}
+.hero-photo{position:relative;overflow:hidden;min-height:440px}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 56%;filter:saturate(.82) contrast(1.05)}
+.hero-photo::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(205deg, rgba(20,40,80,0) 52%, rgba(20,40,80,.26) 100%)}
+.demo-ribbon{position:absolute;top:14px;right:0;z-index:2;background:var(--ink);color:#fff;font-size:11px;font-weight:500;letter-spacing:.1em;padding:5px 14px}
 
 /* ---- sections ---- */
 section{padding:64px 24px}
@@ -139,7 +142,7 @@ footer .demo-note{font-weight:700;color:var(--ink);margin-bottom:6px}
   .hero{grid-template-columns:1fr;min-height:0}
   .hero-copy{padding:26px 20px 32px;max-width:none;justify-self:stretch}
   .hero-sub{font-size:14px;margin-top:14px;line-height:1.8}
-  .trust{margin-top:18px}
+  .trust{margin-top:0}
   .hero-action{margin-top:18px}
   .eyebrow{margin-bottom:12px}
   h1{font-size:27px}
@@ -191,11 +194,6 @@ p,li,dt,dd{text-wrap:pretty}
       <p class="eyebrow">補助金・許認可・相続の申請代行</p>
       <h1><span class="bw">申請書類に、</span><span class="bw">あなたの時間を</span><span class="bw">使わせない。</span></h1>
       <p class="hero-sub">補助金・許認可・相続——面倒な行政手続きを、行政書士がまるごとサポート。あなたは本業と暮らしに集中できます。</p>
-      <ul class="trust">
-        <li>初回相談無料</li>
-        <li>オンライン対応</li>
-        <li>土日祝も受付</li>
-      </ul>
       <div class="hero-action">
         <a class="btn" href="#contact">無料相談を予約する</a>
         <p class="cta-note">30分・オンライン可・売り込みは一切ありません</p>
@@ -206,6 +204,11 @@ p,li,dt,dd{text-wrap:pretty}
       <img src="assets/hero.webp" alt="申請書類に記入する行政書士の手元のイメージ（AI生成）" width="1152" height="2048">
       <span class="demo-ribbon">架空デモ</span>
     </div>
+    <ul class="trust">
+      <li>初回相談無料</li>
+      <li>オンライン対応</li>
+      <li>土日祝も受付</li>
+    </ul>
   </div>
 
   <section>

@@ -33,6 +33,23 @@
       border-left:1px solid rgba(28,28,28,.10);border-right:1px solid rgba(28,28,28,.10);
       box-shadow:0 0 50px rgba(28,28,28,.18);}
 
+  /* PC用の注文バー（2026-08-30 監査対応: PCの初期表示内に商品・価格・CTAを常時置く。SPは従来表示のまま） */
+  .order-bar{display:none;}
+  @media(min-width:900px){
+    .order-bar{position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;
+      gap:14px;padding:12px 18px;background:rgba(245,239,227,.97);border-bottom:1px solid rgba(28,28,28,.14);}
+    .order-bar .name{font-family:var(--serif);font-weight:600;font-size:14px;letter-spacing:.08em;}
+    .order-bar .name small{display:block;font-family:var(--sans);font-weight:300;font-size:11px;color:var(--dim);letter-spacing:.06em;}
+    .order-bar .price{font-family:var(--serif);font-weight:800;font-size:16px;white-space:nowrap;}
+    .order-bar .btn{padding:10px 22px;white-space:nowrap;}
+  }
+  /* 贈答帯（誰向けかの明示） */
+  .gift-band{margin:0;padding:18px 24px;text-align:center;font-family:var(--serif);font-weight:600;
+    font-size:clamp(13px,3.4vw,15px);letter-spacing:.1em;color:var(--ink);line-height:1.9;
+    border-top:1px solid rgba(28,28,28,.12);border-bottom:1px solid rgba(28,28,28,.12);
+    background:radial-gradient(120% 100% at 50% 0%, rgba(179,62,44,.06), transparent 70%);}
+  .gift-band small{display:block;font-family:var(--sans);font-weight:300;font-size:12px;color:var(--dim);letter-spacing:.06em;}
+
   /* ゾーンA: 画像スライス */
   .slice{position:relative;line-height:0;}
   .slice img{width:100%;height:auto;display:block;}
@@ -103,6 +120,12 @@ p,li,dt,dd{text-wrap:pretty}
 <div class="lp">
   <h1 class="sr-only">稲穂堂 — 国産栗と砂糖だけで炊き上げた栗きんとんのお取り寄せ</h1>
 
+  <div class="order-bar">
+    <p class="name">稲穂堂 栗きんとん<small>国産栗と砂糖だけ・ご進物にも、ご自宅にも</small></p>
+    <p class="price">桐箱六個入 3,240円</p>
+    <a class="btn" href="#form">お取り寄せする</a>
+  </div>
+
   <!-- ゾーンA+B: スライス1（ヒーロー・受け皿方式 v2） -->
   <div class="slice">
     <img src="images/01-hero.webp" width="1024" height="1820" loading="eager"
@@ -113,6 +136,8 @@ p,li,dt,dd{text-wrap:pretty}
     <p class="overlay ov-sub" style="top:72.8%;left:6%;width:88%;height:6.4%;line-height:1.25;">国産栗と砂糖だけの栗きんとん<br>桐箱六個入 3,240円（税込）</p>
     <a class="overlay ov-cta" href="#form" style="top:82.9%;left:9.8%;width:81.8%;height:11%;">お取り寄せする →</a>
   </div>
+
+  <p class="gift-band">ご進物にも、ご自宅の秋にも。<small>のし・掛け紙は無料でお付けします。</small></p>
 
   <!-- ゾーンA+B: スライス2（世界観・製法） -->
   <div class="slice">
